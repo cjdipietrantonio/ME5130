@@ -46,13 +46,17 @@ and the following can be defined:
 \end{aligned}
 \end{equation}
 
-Now, from \"O z\i s\i k, we have Eq. (1-19):
+Now, from \"Oz\i \c{s}\i k, we have Eq. (1-19):
 
 \begin{equation}
     \nabla T = \mathbf{\hat{u}_1} \frac{1}{\alpha_1} \frac{\partial T}{\partial u_1} + \mathbf{\hat{u}_2} \frac{1}{\alpha_2} \frac{\partial T}{\partial u_2} + \mathbf{\hat{u}_3} \frac{1}{\alpha_3} \frac{\partial T}{\partial u_3}
 \end{equation}
 
 Eq. (1-22a):
+
+\begin{equation}
+    \nabla \cdot \mathbf{q} = \frac{1}{\alpha} \left[ \frac{\partial}{\partial u_1} \left( \frac{a}{a_1} q_1 \right) + \frac{\partial}{\partial u_2} \left( \frac{a}{a_2} q_2 \right) + \frac{\partial}{\partial u_3} \left( \frac{a}{a_3} q_3 \right) \right]
+\end{equation}
 
 Eq. (1-22b):
 
@@ -61,6 +65,80 @@ Eq. (1-22b):
 \end{equation}
 
 and Eq (1-18):
+
+\begin{equation}
+    a^{2}_{i} = \left(\frac{\partial x}{\partial u_i} \right)^2 + \left(\frac{\partial y}{\partial u_i} \right)^2 + \left(\frac{\partial z}{\partial u_i} \right)^2, \qquad i = 1, 2, 3
+\end{equation}
+
+We can now compute the partial derivatives needed to find the scale factors:
+
+\begin{equation}
+    \frac{\partial x}{\partial r} = \sin{\theta} \cos{\phi}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial y}{\partial r} = \sin{\theta} \sin{\phi}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial z}{\partial r} = \cos{\theta}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial x}{\partial \phi} = -r \sin{\theta} \sin{\phi}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial y}{\partial \phi} = r \sin{\theta} \cos{\phi}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial z}{\partial \phi} = 0
+\end{equation}
+
+\begin{equation}
+    \frac{\partial x}{\partial \theta} = r \cos{\theta} \cos{\phi}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial y}{\partial \theta} = r \cos{\theta} \sin{\phi}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial z}{\partial \theta} = -r \sin{\theta}
+\end{equation}
+
+We can now evaluate:
+
+\begin{equation}
+\begin{aligned}
+     a^{2}_{r} &= \sin^2{\theta} \cos^2{\phi} + \sin^2{\theta} \sin^2{\phi} + \cos^2{\theta} \\
+               &= \sin^2{\theta} (\cos^2{\phi} + \sin^2{\theta}) + \cos^2{\theta} \\
+               &= \sin^2{\theta} + \cos^2{\theta} \\
+               &= 1 \\
+     a_1 = 1_r &= 1
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+    a^{2}_{\phi}   &= r^2 \sin^2{\theta} \sin^2{\phi} + r^2 \sin^2{\theta} \cos^2{\phi} \\
+                   &= r^2 \sin^2{\theta} (\sin^2{\phi} + \cos^2{\phi}) \\
+                   &= r^2 \sin^2{\theta} \\
+    a_2 = a_{\phi} &= r \sin{\theta}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+    a^{2}_{\theta}   &= r^2 \cos^2{\theta} \cos^2{\phi} + r^2 \cos^2{\theta} \sin^2{\phi} + r^2 \sin^2{\theta} \\
+                     &= r^2 \cos^2{\theta} (\cos^2{\phi} + \sin^2{\phi}) + r^2 \sin^2{\theta} \\
+                     &= r^2 \cos^2{\theta} + r^2 \sin^2{\theta} \\
+                     &= r^2 (\cos^2{\theta} + \sin^2{\theta}) \\
+                     &= r^2 \\
+    a_3 = a_{\theta} &= r       
+\end{aligned}
+\end{equation}
 
 \vspace{6pt}
 
