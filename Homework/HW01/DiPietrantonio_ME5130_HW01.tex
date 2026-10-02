@@ -46,25 +46,25 @@ and the following can be defined:
 \end{aligned}
 \end{equation}
 
-Now, from \"Oz\i \c{s}\i k, we have Eq. (1-19):
+Now, from \"Oz\i \c{s}\i k, we have Eq. (1--19):
 
 \begin{equation}
-    \nabla T = \mathbf{\hat{u}_1} \frac{1}{\alpha_1} \frac{\partial T}{\partial u_1} + \mathbf{\hat{u}_2} \frac{1}{\alpha_2} \frac{\partial T}{\partial u_2} + \mathbf{\hat{u}_3} \frac{1}{\alpha_3} \frac{\partial T}{\partial u_3}
+    \nabla T = \mathbf{\hat{u}_1} \frac{1}{a_1} \frac{\partial T}{\partial u_1} + \mathbf{\hat{u}_2} \frac{1}{a_2} \frac{\partial T}{\partial u_2} + \mathbf{\hat{u}_3} \frac{1}{a_3} \frac{\partial T}{\partial u_3}
 \end{equation}
 
-Eq. (1-22a):
+Eq. (1--22a):
 
 \begin{equation}
-    \nabla \cdot \mathbf{q} = \frac{1}{\alpha} \left[ \frac{\partial}{\partial u_1} \left( \frac{a}{a_1} q_1 \right) + \frac{\partial}{\partial u_2} \left( \frac{a}{a_2} q_2 \right) + \frac{\partial}{\partial u_3} \left( \frac{a}{a_3} q_3 \right) \right]
+    \nabla \cdot \mathbf{q} = \frac{1}{a} \left[ \frac{\partial}{\partial u_1} \left( \frac{a}{a_1} q_1 \right) + \frac{\partial}{\partial u_2} \left( \frac{a}{a_2} q_2 \right) + \frac{\partial}{\partial u_3} \left( \frac{a}{a_3} q_3 \right) \right]
 \end{equation}
 
-Eq. (1-22b):
+Eq. (1--22b):
 
 \begin{equation}
-    \alpha = \alpha_1 \alpha_2 \alpha_3
+    a = a_1 a_2 a_3
 \end{equation}
 
-and Eq (1-18):
+and Eq (1--18):
 
 \begin{equation}
     a^{2}_{i} = \left(\frac{\partial x}{\partial u_i} \right)^2 + \left(\frac{\partial y}{\partial u_i} \right)^2 + \left(\frac{\partial z}{\partial u_i} \right)^2, \qquad i = 1, 2, 3
@@ -116,7 +116,7 @@ We can now evaluate:
                &= \sin^2{\theta} (\cos^2{\phi} + \sin^2{\theta}) + \cos^2{\theta} \\
                &= \sin^2{\theta} + \cos^2{\theta} \\
                &= 1 \\
-     a_1 = 1_r &= 1
+     a_1 = a_r &= 1
 \end{aligned}
 \end{equation}
 
@@ -140,7 +140,49 @@ We can now evaluate:
 \end{aligned}
 \end{equation}
 
-We should note that since spherical coordinates ($r, \phi, \theta$) form an orthogonal coordinate system, we can use equations (1-19) and (1-22).
+We should note that since spherical coordinates ($r, \phi, \theta$) form an orthogonal coordinate system, we can use equations (1--19) and (1--22). Nevertheless, we can now re-write equation (1--19):
+
+\begin{equation}
+\boxed{
+    \nabla T = \mathbf{\hat{u}_r} \frac{\partial T}{\partial r} + \mathbf{\hat{u}_{\phi}} \frac{1}{r \sin{\theta}} \frac{\partial T}{\partial \phi} + \mathbf{\hat{u}_{\theta}} \frac{1}{r} \frac{\partial T}{\partial \theta}
+}
+\end{equation}
+
+We can also now write:
+
+\begin{equation}
+    a = a_1 a_2 a_3 = a_r a_{phi} a_{\theta} = r^2 \sin{\theta}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    \frac{a}{a_r} = r^2 \sin{theta}
+\end{equation}
+
+\begin{equation}
+    \frac{a}{a_{\phi}} = r
+\end{equation}'
+
+\begin{equation}
+    \frac{a}{a_{\theta}} = r \sin{theta}
+\end{equation}
+
+Therefore, equation (1--22a) can be re-written as:
+
+\begin{equation}
+    \nabla \cdot \mathbf{q} = \frac{1}{r^2 \sin{\theta}} \left[ \frac{\partial}{\partial r} \left( r^2 \sin{\theta} q_r \right) + \frac{\partial}{\partial \phi} \left( r q_{\phi} \right) + \frac{\partial}{\partial \theta} \left( r \sin{\theta} q_{\theta} \right) \right]
+\end{equation}
+
+Which can be simplified to:
+
+\begin{equation}
+\boxed{
+    \nabla \cdot \mathbf{q} = \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 q_r \right) + \frac{1}{r \sin{\theta}}\frac{\partial q_{\phi}}{\partial \phi} + \frac{1}{r \sin{\theta}}\frac{\partial}{\partial \theta} \left(\sin{\theta} q_{\theta} \right)
+}
+\end{equation}
+
+
 
 \vspace{6pt}
 
