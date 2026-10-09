@@ -189,57 +189,61 @@ Which can be simplified to:
 \textbf{1--12, Problem Statement:}
 Set up the mathematical formulation of the following head conduction problems:
 
+\vspace{6pt}
+
+\textbf{1--12, Solution:}
+
 \begin{enumerate}
     \item A slab in $0 \leq x \leq L$ is initially at a temperature $F\left( x \right)$. For times $t > 0$, the boundary at $x = 0$ is kept insulated and the boundary at $x = L$ dissipates heat by convection into a medium at zero temperature.
     
     For a slab where $T(x, 0) = F(x)$ with no generation, the heat equation can be written as:
 
     \begin{equation}
-    \frac{\partial^2 T}{\partial x^2} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 < x < L, t > 0
+    \frac{\partial^2 T}{\partial x^2} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 < x < L, \, t > 0
     \end{equation}
 
     At the $x = 0$ boundary condition:
 
     \begin{equation}
-        \frac{\partial T}{\partial x} = 0, \qquad x = 0
+        \frac{\partial T}{\partial x} = 0, \qquad x = 0, \, t > 0
     \end{equation}
 
     At the $x = L$ boundary condition:
 
     \begin{equation}
     \begin{aligned}
-        -\frac{\partial T}{\partial x}      &= h(T - T_{infty}) \\
-        -\frac{\partial T}{\partial x}      &= hT \\
-         \frac{\partial T}{\partial x} + hT &= 0 , \qquad x = L
+        -k\frac{\partial T}{\partial x}      &= h(T - T_{infty}) \\
+        -k\frac{\partial T}{\partial x}      &= hT \\
+         k\frac{\partial T}{\partial x} + hT &= 0 , \qquad x = L, \, t > 0
     \end{aligned}
     \end{equation}
 
     and finally, at the initial condition $t = 0$:
 
     \begin{equation}
-        T(x, 0) = F(x), \qquad 0 \leq x \leq L, t = 0 
+        T(x, 0) = F(x), \qquad 0 \leq x \leq L, \, t = 0 
     \end{equation}
     
     %--------------------------------------------------------------------------------------
 
     \item A semiinfinite region $0 \leq x < \infty$ is initially at a temperature $F\left( x \right)$. For times $t > 0$, heat is generated in the medium at a constant rate of $g_0 W/m^3$, while the boundary at x = 0 is kept at zero temperature.
     
-    For a semiinfinite region with a costant rate of eat generation of $g_0 W/m^3$, the heat equation can be written as:
+    For a semiinfinite region with a costant rate of heat generation of $g_0 W/m^3$, the heat equation can be written as:
 
     \begin{equation}
-    \frac{\partial^2 T}{\partial x^2} + \frac{g_0}{k} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 < x < infty, t > 0
+    \frac{\partial^2 T}{\partial x^2} + \frac{g_0}{k} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 < x < \infty, \, t > 0
     \end{equation}
 
     At the $x = 0$ boundary condition:
 
     \begin{equation}
-        T(x, t) = 0, \qquad x = 0
+        T(x, t) = 0, \qquad x = 0, \, t > 0
     \end{equation}
 
     and finally, at the initial condition $t = 0$:
 
     \begin{equation}
-        T(x, 0) = F(x), \qquad 0 \leq x \leq \infty, t = 0 
+        T(x, 0) = F(x), \qquad 0 \leq x \leq \infty, \, t = 0 
     \end{equation}
 
     
@@ -247,14 +251,63 @@ Set up the mathematical formulation of the following head conduction problems:
 
     \item A solid cylinder $0 \leq r \leq b$ is initially at a temperature $F\left( r \right)$. For times $t > 0$, heat is generated in the medium at a rate of $g\left( r \right)$, $W/m^3$, while the boundary at $r = b$ dissipates heat by convection into a medium at zero temperature.
     
+    For a solid cylinder with heat generated at a rate of $g\left( r \right)$, the heat equation can be written as:
+
+    \begin{equation}
+        \frac{1}{r}\frac{\partial}{\partial r} \left(r \frac{\partial T}{\partial r} \right) + \frac{g\left(r \right)}{k} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 \leq r < b, \, t > 0
+    \end{equation}
+
+    At the boundary condition $r = 0$, by symmetry:
+
+    \begin{equation}
+        \frac{\partial T}{\partial r} = 0, \qquad r = 0, \, t > 0
+    \end{equation}
+
+    At the boundary condition $r = b$:
+
+    \begin{equation}
+    \begin{aligned}
+        -k\frac{\partial T}{\partial r}      &= h(T - T_{\infty}) \\
+        -k\frac{\partial T}{\partial r}      &= hT \\
+        k\frac{\partial T}{\partial r} + hT &= 0, \qquad r = b, \, t > 0
+    \end{aligned}
+    \end{equation}
+
+    and finally, at the initial condition $t = 0$:
+
+    \begin{equation}
+        T(r, 0) = F(r), \qquad 0 \leq r \leq b, \, t = 0
+    \end{equation}
+    
     %--------------------------------------------------------------------------------------
 
-    \item A solid sphere $0 \leq r \leq b$ is initially at temperature $F\left( r \right)$. For times $t > 0$, heat is generated in the medoum at a rate of $g\left( r \right)$, $W/m^3$, while the boundary at $r = b$ is kept at a uniform temperature $T_0$.
+    \item A solid sphere $0 \leq r \leq b$ is initially at temperature $F\left( r \right)$. For times $t > 0$, heat is generated in the medium at a rate of $g\left( r \right)$, $W/m^3$, while the boundary at $r = b$ is kept at a uniform temperature $T_0$.
+    
+    For a solid sphere with heat generated at a rate of $g\left( r \right)$, the heat equation can be written as:
+
+    \begin{equation}
+        \frac{1}{r^2}\frac{\partial}{\partial r} \left(r^2 \frac{\partial T}{\partial r} \right) + \frac{g\left(r \right)}{k} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 \leq r < b, \, t > 0
+    \end{equation}
+
+    At the boundary condition $r = 0$, by symmetry:
+
+    \begin{equation}
+        \frac{\partial T}{\partial r} = 0, \qquad r = 0, \, t > 0
+    \end{equation}
+
+    At the boundary condition $r = b$:
+
+    \begin{equation}
+        T(b, t) = T_0, \qquad r = b, \, t > 0
+    \end{equation}
+
+    and finally, at the initial condition $t = 0$:
+
+    \begin{equation}
+        T(r, 0) = F(r), \qquad 0 \leq r \leq b, \, t = 0
+    \end{equation}
+
 \end{enumerate}
-
-\vspace{6pt}
-
-\textbf{1--12, Solution:}
 
 \vspace{6pt}
 
