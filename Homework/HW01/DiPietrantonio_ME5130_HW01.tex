@@ -320,6 +320,70 @@ A long cylindrical iron bar of diameter $D = 5\, \text{cm}$, initially at temper
 
 \textbf{1--15, Solution:}
 
+First, we should check the Biot number to confirm the validity of the lumped analysis method:
+
+\begin{equation}
+    \mathrm{Bi} = \frac{h L_c}{k}
+\end{equation}
+
+Where:
+\begin{equation}
+\begin{aligned}
+    L_c &= \frac{V}{A_s} \\
+        &= \frac{\pi r^2 L}{2 \pi r L} \\
+        &= \frac{r}{2} \\
+        &= \frac{0.025}{2} \\
+        &= 0.0125 \mathrm{m}
+\end{aligned}
+\end{equation}
+
+We should note that since the bar is long compared to the diameter, we can ignore the surface area of the end faces in the calculation above. Therefore:
+
+\begin{equation}
+\begin{aligned}
+        \mathrm{Bi} &= \frac{h L_c}{k} \\
+                    &= \frac{80 \cdot 0.0125}{60} \\
+                    &\approx 0.0167 
+\end{aligned} 
+\end{equation}
+
+Since the Biot number is less than 0.1, the lumped system analysis is valid. Now, from equation 1-69 we have:
+
+\begin{equation}
+    \frac{\theta(t)}{\theta_0} = \frac{T(t) - T_{\infty}}{T_0 - T_{\infty}} = e^{-mt}
+\end{equation}
+
+Where:
+
+\begin{equation}
+\begin{aligned}
+    m &= \frac{h A_s}{\rho V C_p} \\
+      &= \frac{h}{\rho L_c C_p} \\
+      &= \frac{80}{7800 \cdot 0.0125 \cdot 460} \\
+      &\approx 1.784 \times 10^{-3} \, \mathrm{s}^{-1}
+\end{aligned}
+\end{equation}
+
+Therefore we have:
+
+\begin{equation}
+\begin{aligned}
+    \frac{250 - 50}{650 - 50} &= e^{-mt} \\
+                  \frac{1}{3} &= e^{-mt} \\
+                          -mt &= - \ln{3} \\
+                            t &= \frac{\ln{3}}{m} \\
+                            t &= \frac{\ln{3}}{1.784 \times 10^{-3}}
+\end{aligned}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+\boxed{
+    t \approx 616 \, \mathrm{seconds}
+}
+\end{equation}
+
 \vspace{6pt}
 
 %--------------------------------------------------------------------------------------
@@ -330,6 +394,66 @@ A thermocouple is to be used to measure the temperature in a gas stream. The jun
 \vspace{6pt}
 
 \textbf{1--16, Solution:}
+
+In order to measure 99\% of the applied temperature difference, we must have:
+
+\begin{equation}
+    \frac{T - T_{\infty}}{T_0 - T_{\infty}} = 0.05
+\end{equation}
+
+We can now used this to find:
+
+\begin{equation}
+    0.05 = e^{-mt}
+\end{equation}
+
+Where:
+
+\begin{equation}
+\begin{aligned}
+    m &= \frac{h A_s}{\rho V C_p} \\
+      &= \frac{h}{\rho L_c C_p}
+\end{aligned}
+\end{equation}
+
+and 
+
+\begin{equation}
+\begin{aligned}
+    L_c &= \frac{V}{A_s} \\
+        &= \frac{\frac{4}{3}\pi r^3}{4 \pi r^2} \\
+        &= \frac{r}{3} \\
+        &= \frac{D}{6}
+\end{aligned}
+\end{equation}
+
+Therefore we can write:
+
+\begin{equation}
+\begin{aligned}
+    m &= \frac{6 h}{\rho D C_p} \\
+      &= \frac{6 \cdot 560}{8400 \cdot D \cdot 400} \\
+      &= \frac{0.001}{D}
+\end{aligned}
+\end{equation}
+
+and further:
+
+\begin{equation}
+\begin{aligned}
+    0.05      &= e^{-3\left(\dfrac{0.001}{D}\right)} \\
+    \ln{0.05} &= - \frac{0.003}{D} \\
+    D         &= \frac{-0.003}{\ln{0.05}}
+\end{aligned}
+\end{equation}
+
+and finally:
+
+\begin{equation}
+\boxed{
+    D \approx 10^{-3} \, \mathrm{m} = 1 \, \mathrm{mm}
+}
+\end{equation}
 
 \vspace{6pt}
 
@@ -342,6 +466,102 @@ A slab, $0 \leq x \leq L$, is initially at a temperature $F \left( x \right)$. F
 
 \textbf{2--2, Solution:}
 
+From problem 1-12 we know that for a slab where $T(x, 0) = F(x)$ with no generation, the heat equation can be written as:
+
+\begin{equation}
+\frac{\partial^2 T}{\partial x^2} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 < x < L, \, t > 0
+\end{equation}
+
+At the $x = 0$ boundary condition:
+
+\begin{equation}
+    \frac{\partial T}{\partial x} = 0, \qquad x = 0, \, t > 0
+\end{equation}
+
+At the $x = L$ boundary condition, where $H = \frac{h}{k}$:
+
+\begin{equation}
+    \frac{\partial T}{\partial x} + HT = 0 , \qquad x = L, \, t > 0
+\end{equation}
+
+At the initial condition $t = 0$:
+
+\begin{equation}
+    T(x, 0) = F(x), \qquad 0 \leq x \leq L, \, t = 0 
+\end{equation}
+
+Now, from Equation (2-36a) we know that the solution for the temperature $T(x, t)$ is:
+
+\begin{equation}
+    T(x, t) = \sum_{m=1}^{{\infty}} e ^{- \alpha \beta^{2}_m t} \frac{1}{N \left( \beta_m\right)} X\left( \beta_m , x\right) \int_{0}^{L} X\left(\beta_m , x'\right) F(x') dx'
+\end{equation}
+
+At $x = 0$:
+
+\begin{equation}
+\begin{aligned}
+    \frac{\partial T}{\partial x} &= 0 \\
+    X'(0)\Gamma(t) &= 0
+\end{aligned}
+\end{equation}
+
+and since $\Gamma(t) = e^{- \alpha \beta^2 t} \neq 0$:
+
+\begin{equation}
+    \frac{dX}{dx} = 0
+\end{equation}
+
+Similarly, at $x = L$:
+
+\begin{equation}
+\begin{aligned}
+    \frac{\partial T}{\partial x} + HT       &= 0 \\
+    \frac{dX}{dx} \Gamma(t) + HX(L)\Gamma(t) &= 0 \\
+    \frac{dX}{dx} + HX(L)                    &= 0
+\end{aligned}
+\end{equation}
+
+Therefore from Table 2-2 No. 4 we know that:
+
+\begin{equation}
+    X\left(\beta_m, x\right) = \cos{\beta_m x}
+\end{equation}
+
+and:
+
+\begin{equation}
+    \frac{1}{N\left(\beta_m\right)} = 2 \frac{\beta^{2}_m + H^2}{L\left(\beta^{2}_m + H^2 \right) + H}
+\end{equation}
+
+where the eigenvalues $\beta_m$'s are the positive roots of:
+
+\begin{equation}
+    \beta_m \tan{\beta_m L} = H
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+\boxed{
+    T(x, t) = \sum_{m=1}^{{\infty}} e ^{- \alpha \beta^{2}_m t} \, 2 \frac{\beta^{2}_m + H^2}{L\left(\beta^{2}_m + H^2 \right) + H} \cos{\beta_m x} \int_{0}^{L} \cos{\beta_m x'} F(x') dx'
+}
+\end{equation}
+
+Now, using Fourier's law:
+
+\begin{equation}
+    q = -k \frac{\partial T}{\partial x}
+\end{equation}
+
+The heat flux at the boundary surface $x = L$ can be expressed as:
+
+\begin{equation}
+\boxed{
+    q = 2k \sum_{m=1}^{{\infty}} e ^{- \alpha \beta^{2}_m t} \, 2 \frac{\beta^{2}_m + H^2}{L\left(\beta^{2}_m + H^2 \right) + H} \sin{\beta_m L} \int_{0}^{L} \cos{\beta_m x'} F(x') dx'
+}
+\end{equation}
+
+
 \vspace{6pt}
 
 %--------------------------------------------------------------------------------------
@@ -353,6 +573,80 @@ In a one-dimensional infinite medium, $-\infty < x < \infty$, initially, the reg
 
 \textbf{2--6, Solution:}
 
+For a one-dimensional infinite medium, the heat equation can be written as:
+
+\begin{equation}
+    \frac{\partial^2 T}{\partial x^2} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad -\infty < x < \infty, \, t > 0
+\end{equation}
+
+At $t = 0$:
+
+\begin{equation}
+\begin{aligned}
+    T &= T_0, \qquad a < x < b \\
+    T &= 0, \qquad x \leq a \, \mathrm{and} \, x \geq b
+\end{aligned}
+\end{equation}
+
+From Equation 2-70 we have:
+
+\begin{equation}
+    T(x, t) = \frac{1}{\left[ 4 \pi \alpha t \right]^{1/2}} \int_{-\infty}^{\infty} F(x') \exp{\left[ -\frac{(x - x')^2}{4 \alpha t} \right] dx'}
+\end{equation}
+
+Now, for the region where $x \leq a$ and $x \geq b$, the integrand above is zero, therefore:
+
+\begin{equation}
+    T(x, t) = \frac{T_0}{\left[ 4 \pi \alpha t \right]^{1/2}} \int_{a}^{b} \exp{\left[ -\frac{(x - x')^2}{4 \alpha t} \right] dx'}
+\end{equation}
+
+Now, let:
+
+\begin{equation}
+    \eta = \frac{x - x'}{\sqrt{4 \alpha t}}
+\end{equation}
+
+therefore:
+
+\begin{equation}
+    dx' = - \sqrt{4 \alpha t} \, d \eta
+\end{equation}
+
+and
+
+\begin{equation}
+\begin{aligned}
+    T(x, t) &= \frac{T_0}{\left[ 4 \pi \alpha t \right]^{1/2}} \int_{(x - a)/\sqrt{4 \alpha t}}^{(x - b)/\sqrt{4 \alpha t}} e^{-\eta^2} \left(- \sqrt{4 \alpha t} \right) \, d \eta \\[6pt]
+            &= \frac{T_0}{\sqrt{\pi}} \int_{(x - b)/\sqrt{4 \alpha t}}^{(x - a)/\sqrt{4 \alpha t}} e^{-\eta^2} \, d \eta \\
+\end{aligned}
+\end{equation}
+
+Which can be expressed as:
+
+\begin{equation}
+    T(x, t) = \frac{T_0}{2} \left[ \frac{2}{\sqrt{\pi}} \int_{0}^{(x - a)/\sqrt{4 \alpha t}} e^{- \eta^2} \,  d\eta - \frac{2}{\sqrt{\pi}} \int_{0}^{(x - b)/\sqrt{4 \alpha t}} e^{- \eta^2} \,  d\eta\right]
+\end{equation}
+
+and since:
+
+\begin{equation}
+    \mathbf{erf}(z) = \frac{2}{\sqrt{\pi}} \int_{0}^{z} e^{- \xi^2} \, d\xi
+\end{equation}
+
+we have:
+
+\begin{equation}
+    T(x, t) = \frac{T_0}{2} \left[ \mathbf{erf} \left( \frac{x - a}{\sqrt{4 \alpha t}} \right) - \mathbf{erf} \left( \frac{x - b}{\sqrt{4 \alpha t}} \right)\right]
+\end{equation}
+
+which can be re-written as:
+
+\begin{equation}
+\boxed{
+    \frac{T(x, t)}{T_0} = \frac{1}{2} \left[ \mathbf{erf} \left( \frac{x - a}{\sqrt{4 \alpha t}} \right) + \mathbf{erf} \left( \frac{b - x}{\sqrt{4 \alpha t}} \right)\right], \qquad -\infty < x < \infty
+}
+\end{equation}
+
 \vspace{6pt}
 
 %--------------------------------------------------------------------------------------
@@ -362,9 +656,244 @@ Obtain an expression for the steady-state temperature distribution $T \left( x, 
 
 \vspace{6pt}
 
-%--------------------------------------------------------------------------------------
-
 \textbf{2--15, Solution:}
+
+For a steady-state two-dimensional rectangular problem, the heat equation can be written as:
+
+\begin{equation}
+    \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} = 0, \qquad 0 < x < a, \, 0 < y < b
+\end{equation}
+
+At $x = 0$:
+
+\begin{equation}
+    \frac{\partial T}{\partial x} = 0
+\end{equation}
+
+Let $H = \frac{h}{k}$, At $x = a$:
+
+\begin{equation}
+    \frac{\partial T}{\partial x} + HT = 0
+\end{equation}
+
+At $y = 0$:
+
+\begin{equation}
+    T(x, y) = f(x)
+\end{equation}
+
+At $y = b$:
+
+\begin{equation}
+    \frac{\partial T}{\partial y} + HT = 0
+\end{equation}
+
+We can now use separation of variables to write:
+
+\begin{equation}
+\begin{aligned}
+    T(x, y)        &= X(x) \, Y(x)
+\end{aligned}
+\end{equation}
+
+Then:
+
+\begin{equation}
+\begin{aligned}
+    X''(x)Y + XY'' &= 0 \\
+    \frac{X''}{X}  &= - \frac{Y''}{Y}
+\end{aligned}
+\end{equation}
+
+Therfefore:
+
+\begin{equation}
+\begin{aligned}
+    \frac{d^2 X}{d x^2} + \beta^2 X &= 0 \\[6pt]
+    \frac{d^2 Y}{d y^2} - \beta^2 Y &= 0
+\end{aligned}
+\end{equation}
+
+At $x = 0$:
+
+\begin{equation}
+    \frac{dX}{dx} = 0
+\end{equation}
+
+At $x = a$:
+
+\begin{equation}
+    \frac{dX}{dx} + H X(a) = 0
+\end{equation}
+
+At $y = 0$:
+
+\begin{equation}
+    X(x) Y(0) = f(x)
+\end{equation}
+
+At $y = b$:
+
+\begin{equation}
+    \frac{dY}{dy} + HY(b) = 0
+\end{equation}
+
+For $X$ we can now use Table 2-2 No. 4 to find:
+
+\begin{equation}
+    X(\beta_m) = \cos{\beta_m x}
+\end{equation}
+
+\begin{equation}
+    \frac{1}{N\left(\beta_m\right)} = \frac{2 \left(\beta^{2}_m + H^2 \right)}{a \left(\beta^{2}_m + H^2 \right) + H}
+\end{equation}
+
+where the eigenvalues $\beta_m$'s are the positive roots of:
+
+\begin{equation}
+    \beta_m \tan{\beta_m a} = H
+\end{equation}
+
+For $Y$, we know the solution takes the form:
+
+\begin{equation}
+    Y = C_3 \cosh{\beta y} + C_4 \sinh{\beta y}
+\end{equation}
+
+Which can be re-written as:
+
+\begin{equation}
+    Y = C_3 \cosh{\beta (b- y)} + C_4 \sinh{\beta (b - y)}
+\end{equation}
+
+We should note that this can be done because:
+
+\begin{equation}
+\begin{aligned}
+    \frac{d}{dy} \cosh{\beta (b - y)}     &= -\beta \sinh{\beta (b - y)} \\
+    \frac{d^2}{dy^2} \cosh{\beta (b - y)} &= \beta^2 \cosh{\beta (b - y)} \\
+\end{aligned}
+\end{equation}
+
+and
+
+\begin{equation}
+\begin{aligned}
+    \frac{d}{dy} \sinh{\beta (b - y)}     &= -\beta \cosh{\beta (b - y)} \\
+    \frac{d^2}{dy^2} \sinh{\beta (b - y)} &= \beta^2 \sinh{\beta (b - y)} \\
+\end{aligned}
+\end{equation}
+
+are both solutions of the differential equation. Now, at $Y = b$:
+
+\begin{equation}
+\begin{aligned}
+    Y &= C_3 \cosh{\beta (0)} + C_4 \sinh{\beta (0)} \\
+      &= C_3 
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+    \frac{dY}{dy} &= -\beta C_3 \sinh{\beta (b - y)} - \beta C_4 \cosh{\beta (b - y)} \\
+                  &= -\beta C_3 \sinh{\beta (0)} - \beta C_4 \cosh{\beta (0)} \\
+                  &= - \beta C_4
+\end{aligned} 
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+\begin{aligned}
+    -\beta C_4 + H C_3 &= 0 \\
+    \beta C_4          &= H C_3 \\
+    C_4                &= \frac{H C_3}{\beta}
+\end{aligned}
+\end{equation}
+
+and:
+
+\begin{equation}
+\begin{aligned}
+    Y &= C_3 \cosh{\beta (b- y)} + \frac{H C_3}{\beta} \sinh{\beta (b - y)} \\
+      & = \frac{C_3}{\beta} \left[ \beta \cosh{\beta (b- y)} + H \sinh{\beta (b - y)} \right] \\
+\end{aligned}
+\end{equation}
+
+since $\frac{C_3}{\beta}$ is constant (it will factor into the constant multiplier in the next steps), we can write:
+
+\begin{equation}
+    Y(\beta_m, y) = \beta_m \cosh{\beta_m (b- y)} + H \sinh{\beta_m (b - y)} 
+\end{equation}
+
+We can now write the general solution as:
+
+\begin{equation}
+    T(x, y) = \sum_{m = 1}^{\infty} C_m \cos{\beta_m x} \left[ \beta_m \cosh{\beta_m (b- y)} + H \sinh{\beta_m (b - y)} \right]
+\end{equation}
+
+At $y = 0$:
+
+\begin{equation}
+    f(x) = \sum_{m = 1}^{\infty} C_m \cos{\beta_m x} \left[ \beta_m \cosh{\beta_m b} + H \sinh{\beta_m b} \right], \qquad 0 < x < a
+\end{equation}
+
+
+Let $K_m = \beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}$:
+
+\begin{equation}
+    f(x) = \sum_{m = 1}^{\infty} C_m K_m \cos{\beta_m x}, \qquad 0 < x < a
+\end{equation}
+
+We can then multiply both sides by the eigenfunction $\cos{\beta_n x}$:
+
+\begin{equation}
+\begin{aligned}
+    f(x) \cos{\beta_n x}                    &= \sum_{m = 1}^{\infty} C_m K_m \cos{\beta_m x} \cos{\beta_n x} \\
+    \int_{0}^{a} f(x) \cos{\beta_n x} \, dx &= \int_{0}^{a} \sum_{m = 1}^{\infty} C_m K_m \cos{\beta_m x} \cos{\beta_n x} \, dx \\
+\end{aligned}
+\end{equation}
+
+We can now recall:
+
+\begin{equation}
+    \int_{0}^{a} X_m(\beta_m, x) X_n(\beta_n, x) dx = \begin{cases}
+        0 & \mathrm{if} n \neq m \\
+        N(\beta_m) & \mathrm{if} n = m
+    \end{cases}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+\begin{aligned}
+    \int_{0}^{a} f(x) \cos{\beta_n x} \, dx &= C_m K_m N(\beta_m) \\
+    C_m &= \frac{1}{K_m N(\beta_m)} \int_{0}^{a} f(x) \cos{\beta_n x} \, dx \\
+        &= \frac{1}{N(\beta_m) [\beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}]} \int_{0}^{a} f(x') \cos{\beta_m x'} \, dx 
+\end{aligned}
+\end{equation}
+
+Finally, we have:
+
+\begin{equation}
+\boxed{
+    T(x, y) = \sum_{m = 1}^{\infty} \frac{\cos{\beta_m x} \left[ \beta_m \cosh{\beta_m (b- y)} + H \sinh{\beta_m (b - y)} \right]}{N(\beta_m) [\beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}]} \int_{0}^{a} \cos{\beta_m x'} f(x')  \, dx 
+}  
+\end{equation}
+
+Where:
+
+\begin{equation}
+    \frac{1}{N\left(\beta_m\right)} = \frac{2 \left(\beta^{2}_m + H^2 \right)}{a \left(\beta^{2}_m + H^2 \right) + H}
+\end{equation}
+
+and the eigenvalues $\beta_m$'s are the positive roots of:
+
+\begin{equation}
+    \beta_m \tan{\beta_m a} = H
+\end{equation}
+
+
 
 \vspace{6pt}
 

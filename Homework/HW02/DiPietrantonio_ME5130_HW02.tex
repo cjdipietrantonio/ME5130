@@ -1,0 +1,74 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amsmath, amssymb, geometry}
+\geometry{margin=1in}
+\setlength{\parindent}{0pt} % no indentation
+\begin{document}
+
+%INFO
+Christian DiPietrantonio \\
+ME 5130: Advanced Heat and Mass Transfer \\
+Homework 02: Mass Diffusion \\
+\today
+
+\vspace{6pt}
+
+\textbf{18B.19, Problem Statement:}
+\textit{Oxygen uptake by a bacterial aggregate.} Under suitable circumstances the rate of oxygen metabolism by bacterial cells is very nearly zero order with respect to oxygen concentration. We examine such a case here and focus our attention on a spherical aggregate of cells, which has a radius $R$. We wish to determine the total rate of oxygen uptake by the aggregate as a function of aggregate size, oxygen mass concentration $\rho_0$ at the aggregate surface, the metabolic activity of the cells, and the diffusional behavior of the oxygen. For simplicity we consider the aggregate to be homogeneous. We then approximate the metabolic rate by an effective volumetric reaction rate $r_{\mathrm{O}_2} = -k_0'''$ and the diffusional behavior by Fick's law, with an effective pseudobinary diffusivity $\mathcal{D}_{\mathrm{O}_2 m}$. Because the solubility of oxygen is very low in this system, both convective oxygen transport and transient effects may be neglected.
+
+\begin{enumerate}
+    \item[(a)] Show by means of a shell mass balance that the pseudo-steady-state oxygen concentration profile is described by the differential equation
+
+    \begin{equation}
+        \frac{1}{\xi^2} \frac{d}{d\xi} \left( \xi^2 \frac{d\chi}{d\xi} \right) = N
+        \tag{18B.19--1}
+    \end{equation}
+    where $\chi = \rho_{\mathrm{O}_2} / \rho_0$, $\xi = r/R$, and $N = k_0''' R^2 / \rho_0 \mathcal{D}_{\mathrm{O}_2 m}$.
+
+    \item[(b)] There may be an oxygen-free core in the aggregate, if $N$ is sufficiently large, such that $\chi = 0$ for $\xi < \xi_0$. Write sufficient boundary conditions to integrate Eq.~18B.19--1 for this situation. To do this, it must be recognized that both $\chi$ and $d\chi / d\xi$ are zero at $\xi = \xi_0$. What is the physical significance of this last statement?
+
+    \item[(c)] Perform the integration of Eq.~18B.19--1 and show how $\xi_0$ may be determined.
+
+    \item[(d)] Sketch the total oxygen uptake rate and $\xi_0$ as functions of $N$, and discuss the possibility that no oxygen-free core exists.
+\end{enumerate}
+
+\textit{Answer:} (c)
+
+\begin{equation}
+    \chi = 1 - \frac{N}{6} \left( 1 - \xi^2 \right) + \frac{N}{3} \xi_0^3 \left( \frac{1}{\xi} - 1 \right)
+\end{equation}
+for $\xi \geq \xi_0 \geq 0$, where $\xi_0$ is determined as a function of $N$ from
+
+\begin{equation}
+    \xi_0^3 - \frac{3}{2} \xi_0^2 + \left( \frac{1}{2} - \frac{3}{N} \right) = 0
+\end{equation}
+
+\vspace{6pt}
+
+\textbf{18B.19, Solution:}
+
+\vspace{6pt}
+
+%--------------------------------------------------------------------------------------
+
+\textbf{18C.2, Problem Statement:}
+\textit{Diffusion and reaction in a partially impregnated catalyst.} Consider a catalytic sphere like that in \S 18.7, except that the active ingredient of the catalyst is present only in the annular region between $r = \kappa R$ and $r = R$:
+
+\begin{align}
+    &\text{In region I $\left( 0 < r < \kappa R \right)$,} & k_1'' a &= 0 \tag{18C.2--1} \\
+    &\text{In region II $\left( \kappa R < r < R \right)$,} & k_1'' a &= \text{constant} > 0 \tag{18C.2--2}
+\end{align}
+Such a situation may arise when the active ingredient is put on the particles after pelleting, as is done for many commercial catalysts.
+
+\begin{enumerate}
+    \item[(a)] Integrate Eq.~18.7--6 separately for the active and inactive regions. Then apply the appropriate boundary conditions to evaluate the integration constants, and solve for the concentration profile in each region. Give qualitative sketches to illustrate the forms of the profiles.
+
+    \item[(b)] Evaluate $W_{AR}$, the total molar rate of conversion of $A$ in a single particle.
+\end{enumerate}
+
+\vspace{6pt}
+
+\textbf{18C.2, Solution:}
+
+\vspace{6pt}
+
+\end{document}
