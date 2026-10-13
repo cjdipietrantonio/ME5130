@@ -165,6 +165,58 @@ We have:
 }
 \end{equation}
 
+If there is an oxygen-free core in the aggregate, the cells use oxygen faster than diffusion can bring it in, so the oxygen must run out before reaching the center such that $chi = 0$ for $\xi < \xi_0$. Therefore the sphere has two regions, the outer shell where oxygen is present:
+
+\begin{equation}
+    \xi_0 < \xi \leq 1 
+\end{equation}
+
+And the core, where no oxygen is present:
+
+\begin{equation}
+    0 \leq \xi \leq xi_0
+\end{equation}
+
+At the outer surface, $\rho_{O2} = \rho_0$, therefore:
+
+\begin{equation}
+\boxed{
+    \chi = 1 \quad \mathrm{at} \quad \xi = 1
+}
+\end{equation}
+
+At the edge of the core:
+
+\begin{equation}
+\boxed{
+    \chi = 0 \quad \mathrm{at} \quad \xi = \xi_0
+}
+\end{equation}
+
+\begin{equation}
+\boxed{
+    \frac{d \chi}{d \xi} = 0 \quad \mathrm{at} \quad \xi = \xi_0
+}
+\end{equation}
+
+The physical significance of this is that when $\chi = 0$ at $\xi_0$, the oxygen runs out exactly at the edge of the core. Furthermore, when $\frac{d \chi}{d \xi} = 0$ at $\xi_0$, no oxygen is flowing into the core. We know this because from part a we have:
+
+\begin{equation}
+    n_{O_{2, r}} = - \mathcal{D} \frac{\rho_0}{R}\frac{d \chi}{d \xi}
+\end{equation}
+
+From this we can see that the mass flux is proportional to the slope of the normalized mass concentration with respect to the normalized radius. Therefore, if this slope is zero at $\xi = \xi_0$, then so is the mass flux. We can now integrate Eq.~18B.19--1 and show how $\xi_0$ may be determined:
+
+\begin{equation}
+\begin{aligned}
+    \frac{1}{\xi^2} \frac{d}{d\xi} \left( \xi^2 \frac{d\chi}{d\xi} \right) &= N \\
+    \frac{d}{d\xi} \left( \xi^2 \frac{d\chi}{d\xi} \right) &= N\xi^2 \\
+    \int \frac{d}{d\xi} \left( \xi^2 \frac{d\chi}{d\xi} \right) d \xi &=  \int N\xi^2 d \xi\\
+    \xi^2 \frac{d\chi}{d\xi} &= \frac{N\xi^3}{3} + C_1 \\
+    \frac{d\chi}{d\xi} &= \frac{N\xi}{3} + \frac{C_1}{\xi^2} \\
+\end{aligned}
+\end{equation}
+
 \vspace{6pt}
 
 %--------------------------------------------------------------------------------------
