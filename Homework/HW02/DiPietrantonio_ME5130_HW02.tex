@@ -165,7 +165,7 @@ We have:
 }
 \end{equation}
 
-If there is an oxygen-free core in the aggregate, the cells use oxygen faster than diffusion can bring it in, so the oxygen must run out before reaching the center such that $chi = 0$ for $\xi < \xi_0$. Therefore the sphere has two regions, the outer shell where oxygen is present:
+If there is an oxygen-free core in the aggregate, the cells use oxygen faster than diffusion can bring it in, so the oxygen must run out before reaching the center such that $\chi = 0$ for $\xi < \xi_0$. Therefore the sphere has two regions, the outer shell where oxygen is present:
 
 \begin{equation}
     \xi_0 < \xi \leq 1 
@@ -174,7 +174,7 @@ If there is an oxygen-free core in the aggregate, the cells use oxygen faster th
 And the core, where no oxygen is present:
 
 \begin{equation}
-    0 \leq \xi \leq xi_0
+    0 \leq \xi \leq \xi_0
 \end{equation}
 
 At the outer surface, $\rho_{O2} = \rho_0$, therefore:
@@ -205,7 +205,7 @@ The physical significance of this is that when $\chi = 0$ at $\xi_0$, the oxygen
     n_{O_{2, r}} = - \mathcal{D} \frac{\rho_0}{R}\frac{d \chi}{d \xi}
 \end{equation}
 
-From this we can see that the mass flux is proportional to the slope of the normalized mass concentration with respect to the normalized radius. Therefore, if this slope is zero at $\xi = \xi_0$, then so is the mass flux. We can now integrate Eq.~18B.19--1 and show how $\xi_0$ may be determined:
+From this we can see that the mass flux is proportional to the slope of the normalized mass concentration with respect to the normalized radius. Therefore, if this slope is zero at $\xi = \xi_0$, then so is the mass flux. We can now integrate Eq.~18B.19--1:
 
 \begin{equation}
 \begin{aligned}
@@ -217,7 +217,114 @@ From this we can see that the mass flux is proportional to the slope of the norm
 \end{aligned}
 \end{equation}
 
+Now, we know what at $\xi = \xi0$, $\frac{d \chi}{d \xi} = 0$:
+
+\begin{equation}
+\begin{aligned}
+    0   &= \frac{N}{3} \xi_0 + \frac{C_1}{\xi^2_0} \\
+    0   &= \frac{N}{3} \xi^3_0 + C_1 \\
+    C_1 &= - \frac{N}{3} \xi^3_0
+\end{aligned}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+\begin{aligned}
+    \frac{d\chi}{d\xi} &= \frac{N\xi}{3} + \frac{N}{3} \frac{\xi^3_0}{\xi^2} \\
+    \frac{d\chi}{d\xi} &= \frac{N}{3} \left( \xi - \frac{\xi^3_0}{\xi^2} \right) \\
+\end{aligned}
+\end{equation}
+
+We can now evaluate:
+
+\begin{equation}
+\begin{aligned}
+    \int \frac{d\chi}{d\xi} d \xi &= \frac{N}{3} \int \left( \xi - \frac{\xi^3_0}{\xi^2} \right) d \xi \\
+    \chi                          &= \frac{N}{3} \left( frac{\xi^2}{2} + \frac{\xi^3_0}{\xi} \right) + C_2 \\
+\end{aligned}
+\end{equation}
+
+We also know that at $\xi = \xi_0$, $\chi = 0$:
+
+\begin{equation}
+\begin{aligned}
+    0   &= \frac{N}{3} \left( frac{\xi^2_0}{2} + \frac{\xi^3_0}{\xi_0} \right) + C_2 \\
+    0   &= \frac{N}{3} \left( frac{\xi^2_0}{2} + \xi^2_0 \right) + C_2 \\
+    0   &= \frac{N}{2} \xi^2_0 + C_2 \\
+    C_2 &= -\frac{N}{2} \xi^2_0
+\end{aligned}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+\begin{aligned}
+    \chi &= \frac{N}{3} \left( \frac{\xi^2}{2} + \frac{\xi_0^3}{\xi} \right) - \frac{N}{2} \xi^2_0 \\
+        &= \frac{N}{3} \left( \frac{\xi^2}{2} + \frac{\xi_0^3}{\xi} - \frac{3}{2} \xi^2_0 \right) \\
+\end{aligned}
+\end{equation}
+
+and Finally, we can write:
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+    \chi &= \frac{N}{3} \left( \frac{\xi^2}{2} + \frac{\xi_0^3}{\xi} - \frac{3}{2} \xi^2_0 \right), \qquad \xi_0 < \xi \leq 1\\
+\end{aligned}
+}
+\end{equation}
+
+and:
+
+\begin{equation}
+\boxed{
+    \chi = 0, \qquad 0 \leq \xi \leq xi_0
+}
+\end{equation}
+
+To show how $\xi_0$ may be determined, we can recall that at $\xi = 1$, $\chi = 1$. Therefore:
+
+\begin{equation}
+\begin{aligned}
+    1           &= \frac{N}{3} \left( \frac{1}{2} + \xi_0^3 - \frac{3}{2} \xi^2_0 \right) \\
+    \frac{3}{N} &= \frac{1}{2} + \xi_0^3 - \frac{3}{2} \xi^2_0
+\end{aligned}
+\end{equation}
+
+and thus:
+
+\begin{equation}
+\boxed{
+    \xi_0^3 -\frac{3}{2} \xi_0^2 + \left( \frac{1}{2} - \frac{3}{N} \right) = 0
+}
+\end{equation}
+
+Now, we know that the total oxygen uptake rate can be expressed as:
+
+\begin{equation}
+    W_{O_2} = -4\pi R^2 n_{O_2,r}\big|_{r=R}
+\end{equation}
+
+Which can be re-written using Fick's law as:
+
+\begin{equation}
+    W_{O_2} = 4\pi R^2, \mathcal{D} \frac{d\rho_{O_2}}{dr} \big|_{r=R}
+\end{equation}
+
 \vspace{6pt}
+
+Now, we have already shown that:
+
+\begin{equation}
+    \frac{d \rho_{O_2}}{d r} = \frac{\rho_0}{R} \frac{d \chi}{d \xi}
+\end{equation}
+
+So we have:
+
+\begin{equation}
+    W_{O_2} = 4\pi R \mathcal{D} \rho_0 \frac{d \chi}{d \xi} \big|_{\xi=1}
+\end{equation}
 
 %--------------------------------------------------------------------------------------
 
