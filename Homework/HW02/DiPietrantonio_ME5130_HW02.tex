@@ -217,7 +217,7 @@ From this we can see that the mass flux is proportional to the slope of the norm
 \end{aligned}
 \end{equation}
 
-Now, we know what at $\xi = \xi0$, $\frac{d \chi}{d \xi} = 0$:
+Now, we know what at $\xi = \xi_0$, $\frac{d \chi}{d \xi} = 0$:
 
 \begin{equation}
 \begin{aligned}
@@ -241,7 +241,7 @@ We can now evaluate:
 \begin{equation}
 \begin{aligned}
     \int \frac{d\chi}{d\xi} d \xi &= \frac{N}{3} \int \left( \xi - \frac{\xi^3_0}{\xi^2} \right) d \xi \\
-    \chi                          &= \frac{N}{3} \left( frac{\xi^2}{2} + \frac{\xi^3_0}{\xi} \right) + C_2 \\
+    \chi                          &= \frac{N}{3} \left( \frac{\xi^2}{2} + \frac{\xi^3_0}{\xi} \right) + C_2 \\
 \end{aligned}
 \end{equation}
 
@@ -249,8 +249,8 @@ We also know that at $\xi = \xi_0$, $\chi = 0$:
 
 \begin{equation}
 \begin{aligned}
-    0   &= \frac{N}{3} \left( frac{\xi^2_0}{2} + \frac{\xi^3_0}{\xi_0} \right) + C_2 \\
-    0   &= \frac{N}{3} \left( frac{\xi^2_0}{2} + \xi^2_0 \right) + C_2 \\
+    0   &= \frac{N}{3} \left( \frac{\xi^2_0}{2} + \frac{\xi^3_0}{\xi_0} \right) + C_2 \\
+    0   &= \frac{N}{3} \left( \frac{\xi^2_0}{2} + \xi^2_0 \right) + C_2 \\
     0   &= \frac{N}{2} \xi^2_0 + C_2 \\
     C_2 &= -\frac{N}{2} \xi^2_0
 \end{aligned}
@@ -309,7 +309,7 @@ Now, we know that the total oxygen uptake rate can be expressed as:
 Which can be re-written using Fick's law as:
 
 \begin{equation}
-    W_{O_2} = 4\pi R^2, \mathcal{D} \frac{d\rho_{O_2}}{dr} \big|_{r=R}
+    W_{O_2} = 4\pi R^2 \mathcal{D} \frac{d\rho_{O_2}}{dr} \big|_{r=R}
 \end{equation}
 
 \vspace{6pt}
@@ -325,6 +325,93 @@ So we have:
 \begin{equation}
     W_{O_2} = 4\pi R \mathcal{D} \rho_0 \frac{d \chi}{d \xi} \big|_{\xi=1}
 \end{equation}
+
+Now we know that:
+
+\begin{equation}
+    \frac{d \chi}{d \xi} = \frac{N}{3} \left( \xi - \frac{\xi_0^3}{\xi^2} \right)
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    \frac{d \chi}{d \xi} \big|_{\xi=1} = \frac{N}{3} \left( 1 - \xi_0^3 \right)
+\end{equation}
+
+and so we can write:
+
+\begin{equation}
+        W_{O_2} = 4\pi R \mathcal{D} \rho_0 \frac{N}{3} \left( 1 - \xi_0^3 \right)
+\end{equation}
+
+and further, non-dimensional uptake rate can be expressed as:
+
+\begin{equation}
+    W_{O_2}^* = \frac{W_{O_2}}{4\pi R \mathcal{D} \rho_0} = \frac{N}{3} \left( 1 - \xi_0^3 \right)
+\end{equation}
+
+Now, in the case where there is no core, the boundary condition at the center of the aggregate becomes $\frac{d \chi}{d \xi} = 0$ at $\xi = 0$ by symmetry. We can now re-evaluate:
+
+\begin{equation}
+    \frac{d \chi}{d \xi} = \frac{N}{3} \xi + \frac{C_1}{\xi^2}
+\end{equation}
+
+and since an infinite concentration gradient at the center of the aggregate is physically impossible, we know that $C_1 = 0$. Therefore:
+
+\begin{equation}
+    \frac{d \chi}{d \xi} = \frac{N}{3} \xi
+\end{equation}
+
+and:
+
+\begin{equation}
+    \frac{d \chi}{d \xi} \big|_{\xi=1} = \frac{N}{3}
+\end{equation}
+
+We should note that this could have also been obtained by substituting $\xi_0 = 0$ into our previous expression for the concentration gradient (in the case where there was a core). Nevertheless, we then have:
+
+\begin{equation}
+    W_{O_2, \mathrm{no \, core}}^* = \frac{W_{O_2, \mathrm{no \, core}}}{4\pi R \mathcal{D} \rho_0} = \frac{N}{3}
+\end{equation}
+
+We can now continue by writting:
+
+\begin{equation}
+\begin{aligned}
+    \frac{d \chi}{d \xi} &= \frac{N}{3} \xi \\
+    \int \frac{d \chi}{d \xi} d \xi = \int\frac{N}{3} \xi d \xi \\
+\end{aligned}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    \chi = \frac{N}{6} \xi^2 + C_2
+\end{equation}
+
+And since at $\chi = 1$, $\xi = 1$:
+
+\begin{equation}
+\begin{aligned}
+    1 &= \frac{N}{6} + C_2 \\
+    C_2 &= 1 - \frac{N}{6}
+\end{aligned}
+\end{equation}
+
+So
+
+\begin{equation}
+    \chi = \frac{N}{6} \xi^2 + 1 - \frac{N}{6}
+\end{equation}
+
+Which means that at the center of the aggregate $\xi = 0$, the normalized mass concentration is:
+
+\begin{equation}
+    \chi(0) = 1 - \frac{N}{6}
+\end{equation}
+
+Thus, for the case where there is no core, the condition above holds $(\chi(0) \geq 0)$ when $N \leq 6$. For $N > 6$, the normalized mass concentration at the center of the aggregate would become negative, which is pysically impossible, so there must be a core. We can now plot the total oxygen uptake rate and $\xi_0$ as functions of $N$:
+
 
 %--------------------------------------------------------------------------------------
 
