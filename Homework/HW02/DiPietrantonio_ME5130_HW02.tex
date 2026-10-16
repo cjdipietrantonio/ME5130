@@ -1,7 +1,29 @@
 \documentclass[letterpaper,12pt]{article}
-\usepackage{amsmath, amssymb, geometry}
+\usepackage{amsmath, amssymb, geometry, listings, xcolor}
+
 \geometry{margin=1in}
+
 \setlength{\parindent}{0pt} % no indentation
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize, % Base font style and size
+    keywordstyle=\color{blue!60!black},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{teal!60!black},
+    numbers=left,                      % line numbers on the left
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,                      % line numbers every 1 line
+    breaklines=true,                   % Wrap long lines
+    breakatwhitespace=false,           % Line break anywhere if needed
+    columns=flexible,                  % Better spacing between characters
+    frame=single,                      % Add a frame around the code
+    tabsize=4,                         % Set tab size to 4 spaces
+    showstringspaces=false,
+    inputencoding=utf8,
+    extendedchars=true
+}
+
 \begin{document}
 
 %INFO
@@ -279,7 +301,7 @@ and:
 
 \begin{equation}
 \boxed{
-    \chi = 0, \qquad 0 \leq \xi \leq xi_0
+    \chi = 0, \qquad 0 \leq \xi \leq \xi_0
 }
 \end{equation}
 
@@ -311,8 +333,6 @@ Which can be re-written using Fick's law as:
 \begin{equation}
     W_{O_2} = 4\pi R^2 \mathcal{D} \frac{d\rho_{O_2}}{dr} \big|_{r=R}
 \end{equation}
-
-\vspace{6pt}
 
 Now, we have already shown that:
 
@@ -413,6 +433,11 @@ Which means that at the center of the aggregate $\xi = 0$, the normalized mass c
 Thus, for the case where there is no core, the condition above holds $(\chi(0) \geq 0)$ when $N \leq 6$. For $N > 6$, the normalized mass concentration at the center of the aggregate would become negative, which is pysically impossible, so there must be a core. We can now plot the total oxygen uptake rate and $\xi_0$ as functions of $N$:
 
 
+First, we can clearly see that as the rate of consumption of $O_2$ increases relative to the rate of diffusion ($N$ increases), the radius of the Oxygen free core increases. We can also observe that as $N$ increases, the non-dimensional uptake rate increases, while its rate of change decreases. This occurs because the the rate of consumption increases with respect to diffusion, while oxygen is consumed in less volume of the aggregate ($\xi_0 increases$).
+
+\vspace{6pt}
+
+
 %--------------------------------------------------------------------------------------
 
 \textbf{18C.2, Problem Statement:}
@@ -435,5 +460,13 @@ Such a situation may arise when the active ingredient is put on the particles af
 \textbf{18C.2, Solution:}
 
 \vspace{6pt}
+
+%CODE FOR PROBLEM 18B.19, Part (d)
+\newpage
+\textbf{18B.19, Part (d): Program Listing}
+
+\lstinputlisting[
+    language=Python
+]{DiPietrantonio_ME5130_HW02_18B19.py}
 
 \end{document}
