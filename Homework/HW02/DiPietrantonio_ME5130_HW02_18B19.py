@@ -1,7 +1,7 @@
 r'''
 Christian DiPietrantonio
 ME5130: Advanced Heat and Mass Transfer
-HW01: Problem 18B.19, Part (d):
+HW02: Problem 18B.19, Part (d):
   Plot the total oxygen uptake rate and $\xi_0$ as functions of $N$
 
 '''
@@ -32,7 +32,7 @@ def main():
     ax2.plot(N, N/3, '--', color='gray', label='Non-Dimensional Uptake Rate without Oxygen-Free Core')
     ax2.set_ylabel(r'Non-Dimensional Uptake Rate, $W_{O_2}^*$')
     ax2.set_xlabel(r'$N$')
-    ax2.legend(loc='lower right')
+    ax2.legend(loc='upper left')
     for ax in (ax1, ax2):
         ax.axvline(6, color='gray', ls=':')
     fig.tight_layout()
