@@ -26,7 +26,7 @@ Verify that $\nabla T$ and $\nabla \cdot \mathbf{q}$ in the spherical coordinate
 \vspace{6pt}
 
 \textbf{1--2, Solution:}
-The transformation from spherical to cartesioan coordinates is:
+The transformation from spherical to Cartesian coordinates is:
 
 \begin{equation}
 \begin{aligned}
@@ -64,7 +64,7 @@ Eq. (1--22b):
     a = a_1 a_2 a_3
 \end{equation}
 
-and Eq (1--18):
+and Equation (1--18):
 
 \begin{equation}
     a^{2}_{i} = \left(\frac{\partial x}{\partial u_i} \right)^2 + \left(\frac{\partial y}{\partial u_i} \right)^2 + \left(\frac{\partial z}{\partial u_i} \right)^2, \qquad i = 1, 2, 3
@@ -113,7 +113,7 @@ We can now evaluate:
 \begin{equation}
 \begin{aligned}
      a^{2}_{r} &= \sin^2{\theta} \cos^2{\phi} + \sin^2{\theta} \sin^2{\phi} + \cos^2{\theta} \\
-               &= \sin^2{\theta} (\cos^2{\phi} + \sin^2{\theta}) + \cos^2{\theta} \\
+               &= \sin^2{\theta} (\cos^2{\phi} + \sin^2{\phi}) + \cos^2{\theta} \\
                &= \sin^2{\theta} + \cos^2{\theta} \\
                &= 1 \\
      a_1 = a_r &= 1
@@ -140,7 +140,7 @@ We can now evaluate:
 \end{aligned}
 \end{equation}
 
-We should note that since spherical coordinates ($r, \phi, \theta$) form an orthogonal coordinate system, we can use equations (1--19) and (1--22). Nevertheless, we can now re-write equation (1--19):
+We should note that since spherical coordinates ($r, \phi, \theta$) form an orthogonal coordinate system, we can use equations (1--19) and (1--22). Nevertheless, we can now rewrite equation (1--19):
 
 \begin{equation}
 \boxed{
@@ -151,24 +151,24 @@ We should note that since spherical coordinates ($r, \phi, \theta$) form an orth
 We can also now write:
 
 \begin{equation}
-    a = a_1 a_2 a_3 = a_r a_{phi} a_{\theta} = r^2 \sin{\theta}
+    a = a_1 a_2 a_3 = a_r a_{\phi} a_{\theta} = r^2 \sin{\theta}
 \end{equation}
 
 Therefore:
 
 \begin{equation}
-    \frac{a}{a_r} = r^2 \sin{theta}
+    \frac{a}{a_r} = r^2 \sin{\theta}
 \end{equation}
 
 \begin{equation}
     \frac{a}{a_{\phi}} = r
-\end{equation}'
-
-\begin{equation}
-    \frac{a}{a_{\theta}} = r \sin{theta}
 \end{equation}
 
-Therefore, equation (1--22a) can be re-written as:
+\begin{equation}
+    \frac{a}{a_{\theta}} = r \sin{\theta}
+\end{equation}
+
+Therefore, equation (1--22a) can be rewritten as:
 
 \begin{equation}
     \nabla \cdot \mathbf{q} = \frac{1}{r^2 \sin{\theta}} \left[ \frac{\partial}{\partial r} \left( r^2 \sin{\theta} q_r \right) + \frac{\partial}{\partial \phi} \left( r q_{\phi} \right) + \frac{\partial}{\partial \theta} \left( r \sin{\theta} q_{\theta} \right) \right]
@@ -187,7 +187,7 @@ Which can be simplified to:
 %--------------------------------------------------------------------------------------
 
 \textbf{1--12, Problem Statement:}
-Set up the mathematical formulation of the following head conduction problems:
+Set up the mathematical formulation of the following heat conduction problems:
 
 \vspace{6pt}
 
@@ -212,7 +212,7 @@ Set up the mathematical formulation of the following head conduction problems:
 
     \begin{equation}
     \begin{aligned}
-        -k\frac{\partial T}{\partial x}      &= h(T - T_{infty}) \\
+        -k\frac{\partial T}{\partial x}      &= h(T - T_{\infty}) \\
         -k\frac{\partial T}{\partial x}      &= hT \\
          k\frac{\partial T}{\partial x} + hT &= 0 , \qquad x = L, \, t > 0
     \end{aligned}
@@ -226,9 +226,9 @@ Set up the mathematical formulation of the following head conduction problems:
     
     %--------------------------------------------------------------------------------------
 
-    \item A semiinfinite region $0 \leq x < \infty$ is initially at a temperature $F\left( x \right)$. For times $t > 0$, heat is generated in the medium at a constant rate of $g_0 W/m^3$, while the boundary at x = 0 is kept at zero temperature.
+    \item A semi-infinite region $0 \leq x < \infty$ is initially at a temperature $F\left( x \right)$. For times $t > 0$, heat is generated in the medium at a constant rate of $g_0 W/m^3$, while the boundary at $x = 0$ is kept at zero temperature.
     
-    For a semiinfinite region with a costant rate of heat generation of $g_0 W/m^3$, the heat equation can be written as:
+    For a semi-infinite region with a constant rate of heat generation of $g_0 W/m^3$, the heat equation can be written as:
 
     \begin{equation}
     \frac{\partial^2 T}{\partial x^2} + \frac{g_0}{k} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 < x < \infty, \, t > 0
@@ -243,7 +243,7 @@ Set up the mathematical formulation of the following head conduction problems:
     and finally, at the initial condition $t = 0$:
 
     \begin{equation}
-        T(x, 0) = F(x), \qquad 0 \leq x \leq \infty, \, t = 0 
+        T(x, 0) = F(x), \qquad 0 \leq x < \infty, \, t = 0 
     \end{equation}
 
     
@@ -347,7 +347,7 @@ We should note that since the bar is long compared to the diameter, we can ignor
 \end{aligned} 
 \end{equation}
 
-Since the Biot number is less than 0.1, the lumped system analysis is valid. Now, from equation 1-69 we have:
+Since the Biot number is less than 0.1, the lumped system analysis is valid. Now, from Equation 1--69, we have:
 
 \begin{equation}
     \frac{\theta(t)}{\theta_0} = \frac{T(t) - T_{\infty}}{T_0 - T_{\infty}} = e^{-mt}
@@ -364,7 +364,7 @@ Where:
 \end{aligned}
 \end{equation}
 
-Therefore we have:
+Therefore, we have:
 
 \begin{equation}
 \begin{aligned}
@@ -395,13 +395,13 @@ A thermocouple is to be used to measure the temperature in a gas stream. The jun
 
 \textbf{1--16, Solution:}
 
-In order to measure 99\% of the applied temperature difference, we must have:
+In order to measure 95\% of the applied temperature difference, we must have:
 
 \begin{equation}
     \frac{T - T_{\infty}}{T_0 - T_{\infty}} = 0.05
 \end{equation}
 
-We can now used this to find:
+We can now use this to find:
 
 \begin{equation}
     0.05 = e^{-mt}
@@ -427,7 +427,7 @@ and
 \end{aligned}
 \end{equation}
 
-Therefore we can write:
+Therefore, we can write:
 
 \begin{equation}
 \begin{aligned}
@@ -466,7 +466,7 @@ A slab, $0 \leq x \leq L$, is initially at a temperature $F \left( x \right)$. F
 
 \textbf{2--2, Solution:}
 
-From problem 1-12 we know that for a slab where $T(x, 0) = F(x)$ with no generation, the heat equation can be written as:
+From problem 1-12, we know that for a slab where $T(x, 0) = F(x)$ with no generation, the heat equation can be written as:
 
 \begin{equation}
 \frac{\partial^2 T}{\partial x^2} = \frac{1}{\alpha} \frac{\partial T}{\partial t}, \qquad 0 < x < L, \, t > 0
@@ -533,7 +533,7 @@ and:
     \frac{1}{N\left(\beta_m\right)} = 2 \frac{\beta^{2}_m + H^2}{L\left(\beta^{2}_m + H^2 \right) + H}
 \end{equation}
 
-where the eigenvalues $\beta_m$'s are the positive roots of:
+where the eigenvalues $\beta_m$ are the positive roots of:
 
 \begin{equation}
     \beta_m \tan{\beta_m L} = H
@@ -557,7 +557,7 @@ The heat flux at the boundary surface $x = L$ can be expressed as:
 
 \begin{equation}
 \boxed{
-    q = 2k \sum_{m=1}^{{\infty}} e ^{- \alpha \beta^{2}_m t} \, 2 \frac{\beta^{2}_m + H^2}{L\left(\beta^{2}_m + H^2 \right) + H} \sin{\beta_m L} \int_{0}^{L} \cos{\beta_m x'} F(x') dx'
+    q = 2k \sum_{m=1}^{{\infty}} \beta_m e ^{- \alpha \beta^{2}_m t} \, \frac{\beta^{2}_m + H^2}{L\left(\beta^{2}_m + H^2 \right) + H} \sin{\beta_m L} \int_{0}^{L} \cos{\beta_m x'} F(x') dx'
 }
 \end{equation}
 
@@ -588,13 +588,13 @@ At $t = 0$:
 \end{aligned}
 \end{equation}
 
-From Equation 2-70 we have:
+From Equation 2--70 we have:
 
 \begin{equation}
     T(x, t) = \frac{1}{\left[ 4 \pi \alpha t \right]^{1/2}} \int_{-\infty}^{\infty} F(x') \exp{\left[ -\frac{(x - x')^2}{4 \alpha t} \right] dx'}
 \end{equation}
 
-Now, for the region where $x \leq a$ and $x \geq b$, the integrand above is zero, therefore:
+Now, for the region where $x' \leq a$ and $x' \geq b$, the integrand above is zero, therefore:
 
 \begin{equation}
     T(x, t) = \frac{T_0}{\left[ 4 \pi \alpha t \right]^{1/2}} \int_{a}^{b} \exp{\left[ -\frac{(x - x')^2}{4 \alpha t} \right] dx'}
@@ -633,13 +633,13 @@ and since:
     \mathbf{erf}(z) = \frac{2}{\sqrt{\pi}} \int_{0}^{z} e^{- \xi^2} \, d\xi
 \end{equation}
 
-we have:
+We have:
 
 \begin{equation}
     T(x, t) = \frac{T_0}{2} \left[ \mathbf{erf} \left( \frac{x - a}{\sqrt{4 \alpha t}} \right) - \mathbf{erf} \left( \frac{x - b}{\sqrt{4 \alpha t}} \right)\right]
 \end{equation}
 
-which can be re-written as:
+which can be rewritten as:
 
 \begin{equation}
 \boxed{
@@ -670,7 +670,7 @@ At $x = 0$:
     \frac{\partial T}{\partial x} = 0
 \end{equation}
 
-Let $H = \frac{h}{k}$, At $x = a$:
+Let $H = \frac{h}{k}$. At $x = a$:
 
 \begin{equation}
     \frac{\partial T}{\partial x} + HT = 0
@@ -679,7 +679,7 @@ Let $H = \frac{h}{k}$, At $x = a$:
 At $y = 0$:
 
 \begin{equation}
-    T(x, y) = f(x)
+    T(x, 0) = f(x)
 \end{equation}
 
 At $y = b$:
@@ -692,7 +692,7 @@ We can now use separation of variables to write:
 
 \begin{equation}
 \begin{aligned}
-    T(x, y)        &= X(x) \, Y(x)
+    T(x, y)        &= X(x) \, Y(y)
 \end{aligned}
 \end{equation}
 
@@ -705,7 +705,7 @@ Then:
 \end{aligned}
 \end{equation}
 
-Therfefore:
+Therefore:
 
 \begin{equation}
 \begin{aligned}
@@ -738,17 +738,17 @@ At $y = b$:
     \frac{dY}{dy} + HY(b) = 0
 \end{equation}
 
-For $X$ we can now use Table 2-2 No. 4 to find:
+For $X$, we can now use Table 2-2 No. 4 to find:
 
 \begin{equation}
-    X(\beta_m) = \cos{\beta_m x}
+    X(\beta_m, x) = \cos{\beta_m x}
 \end{equation}
 
 \begin{equation}
     \frac{1}{N\left(\beta_m\right)} = \frac{2 \left(\beta^{2}_m + H^2 \right)}{a \left(\beta^{2}_m + H^2 \right) + H}
 \end{equation}
 
-where the eigenvalues $\beta_m$'s are the positive roots of:
+where the eigenvalues $\beta_m$ are the positive roots of:
 
 \begin{equation}
     \beta_m \tan{\beta_m a} = H
@@ -760,7 +760,7 @@ For $Y$, we know the solution takes the form:
     Y = C_3 \cosh{\beta y} + C_4 \sinh{\beta y}
 \end{equation}
 
-Which can be re-written as:
+Which can be rewritten as:
 
 \begin{equation}
     Y = C_3 \cosh{\beta (b- y)} + C_4 \sinh{\beta (b - y)}
@@ -784,7 +784,7 @@ and
 \end{aligned}
 \end{equation}
 
-are both solutions of the differential equation. Now, at $Y = b$:
+are both solutions of the differential equation. Now, at $y = b$:
 
 \begin{equation}
 \begin{aligned}
@@ -820,7 +820,7 @@ and:
 \end{aligned}
 \end{equation}
 
-since $\frac{C_3}{\beta}$ is constant (it will factor into the constant multiplier in the next steps), we can write:
+Since $\frac{C_3}{\beta}$ is constant (it will factor into the constant multiplier in the next steps), we can write:
 
 \begin{equation}
     Y(\beta_m, y) = \beta_m \cosh{\beta_m (b- y)} + H \sinh{\beta_m (b - y)} 
@@ -858,8 +858,8 @@ We can now recall:
 
 \begin{equation}
     \int_{0}^{a} X_m(\beta_m, x) X_n(\beta_n, x) dx = \begin{cases}
-        0 & \mathrm{if} n \neq m \\
-        N(\beta_m) & \mathrm{if} n = m
+        0 & \text{if } n \neq m \\
+        N(\beta_m) & \text{if } n = m
     \end{cases}
 \end{equation}
 
@@ -869,7 +869,7 @@ Therefore:
 \begin{aligned}
     \int_{0}^{a} f(x) \cos{\beta_n x} \, dx &= C_m K_m N(\beta_m) \\
     C_m &= \frac{1}{K_m N(\beta_m)} \int_{0}^{a} f(x) \cos{\beta_n x} \, dx \\
-        &= \frac{1}{N(\beta_m) [\beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}]} \int_{0}^{a} f(x') \cos{\beta_m x'} \, dx 
+        &= \frac{1}{N(\beta_m) [\beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}]} \int_{0}^{a} f(x') \cos{\beta_m x'} \, dx' 
 \end{aligned}
 \end{equation}
 
@@ -877,7 +877,7 @@ Finally, we have:
 
 \begin{equation}
 \boxed{
-    T(x, y) = \sum_{m = 1}^{\infty} \frac{\cos{\beta_m x} \left[ \beta_m \cosh{\beta_m (b- y)} + H \sinh{\beta_m (b - y)} \right]}{N(\beta_m) [\beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}]} \int_{0}^{a} \cos{\beta_m x'} f(x')  \, dx 
+    T(x, y) = \sum_{m = 1}^{\infty} \frac{\cos{\beta_m x} \left[ \beta_m \cosh{\beta_m (b- y)} + H \sinh{\beta_m (b - y)} \right]}{N(\beta_m) [\beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}]} \int_{0}^{a} \cos{\beta_m x'} f(x')  \, dx' 
 }  
 \end{equation}
 
@@ -887,7 +887,7 @@ Where:
     \frac{1}{N\left(\beta_m\right)} = \frac{2 \left(\beta^{2}_m + H^2 \right)}{a \left(\beta^{2}_m + H^2 \right) + H}
 \end{equation}
 
-and the eigenvalues $\beta_m$'s are the positive roots of:
+and the eigenvalues $\beta_m$ are the positive roots of:
 
 \begin{equation}
     \beta_m \tan{\beta_m a} = H
