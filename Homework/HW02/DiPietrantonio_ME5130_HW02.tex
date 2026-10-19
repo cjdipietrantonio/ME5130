@@ -71,13 +71,13 @@ for $\xi \geq \xi_0 \geq 0$, where $\xi_0$ is determined as a function of $N$ fr
 To solve this problem, we can consider the oxygen going into and out of a thin spherical shell between radius $r$ and $r + \Delta r$. The rate of oxygen going in through the outer surface is:
 
 \begin{equation}
-    - n_{O_{2,r}} \bigg|_{r + \Delta r} \cdot 4 \pi (r + \Delta r)^2
+    - n_{O_{2}, r} \bigg|_{r + \Delta r} \cdot 4 \pi (r + \Delta r)^2
 \end{equation}
 
 The rate of oxygen going out of the inner surface is:
 
 \begin{equation}
-    - n_{O_{2,r}} \bigg|_{r} \cdot 4 \pi r^2
+    - n_{O_{2}, r} \bigg|_{r} \cdot 4 \pi r^2
 \end{equation}
 
 and the rate of oxygen being produced within the shell is:
@@ -89,15 +89,15 @@ and the rate of oxygen being produced within the shell is:
 Therefore, the shell balance can be constructed as:
 
 \begin{equation}
-    n_{O_{2,r}} \bigg|_{r} \cdot 4 \pi r^2 - n_{O_{2,r}} \bigg|_{r + \Delta r} \cdot 4 \pi (r + \Delta r)^2 - k_0''' \cdot 4 \pi r^2 \Delta r = 0
+    n_{O_{2}, r} \bigg|_{r} \cdot 4 \pi r^2 - n_{O_{2}, r} \bigg|_{r + \Delta r} \cdot 4 \pi (r + \Delta r)^2 - k_0''' \cdot 4 \pi r^2 \Delta r = 0
 \end{equation}
 
 Dividing by $4 \pi \Delta r$:
 
 \begin{equation}
 \begin{aligned}
-    \frac{\left( r^2 n_{O_{2,r}} \right) \bigg|_{r} - \left( r^2 n_{O_{2,r}} \right) \bigg|_{r + \Delta r}}{\Delta r} - k_0''' r^2 &= 0 \\[6pt]
-    \frac{\left( r^2 n_{O_{2,r}} \right) \bigg|_{r + \Delta r} - \left( r^2 n_{O_{2,r}} \right) \bigg|_{r}}{\Delta r} &= -k_0''' r^2 
+    \frac{\left( r^2 n_{O_{2}, r} \right) \bigg|_{r} - \left( r^2 n_{O_{2}, r} \right) \bigg|_{r + \Delta r}}{\Delta r} - k_0''' r^2 &= 0 \\[6pt]
+    \frac{\left( r^2 n_{O_{2}, r} \right) \bigg|_{r + \Delta r} - \left( r^2 n_{O_{2}, r} \right) \bigg|_{r}}{\Delta r} &= -k_0''' r^2 
 \end{aligned}
 \end{equation}
 
@@ -110,10 +110,10 @@ We can now consider the definition of a derivative:
 Therefore, if we take $\lim_{\Delta r \to 0}$, we have:
 
 \begin{equation}
-    \frac{d}{dr} \left( r^2 n_{O_{2,r}} \right) = -k_0''' r^2
+    \frac{d}{dr} \left( r^2 n_{O_{2}, r} \right) = -k_0''' r^2
 \end{equation}
 
-From Fick's law we have:
+From Fick's law, we have:
 
 \begin{equation}
     n_{O_{2, r}} = - \mathcal{D} \frac{d\rho_{\mathrm{O}_2}}{dr}
@@ -187,7 +187,7 @@ We have:
 }
 \end{equation}
 
-If there is an oxygen-free core in the aggregate, the cells use oxygen faster than diffusion can bring it in, so the oxygen must run out before reaching the center such that $\chi = 0$ for $\xi < \xi_0$. Therefore the sphere has two regions, the outer shell where oxygen is present:
+If there is an oxygen-free core in the aggregate, the cells use oxygen faster than diffusion can bring it in, so the oxygen must run out before reaching the center such that $\chi = 0$ for $\xi < \xi_0$. Therefore, the sphere has two regions: the outer shell where oxygen is present:
 
 \begin{equation}
     \xi_0 < \xi \leq 1 
@@ -199,7 +199,7 @@ And the core, where no oxygen is present:
     0 \leq \xi \leq \xi_0
 \end{equation}
 
-At the outer surface, $\rho_{O2} = \rho_0$, therefore:
+At the outer surface, $\rho_{O_2} = \rho_0$, therefore:
 
 \begin{equation}
 \boxed{
@@ -239,7 +239,7 @@ From this we can see that the mass flux is proportional to the slope of the norm
 \end{aligned}
 \end{equation}
 
-Now, we know what at $\xi = \xi_0$, $\frac{d \chi}{d \xi} = 0$:
+Now, we know that at $\xi = \xi_0$, $\frac{d \chi}{d \xi} = 0$:
 
 \begin{equation}
 \begin{aligned}
@@ -253,7 +253,7 @@ Therefore:
 
 \begin{equation}
 \begin{aligned}
-    \frac{d\chi}{d\xi} &= \frac{N\xi}{3} + \frac{N}{3} \frac{\xi^3_0}{\xi^2} \\
+    \frac{d\chi}{d\xi} &= \frac{N\xi}{3} - \frac{N}{3} \frac{\xi^3_0}{\xi^2} \\
     \frac{d\chi}{d\xi} &= \frac{N}{3} \left( \xi - \frac{\xi^3_0}{\xi^2} \right) \\
 \end{aligned}
 \end{equation}
@@ -287,7 +287,7 @@ Thus:
 \end{aligned}
 \end{equation}
 
-and Finally, we can write:
+And finally, we can write:
 
 \begin{equation}
 \boxed{
@@ -328,7 +328,7 @@ Now, we know that the total oxygen uptake rate can be expressed as:
     W_{O_2} = -4\pi R^2 n_{O_2,r}\big|_{r=R}
 \end{equation}
 
-Which can be re-written using Fick's law as:
+Which can be rewritten using Fick's law as:
 
 \begin{equation}
     W_{O_2} = 4\pi R^2 \mathcal{D} \frac{d\rho_{O_2}}{dr} \big|_{r=R}
@@ -364,7 +364,7 @@ and so we can write:
         W_{O_2} = 4\pi R \mathcal{D} \rho_0 \frac{N}{3} \left( 1 - \xi_0^3 \right)
 \end{equation}
 
-and further, non-dimensional uptake rate can be expressed as:
+and further, the non-dimensional uptake rate can be expressed as:
 
 \begin{equation}
     W_{O_2}^* = \frac{W_{O_2}}{4\pi R \mathcal{D} \rho_0} = \frac{N}{3} \left( 1 - \xi_0^3 \right)
@@ -394,12 +394,12 @@ We should note that this could have also been obtained by substituting $\xi_0 = 
     W_{O_2, \mathrm{no \, core}}^* = \frac{W_{O_2, \mathrm{no \, core}}}{4\pi R \mathcal{D} \rho_0} = \frac{N}{3}
 \end{equation}
 
-We can now continue by writting:
+We can now continue by writing:
 
 \begin{equation}
 \begin{aligned}
     \frac{d \chi}{d \xi} &= \frac{N}{3} \xi \\
-    \int \frac{d \chi}{d \xi} d \xi = \int\frac{N}{3} \xi d \xi \\
+    \int \frac{d \chi}{d \xi} d \xi &= \int\frac{N}{3} \xi d \xi \\
 \end{aligned}
 \end{equation}
 
@@ -409,7 +409,7 @@ Therefore:
     \chi = \frac{N}{6} \xi^2 + C_2
 \end{equation}
 
-And since at $\chi = 1$, $\xi = 1$:
+And since at $\chi = 1$ at $\xi = 1$:
 
 \begin{equation}
 \begin{aligned}
@@ -424,20 +424,20 @@ So
     \chi = \frac{N}{6} \xi^2 + 1 - \frac{N}{6}
 \end{equation}
 
-Which means that at the center of the aggregate $\xi = 0$, the normalized mass concentration is:
+This means that at the center of the aggregate, $\xi = 0$, the normalized mass concentration is:
 
 \begin{equation}
     \chi(0) = 1 - \frac{N}{6}
 \end{equation}
 
-Thus, for the case where there is no core, the condition above holds $(\chi(0) \geq 0)$ when $N \leq 6$. For $N > 6$, the normalized mass concentration at the center of the aggregate would become negative, which is pysically impossible, so there must be a core. We can now plot the total oxygen uptake rate and $\xi_0$ as functions of $N$:
+Thus, for the case where there is no core, the condition above holds $(\chi(0) \geq 0)$ when $N \leq 6$. For $N > 6$, the normalized mass concentration at the center of the aggregate would become negative, which is physically impossible, so there must be a core. We can now plot the total oxygen uptake rate and $\xi_0$ as functions of $N$:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{DiPietrantonio_ME5130_HW02_18B19.png}
 \end{figure}
 
-First, we can clearly see that as the rate of consumption of $O_2$ increases relative to the rate of diffusion ($N$ increases), the radius of the Oxygen free core increases. We can also observe that as $N$ increases, the non-dimensional uptake rate increases, while its rate of change decreases. This occurs because the the rate of consumption increases with respect to diffusion, while oxygen is consumed in less volume of the aggregate ($\xi_0 increases$).
+First, we can clearly see that as the rate of consumption of $O_2$ increases relative to the rate of diffusion ($N$ increases), the radius of the oxygen-free core increases. We can also observe that as $N$ increases, the non-dimensional uptake rate increases, while its rate of change decreases. This occurs because the rate of consumption increases with respect to diffusion, while oxygen is consumed in a smaller volume of the aggregate ($\xi_0$ increases).
 
 \vspace{6pt}
 
@@ -469,7 +469,7 @@ Equation 18.7-6 is given as:
     \mathcal{D}_A \frac{1}{r^2} \frac{d}{dr} \left(r^2 \frac{dc_A}{dr} \right) = k_1^{\prime\prime}a c_A
 \end{equation}
 
-In the region I, no reaction occurs and we have:
+In the region I, no reaction occurs, and we have:
 
 \begin{equation}
 \begin{aligned}
@@ -489,7 +489,7 @@ Because $c_A$ must be finite at $r = 0$, $C_1 = 0$, thus:
     c_A = C_2
 \end{equation}
 
-Which physically means that the concentration and its gradient are the same everywhere in the core (which makes sense because A does not react with anything in the core).
+This physically means that the concentration is uniform and its gradient is zero everywhere in the core (which makes sense because A does not react with anything in the core).
 
 For region II we write:
 
@@ -497,13 +497,13 @@ For region II we write:
     \frac{c_A}{c_{AR}} = \frac{f(r)}{r}
 \end{equation}
 
-which reduces to equation 18.7-7:
+where $c_{AR}$ is the concentration of $A$ at the surface ($r = R$). This reduces to equation 18.7-7:
 
 \begin{equation}
     \frac{d^2 f}{d r^2} = \left( \frac{k''_1 a}{\mathcal{D}_A} \right) f
 \end{equation}
 
-if we let:
+If we let:
 
 \begin{equation}
     b^2 = \frac{k''_1 a}{\mathcal{D}_A}
@@ -515,7 +515,7 @@ we can write the solution to the differential equation above as:
     f = C_3 \cosh{br} + C_4 \sinh{br}
 \end{equation}
 
-we can then write:
+We can then write:
 
 \begin{equation}
     f = C_3 \cosh{b(r - \kappa R)} + C_4 \sinh{b(r - \kappa R)}
@@ -537,7 +537,7 @@ Now, we know that at $r = \kappa R$, $\frac{d c_A}{d r} = 0$, and since $\frac{c
 \end{aligned}
 \end{equation}
 
-we can write:
+We can write:
 
 \begin{equation}
 \begin{aligned}
@@ -555,7 +555,7 @@ and then:
 \end{aligned}
 \end{equation}
 
-Where $\phi = bR = \sqrt{\frac{k''_1 a}{\mathcal{D}_A}} R$ is referred to as the "Thiele modulus". So:
+Where $\phi = bR = \sqrt{\frac{k''_1 a}{\mathcal{D}_A}} R$ is referred to as the ``Thiele modulus". So:
 
 \begin{equation}
     C_3 = \kappa \phi C_4
@@ -583,7 +583,7 @@ Now, let $D = \kappa \phi \cosh{\phi(1 - \kappa)} + \sinh{\phi(1 - \kappa)}$:
     C_3 = \frac{\kappa \phi R}{D}
 \end{equation}
 
-Therefore, for regin II we have:
+Therefore, for region II we have:
 
 \begin{equation}
     \frac{c_A}{c_{AR}} = \frac{1}{r} \left[ \frac{\kappa \phi R}{D} \cosh{b(r - \kappa R)} + \frac{R}{D} \sinh{b(r - \kappa R)} \right]
@@ -597,7 +597,7 @@ Which can be simplified to:
 }
 \end{equation}
 
-Returning to region 1, we know that the concentration $C_A$ must be equal at the interface of the two regions $(r = \kappa R)$, so we have:
+Returning to region 1, we know that the concentration $c_A$ must be equal at the interface of the two regions $(r = \kappa R)$, so we have:
 
 \begin{equation}
     \frac{c_A}{c_{AR}} = \frac{C_2}{c_{AR}}
@@ -616,7 +616,7 @@ and finally:
 
 \begin{equation}
 \boxed{
-    \frac{c_A}{c_{AR}} \frac{\phi}{D}, \qquad 0 \leq r \leq \kappa R
+    \frac{c_A}{c_{AR}} =\frac{\phi}{D}, \qquad 0 \leq r \leq \kappa R
 }
 \end{equation}
 
@@ -627,11 +627,11 @@ We can now give qualitative sketches to illustrate the forms of the profiles.
     \includegraphics[width=0.85\textwidth]{DiPietrantonio_ME5130_HW02_18C2.png}
 \end{figure}
 
-Now, to evaluate $W_{AR}$, the total molar rate of conversion of $A$ in a single particle. We can write:
+Now, to evaluate $W_{AR}$, the total molar rate of conversion of $A$ in a single particle, we can write:
 
 \begin{equation}
 \begin{aligned}
-    W_{AR} &= 4 \pi R^2 N_{AR} \bigg|_{r=R} \\
+    W_{AR} &= 4 \pi R^2 N_{Ar} \bigg|_{r=R} \\
     W_{AR} &= - 4 \pi R^2 \mathcal{D}_A \frac{d c_A}{d r} \bigg|_{r=R}
 \end{aligned}
 \end{equation}
@@ -668,7 +668,7 @@ Let $E = \kappa \phi \sinh{\phi(1 - \kappa)} + \cosh{\phi(1 - \kappa)} $:
     \frac{df}{dr} \bigg|_{r=R} = \frac{\phi E}{D}
 \end{equation}
 
-At $r = $ we have:
+At $r = R$ we have:
 
 \begin{equation}
     \frac{c_A}{c_{AR}} = \frac{f(R)}{R} = 1

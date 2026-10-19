@@ -2,7 +2,7 @@ r'''
 Christian DiPietrantonio
 ME5130: Advanced Heat and Mass Transfer
 HW02: Problem 18B.19, Part (d):
-  Plot the total oxygen uptake rate and $\xi_0$ as functions of $N$
+  Plot the total oxygen uptake rate and xi_0 as functions of $N$
 
 '''
 
@@ -23,7 +23,7 @@ def core_radius(N):
 def main():
     N    = np.linspace(0, 50, 1001)
     xi_0 = np.array([core_radius(n) for n in N])
-    W    = N/3 * (1 - xi_0**3)                         # W_02 / (4 \pi R D \rho_0)
+    W    = N/3 * (1 - xi_0**3)                         # W_O2 / (4 \pi R D \rho_0)
 
     fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(6.5, 7))
     ax1.plot(N, xi_0)
