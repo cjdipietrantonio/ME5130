@@ -1,909 +1,1923 @@
 # Table 2-2 Derivations: All Nine Slab Cases
 
-Sep 30, 2026 · @CD
+Oct 19, 2026 · @CD
 
-All nine cases follow the same path: write the slab problem, separate T = X(x)Γ(t), solve X″ + β²X = 0 with the two boundary conditions to get X and the eigenvalue equation, integrate X² from 0 to L to get N, then assemble T(x,t). Part A does the shared steps once; each case section then repeats the full path for its own boundary conditions so it stands alone on the exam.
+On Wednesday you get one of these nine cases and six graded parts in 75 minutes, with no notes or calculator, and every answer must match Table 2-2. All nine cases share one method; only the boundary conditions, the eigenfunction and the normalization factor change, and the normalization factor comes in just three patterns.
 
-## At a glance
+## Study plan: Monday 10/19 to Wednesday 10/21
 
-The nine cases differ only in the boundary conditions; each row below is derived in full in its own section.
+Learn the shared method once, drill the cases by pattern, then practice under exam conditions: blank paper, no notes, no calculator, 50 minutes per case. Three timed mock exams and a full night of sleep will do more than rereading.
+
+Your whole memorization list is short: the shared method (Steps 1, 2, 3 and 5), Table 2-2 through the three rules, and four trig identities (1, 2, 4 and 7). Everything else you work out on the page.
+
+The drill for every block: read the section once, close the doc, write it on blank paper, then check it against the doc and log each mistake in the error log below. The patterns are: Pattern A = no convective face (Cases 5, 6, 8, 9), Pattern B = one convective face (Cases 2, 3, 4, 7), Pattern C = two convective faces (Case 1).
+
+Short on time? Keep the order and cut the reading, not the blank-paper practice.
+
+### Monday evening (about 3 hours)
+
+- [ ] 6:30–7:15 PM · Shared method: read Steps 1, 2, 3 and 5 of the shared method. Write them from memory, check, and repeat once. Target: 12 minutes with no errors.
+- [ ] 7:15–7:45 PM · Memorize the four identities: 1, 2, 4 and 7. Then derive the cos² and sin² integrals from identities 1 and 2, and rebuild identity 4 once. Skip the rest of both lists.
+- [ ] 7:45–7:55 PM · Break.
+- [ ] 7:55–8:45 PM · Pattern A: Cases 9, 8, 6, 5. Read each once, then write Steps 4 to 6 from memory and check them against Table 2-2. Do not skip the β = 0 check in Case 5.
+- [ ] 8:45–9:20 PM · Case 4, your class-notes example: read once, then write all six steps from memory.
+- [ ] 9:20–9:30 PM · Write Table 2-2 from memory using the three rules. Log every mistake.
+
+### Tuesday evening (about 3.5 hours)
+
+- [ ] 6:00–6:20 PM · Warm-up from memory: Steps 1, 2, 3 and 5, the four identities, Table 2-2.
+- [ ] 6:20–7:20 PM · Pattern B: Cases 7, 2, 3. Read each once, then write Steps 4 to 6 from memory. Focus on the sin 2u step and the common-denominator flip to 1/N.
+- [ ] 7:20–7:30 PM · Break.
+- [ ] 7:30–8:20 PM · Case 1 (Pattern C): write the eigenvalue equation twice, then the phase-trick normalization twice, from memory.
+- [ ] 8:20–9:15 PM · Mock exam 1: pick a case at random (write 1 to 9 on scraps and draw one). Closed book, 50 minutes, all six steps, then grade it against this doc.
+- [ ] 9:15–9:30 PM · Update the error log and reread only the steps you missed.
+- [ ] Sleep 7 to 8 hours. Sleep is when the day's memorizing sets; skip the all-nighter.
+
+### Wednesday, exam day (study until 2:15 PM)
+
+- [ ] 8:30–9:00 AM · Warm-up from memory: shared steps, the four identities, Table 2-2.
+- [ ] 9:00–10:00 AM · Mock exam 2: a random convective case (1, 2, 3, 4 or 7), 50 minutes, then grade.
+- [ ] 10:00–10:15 AM · Break away from the desk.
+- [ ] 10:15–11:00 AM · Fix: redo every step in the error log, then redo the Case 1 normalization once.
+- [ ] 11:00 AM–12:00 PM · Mock exam 3: a case from a pattern you have not mocked yet, then grade.
+- [ ] 12:00–12:45 PM · Lunch, away from the material.
+- [ ] 12:45–1:45 PM · Speed drill: all nine cases, Steps 4 and 6 only, about 6 minutes each.
+- [ ] 1:45–2:15 PM · Last pass: Table 2-2 from memory twice, then read the error log.
+- [ ] 2:15–3:30 PM · Stop studying. Eat a real meal, since the exam runs through dinner (5:00–6:15 PM). Pack two pens or pencils, an eraser and water.
+- [ ] 3:45 PM · Leave.
+
+### In the exam room (75 minutes)
+
+| Minutes | Do this |
+| --- | --- |
+| 0–3 | Read the statement. Name each face (zero temperature, insulated, convection) to find the case. Write its Table 2-2 row (X, eigenvalue equation, 1/N) in a corner as your target. |
+| 3–15 | Step 1 (formulate) and Step 2 (boundary and initial conditions). |
+| 15–23 | Step 3 (separation down to the Table 2-2 ODE and Γ). |
+| 23–36 | Step 4 (eigenfunction, eigenvalue equation, β = 0 check). |
+| 36–46 | Step 5 (Cₘ). |
+| 46–62 | Step 6 (normalization factor). |
+| 62–75 | Check: plug X into both boundary conditions, run the H → 0 or H → ∞ limit, and box each answer in table form. |
+
+Label each part with your professor's wording and box every final answer in the table's form. If you get stuck, write the definition (for example N = ∫X²dx) and the target, then show every step you can: each part is graded on its own.
+
+### Error log
+
+| Case | Step | What went wrong | Fix |
+| --- | --- | --- | --- |
+| Example: 3 | 6 | Used the cos² integral for a sine eigenfunction | Sine X takes the sin² integral, with a minus sign before sin 2βL/(4β) |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+
+## The exam at a glance
+
+The exam is one case and six graded parts, and this guide numbers them Step 1 to Step 6 in your professor's order. Steps 1, 3 and 5 are the same in every case; Steps 2, 4 and 6 change with the boundary conditions.
+
+| Step (exam part) | What you write | Same in every case? |
+| --- | --- | --- |
+| 1 · Formulate the governing equation | Heat equation, three assumptions, then ∂²T/∂x² = (1/α) ∂T/∂t | Yes |
+| 2 · Apply the boundary conditions | The math form of each face, plus T = F(x) at t = 0 | No: depends on the two faces |
+| 3 · Solve by separation of variables | T = X(x)Γ(t), then d²X/dx² + β²X = 0, Γ(t) = e^(−αβ²t), and the BCs on X | Yes, except the BCs on X |
+| 4 · Find the eigenfunction | X(βₘ, x) and the eigenvalue equation for βₘ | No |
+| 5 · Find Cₘ | Cₘ = (1/N(βₘ)) ∫₀ᴸ X(βₘ, x′) F(x′) dx′ | Yes in form; the integral uses this case's X |
+| 6 · Find the normalization factor | N(βₘ) = ∫₀ᴸ X² dx, simplified, then flipped to 1/N(βₘ) | No: three patterns |
+
+Cₘ contains N(βₘ). On the exam, either do Step 6 before Step 5, or write Cₘ in terms of N(βₘ) first and fill it in after Step 6.
+
+Table 2-2 is the one-dimensional transient slab: T(x,t) has two variables, but only one of them (x) is a space coordinate.
+
+**Solution map.** Every case follows this path; only Steps 2, 4 and 6 change with the boundary conditions.
+
+1. **Step 1 · Formulate the governing equation.** Heat equation, three assumptions, then ∂²T/∂x² = (1/α) ∂T/∂t. Same in every case.
+2. **Step 2 · Apply the boundary conditions.** The math form of each face, plus T = F(x) at t = 0. Changes with the case.
+3. **Step 3 · Separate variables, T(x,t) = X(x)Γ(t).** The PDE splits into two parts:
+    - Time part: dΓ/dt + αβ²Γ = 0, so Γ(t) = e^(−αβ²t). Same in every case.
+    - Space part: the Table 2-2 ODE, d²X/dx² + β²X = 0, plus the boundary conditions on X.
+4. **Step 4 · Find the eigenfunction.** X(βₘ, x) and the eigenvalue equation for βₘ. Changes with the case.
+5. **Step 5 · Find Cₘ.** Superpose, set t = 0, use orthogonality. Same formula in every case.
+6. **Step 6 · Find the normalization factor.** N(βₘ) = ∫₀ᴸ X² dx, then flip to 1/N(βₘ). Changes with the case.
+7. **Final answer.** T(x,t) = Σ Cₘ X(βₘ, x) e^(−αβₘ²t), with an extra m = 0 term in Case 5.
+
+Memorize Steps 1, 3 and 5 once; for each case, only Steps 2, 4 and 6 change.
+
+### Table 2-2 targets
+
+These nine rows are what every answer must match exactly. H₁ = h₁/k and H₂ = h₂/k.
 
 | Case | BC at x = 0 | BC at x = L | X(βₘ, x) | 1/N(βₘ) | βₘ are the positive roots of |
 | --- | --- | --- | --- | --- | --- |
-| 1 | −X′ + H₁X = 0 | X′ + H₂X = 0 | βₘ cos βₘx + H₁ sin βₘx | 2 / \[(βₘ² + H₁²)(L + H₂/(βₘ² + H₂²)) + H₁\] | tan βₘL = βₘ(H₁ + H₂)/(βₘ² − H₁H₂) |
-| 2 | −X′ + H₁X = 0 | X′ = 0 | cos βₘ(L − x) | 2(βₘ² + H₁²) / \[L(βₘ² + H₁²) + H₁\] | βₘ tan βₘL = H₁ |
-| 3 | −X′ + H₁X = 0 | X = 0 | sin βₘ(L − x) | 2(βₘ² + H₁²) / \[L(βₘ² + H₁²) + H₁\] | βₘ cot βₘL = −H₁ |
-| 4 | X′ = 0 | X′ + H₂X = 0 | cos βₘx | 2(βₘ² + H₂²) / \[L(βₘ² + H₂²) + H₂\] | βₘ tan βₘL = H₂ |
-| 5 | X′ = 0 | X′ = 0 | cos βₘx (X₀ = 1 for β₀ = 0) | 2/L for m ≥ 1; 1/L for β₀ = 0 | sin βₘL = 0, so βₘ = mπ/L, m = 0, 1, 2, … |
-| 6 | X′ = 0 | X = 0 | cos βₘx | 2/L | cos βₘL = 0, so βₘ = (2m − 1)π/(2L) |
-| 7 | X = 0 | X′ + H₂X = 0 | sin βₘx | 2(βₘ² + H₂²) / \[L(βₘ² + H₂²) + H₂\] | βₘ cot βₘL = −H₂ |
-| 8 | X = 0 | X′ = 0 | sin βₘx | 2/L | cos βₘL = 0, so βₘ = (2m − 1)π/(2L) |
+| 1 | −dX/dx + H₁X = 0 | dX/dx + H₂X = 0 | βₘ cos βₘx + H₁ sin βₘx | 2[(βₘ² + H₁²)(L + H₂/(βₘ² + H₂²)) + H₁]⁻¹ | tan βₘL = βₘ(H₁ + H₂)/(βₘ² − H₁H₂) |
+| 2 | −dX/dx + H₁X = 0 | dX/dx = 0 | cos βₘ(L − x) | 2(βₘ² + H₁²)/[L(βₘ² + H₁²) + H₁] | βₘ tan βₘL = H₁ |
+| 3 | −dX/dx + H₁X = 0 | X = 0 | sin βₘ(L − x) | 2(βₘ² + H₁²)/[L(βₘ² + H₁²) + H₁] | βₘ cot βₘL = −H₁ |
+| 4 | dX/dx = 0 | dX/dx + H₂X = 0 | cos βₘx | 2(βₘ² + H₂²)/[L(βₘ² + H₂²) + H₂] | βₘ tan βₘL = H₂ |
+| 5 | dX/dx = 0 | dX/dx = 0 | cos βₘx, plus X₀ = 1 for β₀ = 0 | 2/L for βₘ ≠ 0; 1/L for β₀ = 0 | sin βₘL = 0, so βₘ = mπ/L, m = 0, 1, 2, … |
+| 6 | dX/dx = 0 | X = 0 | cos βₘx | 2/L | cos βₘL = 0, so βₘ = (2m − 1)π/(2L) |
+| 7 | X = 0 | dX/dx + H₂X = 0 | sin βₘx | 2(βₘ² + H₂²)/[L(βₘ² + H₂²) + H₂] | βₘ cot βₘL = −H₂ |
+| 8 | X = 0 | dX/dx = 0 | sin βₘx | 2/L | cos βₘL = 0, so βₘ = (2m − 1)π/(2L) |
 | 9 | X = 0 | X = 0 | sin βₘx | 2/L | sin βₘL = 0, so βₘ = mπ/L, m = 1, 2, … |
 
-Every case assembles into the same final solution; only X, 1/N and the eigenvalue equation change from row to row:
+### Rebuild the table from three rules
 
-```latex
-T(x,t)=\sum_{m=1}^{\infty}\underbrace{e^{-\alpha\beta_m^{2}t}}_{\Gamma(t)}\;\underbrace{\frac{1}{N(\beta_m)}}_{\text{table}}\;\underbrace{X(\beta_m,x)}_{\text{table}}\int_{0}^{L}X(\beta_m,x')\,F(x')\,dx'
-```
+1. Eigenfunction rule. Anchor X on a face that is not convective: an insulated face gets a cosine (zero slope there), and a zero-temperature face gets a sine (zero value there). Use x = 0 when it is not convective: Cases 4 to 9 give cos βₘx (insulated) or sin βₘx (zero temperature). When x = 0 is convective, anchor at x = L with (L − x): Case 2 gives cos βₘ(L − x) and Case 3 gives sin βₘ(L − x). Both faces convective (Case 1): βₘ cos βₘx + H₁ sin βₘx.
+2. Eigenvalue rule. No convective face: sin βₘL = 0 when both faces are the same kind (Cases 5, 9), and cos βₘL = 0 when they differ (Cases 6, 8). One convective face with coefficient H: βₘ tan βₘL = H when the other face is insulated (Cases 2, 4), and βₘ cot βₘL = −H when the other face is at zero temperature (Cases 3, 7). Both convective: Case 1's row.
+3. Normalization rule. No convective face: 1/N = 2/L, and Case 5 adds 1/L for β₀ = 0. One convective face: 1/N = 2(βₘ² + H²)/[L(βₘ² + H²) + H], using that face's H. Both convective: Case 1's row.
 
-Notation: H₁ = h₁/k and H₂ = h₂/k; X′ = dX/dx; F(x) is the initial temperature; x′ is a dummy integration variable. Case 5 adds an m = 0 term.
+### Names and notation
 
-Where to find it:
+- Cₘ is the Fourier coefficient (also called the expansion coefficient): the weight of the m-th eigenfunction in the series that rebuilds the initial temperature F(x).
+- N(βₘ) is the norm, or normalization integral, ∫₀ᴸ X² dx. The table lists 1/N(βₘ), the normalization factor.
+- X(βₘ, x) is the eigenfunction and βₘ are the eigenvalues. The equation that fixes βₘ is the eigenvalue (characteristic) equation. Γ(t) is the time function.
+- β or λ: your professor's Table 2-2 and notes write βₘ and Cₘ, while the 3rd-edition PDF writes λₙ and Cₙ (its header reads d²X/dx² + λ²X = 0). It is the same table. Use your professor's symbols and never mix the two.
+- H₁ = h₁/k and H₂ = h₂/k, in 1/length. Your notes write k₁ and k₂; for one slab, k₁ = k₂ = k.
+- Derivatives: d/dx and d/dt for X(x) and Γ(t), which are ordinary; ∂/∂x and ∂/∂t for T(x,t), which is partial.
 
-- Your professor's Table 2-2 (pp. 48–49) is from Özişik's 2nd edition; the 2nd-edition excerpt in your project cites it as "Table 2-2, case 9."
-- The 3rd-edition PDF in your project prints the same table as Table 2-1 on p. 46 (λₙ for βₘ) and works Cases 7 and 2 on pp. 44–47.
-- The class-notes example is Lecture Notes Set 1, PDF pages 36–41: Case 1 in general, then Cases 6 and 4 with a uniform start. A shorter first pass is on pages 30–33.
+### Sources cited in this guide
 
-## Part A — The shared derivation
+- "Notes p. N" = ME5130 Lecture Notes Set 1 Heat Conduction, PDF page N.
+- "Özişik p. N, eq. (…)" = the Heat Conduction 3rd edition PDF in the project, printed page number.
+- Your professor's Table 2-2 = Özişik 2nd edition, pp. 48–49 (his page numbers). It has the same nine rows as Table 2-1 on Özişik p. 46. The 2nd-edition excerpt in the project cites it as "Table 2-2, case 9" on p. 87 and uses its general solution, eq. (2-36a), on p. 86.
 
-Every case runs the same seven steps; only the boundary conditions on X and the norm integral change from row to row. The recipe:
+## The shared method: Steps 1 to 6
 
-1. Problem statement: a slab, its initial temperature, and a condition on each face.
-2. Differential equation: the 1-D heat equation, two boundary conditions, one initial condition.
-3. Separate: T(x,t) = X(x)Γ(t) splits the PDE into one ODE for Γ and one for X.
-4. Solve for Γ: Γ(t) = e^(−αβ²t) in every case.
-5. Solve for X: X = A₁cos βx + A₂sin βx; the two boundary conditions give X(βₘ, x) and the eigenvalue equation.
-6. Find 1/N: integrate X² from 0 to L, then simplify with the eigenvalue equation.
-7. Combine: T(x,t) = Σ Γ · (1/N) · X · ∫X F dx′.
+Learn this section once. Every case repeats it with its own two boundary conditions, so each case section below shows all six steps but explains only what is new.
 
-**A1 · Problem statement.** A slab 0 ≤ x ≤ L has constant k and α, no heat generation, and starts at T = F(x). For t > 0 each face is held at zero temperature (1st kind), insulated (2nd kind), or cooled by a fluid at zero temperature (3rd kind). Three choices at x = 0 times three at x = L gives the nine cases:
+### Step 1 · Formulate the governing equation
 
-| Face at x = 0 ↓ · face at x = L → | Convection | Insulated | T = 0 |
+Start from the general heat conduction equation (Notes p. 5; Özişik p. 10, eq. 1-24):
+
+$$
+\rho c_p\frac{\partial T}{\partial t}=\nabla\cdot(k\nabla T)+g
+$$
+
+State three assumptions, then apply them one at a time.
+
+Assumption 1, constant k (homogeneous, isotropic slab). k comes out of the divergence:
+
+$$
+\nabla\cdot(k\nabla T)=k\,\nabla^2T
+$$
+
+Assumption 2, no heat generation:
+
+$$
+g=0
+$$
+
+Assumption 3, one-dimensional: T changes only with x and t, so the y and z terms of the Cartesian Laplacian are zero (Notes p. 6; Özişik p. 10, eq. 1-25):
+
+$$
+\nabla^2T=\frac{\partial^2T}{\partial x^2}+\frac{\partial^2T}{\partial y^2}+\frac{\partial^2T}{\partial z^2}=\frac{\partial^2T}{\partial x^2}
+$$
+
+Substitute all three into the heat equation:
+
+$$
+\rho c_p\frac{\partial T}{\partial t}=k\,\frac{\partial^2T}{\partial x^2}
+$$
+
+Divide both sides by k and use the thermal diffusivity α = k/(ρcₚ) (Notes p. 6; Özişik p. 10, eq. 1-26):
+
+$$
+\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t}\qquad 0<x<L,\;\;t>0
+$$
+
+This governing equation is the same for all nine cases.
+
+### Step 2 · Apply the boundary conditions
+
+One rule produces every convection condition, with no sign guessing (Notes pp. 8–9; Özişik pp. 19–20, eqs. 1-52 and 1-57a):
+
+$$
+-k\,\frac{\partial T}{\partial n}=h\,(T-T_\infty)\qquad\text{at the surface}
+$$
+
+Here n is the outward normal: the direction pointing out of the solid (Özişik p. 20). The only thing to decide at each face is which way is out, and that is fixed by the geometry, since the slab fills 0 < x < L:
+
+| Face | Outward normal | ∂T/∂n becomes |
+| --- | --- | --- |
+| x = 0 | points toward −x | −∂T/∂x |
+| x = L | points toward +x | +∂T/∂x |
+
+Convection at x = 0 (substitute ∂T/∂n = −∂T/∂x into the rule):
+
+$$
+\begin{aligned}
+-k\left(-\frac{\partial T}{\partial x}\right)&=h_1\,(T-T_\infty) &&\text{substitute}\\
+k\,\frac{\partial T}{\partial x}&=h_1\,(T-T_\infty) &&\text{the two minus signs cancel}\\
+-k\,\frac{\partial T}{\partial x}+h_1\,(T-T_\infty)&=0 &&\text{move everything to one side}
+\end{aligned}
+$$
+
+Convection at x = L (substitute ∂T/∂n = +∂T/∂x into the rule):
+
+$$
+\begin{aligned}
+-k\,\frac{\partial T}{\partial x}&=h_2\,(T-T_\infty) &&\text{substitute}\\
+k\,\frac{\partial T}{\partial x}+h_2\,(T-T_\infty)&=0 &&\text{move everything to one side}
+\end{aligned}
+$$
+
+The other two kinds need no sign: an insulated face has ∂T/∂n = 0, which is ∂T/∂x = 0 (Özişik p. 20, eq. 1-56). A face held at temperature Tₛ has T = Tₛ (Özişik p. 19, eq. 1-53a).
+
+Make the conditions homogeneous. Separation of variables needs every boundary condition to equal zero (Notes p. 17; Özişik p. 81, eq. 3-30). Shift the temperature by the fluid (or wall) temperature:
+
+$$
+\theta(x,t)=T(x,t)-T_\infty
+$$
+
+θ obeys the same PDE, because T∞ is a constant and its derivatives are zero. Divide each convection condition by k and write H = h/k. The result, for every kind of face:
+
+| Physical statement | At x = 0 | At x = L |
+| --- | --- | --- |
+| Held at zero temperature (or at Tₛ, with θ = T − Tₛ) | θ = 0 | θ = 0 |
+| Insulated, adiabatic, or a symmetry plane | ∂θ/∂x = 0 | ∂θ/∂x = 0 |
+| Convection to fluid at T∞ (θ = T − T∞) | −∂θ/∂x + H₁θ = 0 | ∂θ/∂x + H₂θ = 0 |
+
+The initial condition is the starting temperature, shifted the same way:
+
+$$
+\theta(x,0)=F(x)=T_i(x)-T_\infty
+$$
+
+The table's cases assume this shift is already done, so the rest of this guide writes T for θ. One shift only works when every non-insulated face sees the same temperature. If two faces see different temperatures, split into a steady part plus a transient part first (Özişik 2nd ed. Example 2-15, p. 86).
+
+The three kinds are linked by limits (Notes p. 39). As H → 0 the Hθ term vanishes, leaving the insulated condition. As H → ∞, divide by H first: (1/H)∂θ/∂x + θ = 0 becomes θ = 0. So every case is the convection problem with each H set to 0 or ∞, which gives you a built-in check.
+
+### Step 3 · Solve by separation of variables (down to the Table 2-2 ODE)
+
+This step turns the PDE into the ODE at the top of Table 2-2 (Notes pp. 31 and 36; Özişik pp. 81–82, eqs. 3-33 to 3-36).
+
+3a. Assume T is a function of x alone times a function of t alone:
+
+$$
+T(x,t)=X(x)\,\Gamma(t)
+$$
+
+3b. Differentiate. X does not depend on t, and Γ does not depend on x:
+
+$$
+\begin{aligned}
+\frac{\partial T}{\partial t}&=X\,\frac{d\Gamma}{dt}\\
+\frac{\partial^2T}{\partial x^2}&=\Gamma\,\frac{d^2X}{dx^2}
+\end{aligned}
+$$
+
+3c. Substitute both into the governing equation from Step 1:
+
+$$
+\Gamma\,\frac{d^2X}{dx^2}=\frac{1}{\alpha}\,X\,\frac{d\Gamma}{dt}
+$$
+
+3d. Divide both sides by XΓ:
+
+$$
+\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\,\Gamma}\frac{d\Gamma}{dt}
+$$
+
+3e. The left side depends only on x, and the right side only on t. Hold x fixed and let t change: the left side cannot change, so the right side cannot either. Both sides therefore equal one constant, named −β²:
+
+$$
+\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\,\Gamma}\frac{d\Gamma}{dt}=-\beta^2
+$$
+
+3f. The space equation. Take the left equality, multiply by X, and move the term to the left side:
+
+$$
+\begin{aligned}
+\frac{d^2X}{dx^2}&=-\beta^2X &&\text{multiply by }X\\
+\frac{d^2X}{dx^2}+\beta^2X&=0\qquad 0<x<L &&\text{move to the left side}
+\end{aligned}
+$$
+
+This is the ODE at the top of Table 2-2. The 3rd-edition table writes λ in place of β (Özişik p. 46).
+
+3g. The time equation. Take the right equality and solve it (Notes p. 31; Özişik p. 83, eq. 3-42):
+
+$$
+\begin{aligned}
+\frac{d\Gamma}{dt}&=-\alpha\beta^2\,\Gamma &&\text{multiply by }\alpha\Gamma\\
+\frac{d\Gamma}{\Gamma}&=-\alpha\beta^2\,dt &&\text{separate }\Gamma\text{ and }t\\
+\ln\Gamma&=-\alpha\beta^2t+c &&\text{integrate both sides}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{exponentiate; }e^{c}\text{ joins }C_m\text{ later}
+\end{aligned}
+$$
+
+3h. Why the constant is −β². Check all three possibilities instead of relying on intuition:
+
+| Separation constant | Time solution | Space solution | Result |
 | --- | --- | --- | --- |
-| Convection | Case 1 | Case 2 | Case 3 |
-| Insulated | Case 4 | Case 5 | Case 6 |
-| T = 0 | Case 7 | Case 8 | Case 9 |
+| −β² (negative) | Γ = e^(−αβ²t), decays | X = A₁cos βx + A₂sin βx | Meets both BCs at discrete βₘ: this is Table 2-2 |
+| +μ² (positive) | Γ = e^(+αμ²t), grows forever | X = A cosh μx + B sinh μx | Only X = 0 meets the BCs, so no solution |
+| 0 | Γ = constant | X = a + bx | Nonzero only when both faces are insulated (Case 5) |
 
-"Zero" loses nothing. If the fluid or wall is at T∞, work with θ = T − T∞: it obeys the same equations, starts at F(x) − T∞, and T = θ + T∞ at the end. If the two faces sit at different temperatures, split into a steady part plus a transient part first (Özişik Example 2-15).
+3i. Move the boundary conditions onto X. Substitute T = XΓ into each condition and divide by Γ(t), which is never zero:
 
-**A2 · Differential equation.** The heat equation ∇²T + g/k = (1/α)∂T/∂t, reduced to one dimension with g = 0:
-
-```latex
-\frac{\partial^2 T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t}\qquad 0<x<L,\;\; t>0
-```
-
-**A3 · Boundary conditions from an energy balance.** At a face, heat conducted out of the solid equals heat convected into the fluid. Fourier's law gives the flux in the +x direction as q = −k ∂T/∂x.
-
-- At x = L the outward direction is +x, so −k ∂T/∂x = h₂T, which rearranges to k ∂T/∂x + h₂T = 0.
-- At x = 0 the outward direction is −x, so the outgoing flux is +k ∂T/∂x = h₁T, which rearranges to −k ∂T/∂x + h₁T = 0. That is where the minus sign at x = 0 comes from.
-
-Divide by k and write H₁ = h₁/k and H₂ = h₂/k (units of 1/length):
-
-```latex
+$$
 \begin{aligned}
--\frac{\partial T}{\partial x}+H_1T&=0 &&\text{at } x=0,\; t>0\\
-\frac{\partial T}{\partial x}+H_2T&=0 &&\text{at } x=L,\; t>0\\
-T&=F(x) &&\text{at } t=0,\; 0\le x\le L
+-\frac{\partial T}{\partial x}+H_1T=0\;&\Rightarrow\;-\frac{dX}{dx}+H_1X=0 &&\text{at }x=0\\
+\frac{\partial T}{\partial x}+H_2T=0\;&\Rightarrow\;\frac{dX}{dx}+H_2X=0 &&\text{at }x=L\\
+T=0\;&\Rightarrow\;X=0 &&\text{at that face}\\
+\frac{\partial T}{\partial x}=0\;&\Rightarrow\;\frac{dX}{dx}=0 &&\text{at that face}
 \end{aligned}
-```
+$$
 
-The other two kinds are limits of this one (class notes, page 39). As h → 0 the T term vanishes, leaving ∂T/∂x = 0 (insulated). As h → ∞, divide by h first: (k/h)∂T/∂x + T = 0 becomes T = 0. So all nine cases are this problem with each H set to 0 or ∞, which is also a built-in check on your answers.
+The initial condition does not move onto X, because F(x) is not zero; it is used in Step 5. The result of Step 3 is the eigenvalue problem that Table 2-2 solves: d²X/dx² + β²X = 0 on 0 < x < L, with one homogeneous condition at each face.
 
-**A4 · Separate: T = X(x)Γ(t).** Assume the solution is a function of x alone times a function of t alone. Then ∂²T/∂x² = X″Γ and ∂T/∂t = XΓ′. Substitute into the PDE and divide both sides by XΓ:
+### Step 4 · Find the eigenfunction
 
-```latex
-X''\,\Gamma=\frac{1}{\alpha}X\,\Gamma'\quad\Longrightarrow\quad \frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\,\Gamma}\frac{d\Gamma}{dt}=-\beta^2
-```
+4a. General solution of d²X/dx² + β²X = 0 (Notes p. 38; Özişik p. 43, eq. 2-12). Try X = e^(Dx):
 
-The left side depends only on x and the right side only on t. Hold x fixed and change t: the left side cannot change, so the right side cannot either. Both sides must therefore equal the same constant, written −β².
-
-Why negative (class notes, page 31): a positive constant +μ² gives Γ = e^(+αμ²t), a temperature that grows forever with no heat source, and X = cosh/sinh cannot meet these boundary conditions. A zero constant gives X″ = 0, so X = a + bx, which survives only when both faces are insulated (Case 5). So the constant is −β² with β > 0.
-
-**A5 · Solve for Γ.**
-
-```latex
-\frac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\frac{d\Gamma}{\Gamma}=-\alpha\beta^2\,dt\;\Rightarrow\;\ln\Gamma=-\alpha\beta^2t+c\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}
-```
-
-The constant e^c is dropped because it merges into Cₘ in A9. Γ is the same in all nine cases.
-
-**A6 · Solve for X (general form).** The ODE has constant coefficients, so try X = e^(Dx):
-
-```latex
-\frac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;D^2+\beta^2=0\;\Rightarrow\;D=\pm i\beta
-```
-
-The roots ±iβ give e^(±iβx). By Euler's formula, e^(iβx) = cos βx + i sin βx, so the real combinations are cos βx and sin βx:
-
-```latex
+$$
 \begin{aligned}
-X(x)&=A_1\cos\beta x+A_2\sin\beta x\\
-X'(x)&=-A_1\beta\sin\beta x+A_2\beta\cos\beta x\\
-X(0)&=A_1,\qquad X'(0)=A_2\beta
+D^2+\beta^2&=0 &&\text{characteristic equation}\\
+D&=\pm i\beta &&\text{two imaginary roots}\\
+X(x)&=A_1\cos\beta x+A_2\sin\beta x &&\text{real form of }e^{\pm i\beta x}\\
+\frac{dX}{dx}&=-A_1\beta\sin\beta x+A_2\beta\cos\beta x &&\text{differentiate}
 \end{aligned}
-```
+$$
 
-**A7 · Move the boundary conditions onto X.** Put T = XΓ into each condition. At x = 0 this gives −X′(0)Γ(t) + H₁X(0)Γ(t) = 0. Γ = e^(−αβ²t) is never zero, so divide it out:
+At x = 0, cos 0 = 1 and sin 0 = 0, so:
 
-```latex
--X'(0)+H_1X(0)=0\qquad\qquad X'(L)+H_2X(L)=0
-```
+$$
+X(0)=A_1\qquad\qquad\left.\frac{dX}{dx}\right|_{x=0}=A_2\beta
+$$
 
-The same move turns T = 0 into X = 0 and ∂T/∂x = 0 into X′ = 0. The initial condition cannot move onto X because F(x) is not zero; it is used last, in A9.
+4b. Apply the condition at x = 0. It fixes one constant:
 
-**A8 · Eigenvalues and eigenfunctions.** Two boundary conditions, two constants. The first condition ties A₁ to A₂ or makes one of them zero. The second then reads (constant) × (function of β) = 0.
+| Face at x = 0 | Condition | Result |
+| --- | --- | --- |
+| Zero temperature | X(0) = A₁ = 0 | X = A₂ sin βx |
+| Insulated | dX/dx at x = 0 equals A₂β = 0, so A₂ = 0 | X = A₁ cos βx |
+| Convection | −A₂β + H₁A₁ = 0, so A₂ = (H₁/β)A₁ | X = A₁[cos βx + (H₁/β) sin βx] |
 
-The constant cannot be zero, since that gives X ≡ 0, so the function of β must vanish: that is the eigenvalue equation. Its positive roots β₁ < β₂ < β₃ < … are the eigenvalues, and X(βₘ, x), written without the leftover constant, are the eigenfunctions. Always test β = 0 separately with X = a + bx; it survives only in Case 5.
+4c. Apply the condition at x = L. It always reads (constant) × (function of β) = 0. The constant cannot be zero, because then X = 0 everywhere. So the function of β must be zero: that is the eigenvalue equation, and its positive roots β₁ < β₂ < β₃ < … are the eigenvalues βₘ (Notes pp. 31–32; Özişik p. 43). This table gives all nine at once:
 
-**A9 · Superpose and apply the initial condition.** Each βₘ gives a solution CₘX(βₘ, x)e^(−αβₘ²t) of the PDE and both boundary conditions. The problem is linear and homogeneous, so the sum is a solution too:
-
-```latex
-T(x,t)=\sum_{m=1}^{\infty}C_m\,X(\beta_m,x)\,e^{-\alpha\beta_m^2t}
-```
-
-At t = 0 this must equal F(x). Multiply both sides by X(βₙ, x) and integrate from 0 to L:
-
-```latex
-F(x)=\sum_{m=1}^{\infty}C_m\,X(\beta_m,x)\;\Longrightarrow\;\int_0^L F(x)\,X(\beta_n,x)\,dx=\sum_{m=1}^{\infty}C_m\int_0^L X(\beta_m,x)\,X(\beta_n,x)\,dx
-```
-
-By orthogonality (A10), every integral on the right is zero except the one with m = n, which equals N(βₙ). Solve for the coefficient and rename n → m:
-
-```latex
-C_m=\frac{1}{N(\beta_m)}\int_0^L X(\beta_m,x')\,F(x')\,dx'\qquad\qquad N(\beta_m)=\int_0^L\big[X(\beta_m,x)\big]^2dx
-```
-
-**A10 · Why orthogonality holds.** Write Xₘ″ + βₘ²Xₘ = 0 and Xₙ″ + βₙ²Xₙ = 0. Multiply the first by Xₙ and the second by Xₘ, subtract, and use XₙXₘ″ − XₘXₙ″ = (XₙXₘ′ − XₘXₙ′)′. Integrating from 0 to L:
-
-```latex
-\Big[X_nX_m'-X_mX_n'\Big]_0^L+\left(\beta_m^2-\beta_n^2\right)\int_0^L X_mX_n\,dx=0
-```
-
-At x = L, X′ = −H₂X makes the bracket Xₙ(−H₂Xₘ) − Xₘ(−H₂Xₙ) = 0. The same happens at x = 0 with X′ = H₁X, and the bracket is trivially zero for X = 0 or X′ = 0. So (βₘ² − βₙ²)∫XₘXₙdx = 0, and βₘ ≠ βₙ forces ∫XₘXₙdx = 0.
-
-**A11 · Combine into the final solution.** Put Cₘ back into the series:
-
-```latex
-T(x,t)=\sum_{m=1}^{\infty}\underbrace{e^{-\alpha\beta_m^2t}}_{\Gamma}\;\underbrace{\frac{1}{N(\beta_m)}}_{1/N}\;\underbrace{X(\beta_m,x)}_{X}\int_0^L X(\beta_m,x')\,F(x')\,dx'
-```
-
-This is the book's general solution, eq. (2-36a) in the 2nd edition. For any case, take X, 1/N and the eigenvalue equation from its row and substitute; x′ is only the integration variable.
-
-## Toolkit — identities, integrals and exam checks
-
-The identities and integrals below cover every norm in the table; the rest is substituting the eigenvalue equation.
-
-| Identity | Where it is used |
-| --- | --- |
-| sin²u = (1 − cos 2u)/2 and cos²u = (1 + cos 2u)/2 | Every norm integral |
-| sin 2u = 2 sin u cos u | Every norm integral |
-| cos(A − B) = cos A cos B + sin A sin B | Case 2: turns X into cos β(L − x) |
-| sin(A − B) = sin A cos B − cos A sin B | Case 3: turns X into sin β(L − x) |
-| cos²u = 1/(1 + tan²u), from 1 + tan²u = sec²u | Cases 1, 2, 4 |
-| sin²u = 1/(1 + cot²u), from 1 + cot²u = csc²u | Cases 3, 7 |
-| sin u cos u = tan u/(1 + tan²u) = cot u/(1 + cot²u) | Cases 2, 3, 4, 7 |
-| sin 2u = 2 tan u/(1 + tan²u) and sin²u = tan²u/(1 + tan²u) | Case 1 |
-| sin mπ = 0, cos mπ = (−1)ᵐ, cos((2m − 1)π/2) = 0, sin((2m − 1)π/2) = (−1)ᵐ⁺¹ | Cases 5, 6, 8, 9 |
-
-The integrals, all from 0 to L:
-
-```latex
-\begin{aligned}
-\int_0^L\sin^2\beta x\,dx&=\int_0^L\frac{1-\cos2\beta x}{2}\,dx=\left[\frac{x}{2}-\frac{\sin2\beta x}{4\beta}\right]_0^L=\frac{L}{2}-\frac{\sin\beta L\cos\beta L}{2\beta}\\
-\int_0^L\cos^2\beta x\,dx&=\int_0^L\frac{1+\cos2\beta x}{2}\,dx=\left[\frac{x}{2}+\frac{\sin2\beta x}{4\beta}\right]_0^L=\frac{L}{2}+\frac{\sin\beta L\cos\beta L}{2\beta}\\
-\int_0^L\sin\beta x\cos\beta x\,dx&=\frac{1}{2}\int_0^L\sin2\beta x\,dx=\frac{1-\cos2\beta L}{4\beta}=\frac{\sin^2\beta L}{2\beta}\\
-\int_0^L\sin\beta x\,dx&=\frac{1-\cos\beta L}{\beta}\qquad\qquad\int_0^L\cos\beta x\,dx=\frac{\sin\beta L}{\beta}\\
-\int_0^L f(L-x)\,dx&=\int_0^L f(u)\,du\qquad(u=L-x,\;du=-dx,\;\text{limits swap})
-\end{aligned}
-```
-
-The last step of the first two lines uses sin 2βL = 2 sin βL cos βL; the third line uses 1 − cos 2u = 2 sin²u.
-
-**The move that finishes every one-term norm.** For X = a single sine or cosine (Cases 2–9), the integral leaves N = L/2 ± sin βL cos βL/(2β). The eigenvalue equation then fixes the product sin βL cos βL:
-
-| Eigenvalue equation | Cases | sin βL cos βL | N | 1/N |
+| X after the x = 0 condition | Face at x = L | Condition at x = L | Eigenvalue equation | Case |
 | --- | --- | --- | --- | --- |
-| sin βL = 0 or cos βL = 0 | 5, 6, 8, 9 | 0 | L/2 | 2/L |
-| β tan βL = H (X is a cosine) | 2, 4 | +Hβ/(β² + H²) | L/2 + H/\[2(β² + H²)\] | 2(β² + H²)/\[L(β² + H²) + H\] |
-| β cot βL = −H (X is a sine) | 3, 7 | −Hβ/(β² + H²) | L/2 + H/\[2(β² + H²)\] | 2(β² + H²)/\[L(β² + H²) + H\] |
+| A₂ sin βx | Zero temperature | A₂ sin βL = 0 | sin βₘL = 0 | 9 |
+| A₂ sin βx | Insulated | A₂β cos βL = 0 | cos βₘL = 0 | 8 |
+| A₂ sin βx | Convection | A₂(β cos βL + H₂ sin βL) = 0 | βₘ cot βₘL = −H₂ | 7 |
+| A₁ cos βx | Zero temperature | A₁ cos βL = 0 | cos βₘL = 0 | 6 |
+| A₁ cos βx | Insulated | −A₁β sin βL = 0 | sin βₘL = 0 | 5 |
+| A₁ cos βx | Convection | A₁(−β sin βL + H₂ cos βL) = 0 | βₘ tan βₘL = H₂ | 4 |
+| A₁[cos βx + (H₁/β) sin βx] | Zero temperature | cos βL + (H₁/β) sin βL = 0 | βₘ cot βₘL = −H₁ | 3 |
+| A₁[cos βx + (H₁/β) sin βx] | Insulated | −β sin βL + H₁ cos βL = 0 | βₘ tan βₘL = H₁ | 2 |
+| A₁[cos βx + (H₁/β) sin βx] | Convection | (H₁H₂ − β²) sin βL + β(H₁ + H₂) cos βL = 0 | tan βₘL = βₘ(H₁ + H₂)/(βₘ² − H₁H₂) | 1 |
 
-For the tan row: sin βL cos βL = tan βL · cos²βL = tan βL/(1 + tan²βL) = (H/β)/(1 + H²/β²) = Hβ/(β² + H²). The cot row flips the sign, but the sine integral carries a minus sign, so both land on the same N.
+4d. Write X in the table's form. Drop the leftover constant, because it joins Cₘ in Step 5. Cases 2 and 3 also use a trig identity to reach the table's form.
 
-**Exam self-checks.**
+4e. Check β = 0 separately (Notes p. 32). With β = 0 the ODE is d²X/dx² = 0, so X = a + bx. Only Case 5 keeps a nonzero X.
 
-1. Plug X back into both boundary conditions: one must vanish for every β, the other exactly when the eigenvalue equation holds.
-2. Limits: in a convective row, H → 0 must give the insulated row and H → ∞ the zero-temperature row. For Case 4, β tan βL = H₂ becomes sin βL = 0 (Case 5) as H₂ → 0 and cos βL = 0 (Case 6) as H₂ → ∞, and 1/N → 2/L both ways.
-3. Mirror pairs: flipping the slab (x → L − x) swaps the faces, so Cases 2 and 4, 3 and 7, and 6 and 8 share eigenvalues and norms.
-4. Units: β and H are 1/length, so βL is dimensionless, H/(β² + H²) is a length like L, and 1/N is 1/length.
-5. Only Case 5 keeps β = 0. A zero eigenvalue anywhere else means an algebra slip.
-6. At t = 0 the series must rebuild F(x).
+The simplest example, Case 9 (Özişik pp. 43–44, eqs. 2-13 to 2-17):
 
-All nine rows of the table are correct as printed. I checked each numerically: both boundary conditions, the norm, orthogonality, and the t = 0 series for a uniform start. A separate finite-difference solution matched the Case 1 and Case 4 series to 1 part in 10⁷.
-
-## Case 1 — Convection at x = 0, convection at x = L
-
-Result: X(βₘ, x) = βₘcos βₘx + H₁sin βₘx; 1/N = 2\[(βₘ² + H₁²)(L + H₂/(βₘ² + H₂²)) + H₁\]⁻¹; βₘ are the positive roots of tan βₘL = βₘ(H₁ + H₂)/(βₘ² − H₁H₂). This is the general case: the other eight are its limits, and your class notes work it on pages 38–39.
-
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 both faces lose heat by convection to fluid at zero temperature, with h₁ at x = 0 and h₂ at x = L.
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&-k\frac{\partial T}{\partial x}+h_1T=0\;\Rightarrow\;-\frac{\partial T}{\partial x}+H_1T=0 &&x=0,\;t>0\\
-&k\frac{\partial T}{\partial x}+h_2T=0\;\Rightarrow\;\frac{\partial T}{\partial x}+H_2T=0 &&x=L,\;t>0\\
-&T=F(x) &&t=0
+X(0)&=A_1=0 &&\text{BC at }x=0\\
+X&=A_2\sin\beta x &&\text{what is left}\\
+X(L)&=A_2\sin\beta L=0 &&\text{BC at }x=L\\
+\sin\beta_mL&=0 &&A_2\neq0\\
+\beta_m&=\frac{m\pi}{L},\quad m=1,2,3,\dots &&\text{zeros of sine}\\
+X(\beta_m,x)&=\sin\beta_mx &&\text{drop }A_2
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+### Step 5 · Find Cₘ (the Fourier coefficient)
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
+5a. Superpose. Each βₘ gives a solution of the PDE and both boundary conditions. The problem is linear and homogeneous, so their sum is also a solution (Notes pp. 32 and 37; Özişik p. 83, eq. 3-44):
 
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ into each condition and divide by Γ(t) ≠ 0:
+$$
+T(x,t)=\sum_{m=1}^{\infty}C_m\,X(\beta_m,x)\,e^{-\alpha\beta_m^2t}
+$$
 
-```latex
--X'(0)+H_1X(0)=0\qquad\qquad X'(L)+H_2X(L)=0
-```
+5b. Apply the initial condition. At t = 0 every exponential equals 1:
 
-**Step 4 · Apply the condition at x = 0.** With X(0) = A₁ and X′(0) = A₂β:
+$$
+F(x)=\sum_{m=1}^{\infty}C_m\,X(\beta_m,x)
+$$
 
-```latex
--A_2\beta+H_1A_1=0\;\Rightarrow\;A_2=\frac{H_1}{\beta}A_1\;\Rightarrow\;X=A_1\Big(\cos\beta x+\frac{H_1}{\beta}\sin\beta x\Big)=\frac{A_1}{\beta}\big(\beta\cos\beta x+H_1\sin\beta x\big)
-```
+5c. Multiply both sides by X(βₙ, x) and integrate from 0 to L:
 
-The factor A₁/β is a constant that merges into Cₘ, so drop it: X(β, x) = β cos βx + H₁ sin βx. Your notes write the same step as A₂β = H₁A₁.
+$$
+\int_0^L F(x)\,X(\beta_n,x)\,dx=\sum_{m=1}^{\infty}C_m\int_0^L X(\beta_m,x)\,X(\beta_n,x)\,dx
+$$
 
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** Differentiate X, then evaluate X and X′ at x = L:
+5d. Use orthogonality (Notes p. 32; Özişik p. 42, eq. 2-8). Every integral on the right is zero except the one with m = n:
 
-```latex
+$$
+\int_0^L X(\beta_m,x)\,X(\beta_n,x)\,dx=\begin{cases}0 & m\neq n\\ N(\beta_m) & m=n\end{cases}
+$$
+
+5e. Solve for the coefficient and rename n as m (Notes pp. 33 and 37; Özişik p. 83, eq. 3-46):
+
+$$
+C_m=\frac{1}{N(\beta_m)}\int_0^L X(\beta_m,x')\,F(x')\,dx'
+$$
+
+The prime on x′ only marks the integration variable. Table 2-2 leaves F(x) as a symbol, so Cₘ stays in this form. Appendix B shows what happens for a specific F(x), such as the uniform start in your notes (pp. 40–41).
+
+5f. Why orthogonality holds, in case you are asked. Write the ODE for two eigenvalues:
+
+$$
 \begin{aligned}
-X'(x)&=-\beta^2\sin\beta x+\beta H_1\cos\beta x\\
-X(L)&=\beta\cos\beta L+H_1\sin\beta L\\
-X'(L)&=-\beta^2\sin\beta L+\beta H_1\cos\beta L
+\frac{d^2X_m}{dx^2}+\beta_m^2X_m&=0\\
+\frac{d^2X_n}{dx^2}+\beta_n^2X_n&=0
 \end{aligned}
-```
+$$
 
-Substitute into X′(L) + H₂X(L) = 0, group the sin and cos terms, and divide by (β² − H₁H₂)cos βL:
+Multiply the first by Xₙ and the second by Xₘ, subtract, and notice that the derivative terms form one derivative:
 
-```latex
+$$
+\frac{d}{dx}\left(X_n\frac{dX_m}{dx}-X_m\frac{dX_n}{dx}\right)+\left(\beta_m^2-\beta_n^2\right)X_mX_n=0
+$$
+
+Integrate from 0 to L:
+
+$$
+\left[X_n\frac{dX_m}{dx}-X_m\frac{dX_n}{dx}\right]_0^L+\left(\beta_m^2-\beta_n^2\right)\int_0^L X_mX_n\,dx=0
+$$
+
+The bracket is zero at each face for all three kinds. For example, at x = L with dX/dx = −H₂X, it becomes Xₙ(−H₂Xₘ) − Xₘ(−H₂Xₙ) = 0. So when βₘ ≠ βₙ, the integral must be zero.
+
+### Step 6 · Find the normalization factor
+
+6a. Definition (Notes p. 32; Özişik p. 42, eq. 2-9):
+
+$$
+N(\beta_m)=\int_0^L\big[X(\beta_m,x)\big]^2\,dx
+$$
+
+The table lists 1/N(βₘ). Every norm in the table follows one of three patterns, set by how many faces have convection:
+
+| Pattern | Cases | After integrating | Then use the eigenvalue equation to | Result 1/N(βₘ) |
+| --- | --- | --- | --- | --- |
+| A: no convective face | 5, 6, 8, 9 | N = L/2 ± sin 2βL/(4β) | make sin 2βL = 2 sin βL cos βL = 0 | 2/L (Case 5 also has 1/L for β₀ = 0) |
+| B: one convective face (coefficient H) | 2, 3, 4, 7 | N = L/2 ± sin 2βL/(4β) | replace sin 2βL by ±2βH/(β² + H²) | 2(βₘ² + H²)/[L(βₘ² + H²) + H] |
+| C: two convective faces | 1 | N = (β² + H₁²)[L/2 + (sin 2φ + sin 2ψ)/(4β)] | replace sin 2φ and sin 2ψ | Case 1's row |
+
+The plus sign goes with a cosine eigenfunction (the cos² integral), and the minus sign with a sine eigenfunction (the sin² integral).
+
+6b. Pattern B step by step, using Case 4 (X = cos βx, eigenvalue equation β tan βL = H₂). First integrate:
+
+$$
 \begin{aligned}
--\beta^2\sin\beta L+\beta H_1\cos\beta L+\beta H_2\cos\beta L+H_1H_2\sin\beta L&=0\\
+N&=\int_0^L\cos^2\beta x\,dx &&\text{definition}\\
+&=\int_0^L\frac{1+\cos2\beta x}{2}\,dx &&\text{power reduction}\\
+&=\left[\frac{x}{2}+\frac{\sin2\beta x}{4\beta}\right]_0^L &&\text{integrate}\\
+&=\frac{L}{2}+\frac{\sin2\beta L}{4\beta} &&\text{limits; }\sin0=0
+\end{aligned}
+$$
+
+Then replace sin 2βL with the eigenvalue equation, written as tan βL = H₂/β:
+
+$$
+\begin{aligned}
+\sin2\beta L&=\frac{2\tan\beta L}{1+\tan^2\beta L} &&\text{identity}\\
+&=\frac{2H_2/\beta}{1+H_2^2/\beta^2} &&\text{substitute }\tan\beta L=H_2/\beta\\
+&=\frac{2\beta H_2}{\beta^2+H_2^2} &&\text{multiply top and bottom by }\beta^2
+\end{aligned}
+$$
+
+Substitute, put over one denominator, and flip:
+
+$$
+\begin{aligned}
+N&=\frac{L}{2}+\frac{1}{4\beta}\cdot\frac{2\beta H_2}{\beta^2+H_2^2} &&\text{substitute}\\
+&=\frac{L}{2}+\frac{H_2}{2(\beta^2+H_2^2)} &&\text{cancel }2\beta\\
+&=\frac{L(\beta^2+H_2^2)+H_2}{2(\beta^2+H_2^2)} &&\text{common denominator}\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
+
+A sine eigenfunction (Cases 3 and 7) has −sin 2βL/(4β) from the sin² integral, and its cot-form eigenvalue equation gives sin 2βL = −2βH/(β² + H²). The two minus signs cancel, so the result is the same.
+
+6c. Pattern C (Case 1) rewrites X as a single cosine, then uses the same identity twice. The full steps are in Case 1.
+
+6d. A check rule for all nine norms (use it to check, not as the derivation):
+
+$$
+N=A^2\left[\frac{L}{2}+\sum_{\text{convective faces}}\frac{H}{2(\beta^2+H^2)}\right]
+$$
+
+A² = β² + H₁² in Case 1, whose X has amplitude √(β² + H₁²), and A² = 1 in every other case. An insulated or zero-temperature face adds nothing.
+
+### Final answer · Combine
+
+Put Cₘ into the series (Notes p. 37; Özişik p. 84, eq. 3-48; 2nd ed. eq. 2-36a):
+
+$$
+T(x,t)=\sum_{m=1}^{\infty}\underbrace{e^{-\alpha\beta_m^2t}}_{\Gamma}\;\underbrace{\frac{1}{N(\beta_m)}}_{\text{Step 6}}\;\underbrace{X(\beta_m,x)}_{\text{Step 4}}\int_0^L X(\beta_m,x')\,F(x')\,dx'
+$$
+
+If you shifted with θ = T − T∞, add T∞ back at the end (Özişik p. 84, eq. 3-47). Case 5 adds an m = 0 term.
+
+## Trig identities: memorize only four
+
+You only need to memorize four identities: 1, 2, 4 and 7. The others you already know or can rebuild in one line. "Step" means the exam part: Step 4 = eigenfunction, Step 5 = Cₘ, Step 6 = normalization factor.
+
+**Memorize these four.** Identity 4 is the one that makes the normalization factors come out.
+
+| # | Identity | Where it is used |
+| --- | --- | --- |
+| 1 | cos²u = (1 + cos 2u)/2 | Step 6 of Cases 2, 4, 5, 6 (the cos² integral) and Case 1 (the cos²(βx − φ) integral) |
+| 2 | sin²u = (1 − cos 2u)/2 | Step 6 of Cases 3, 7, 8, 9 (the sin² integral) |
+| 4 | sin 2u = 2 tan u/(1 + tan²u). It also holds with cot in place of tan (identity 5). | Step 6 of Cases 1, 2, 4 (tan form) and Cases 3, 7 (cot form) |
+| 7 | cos(A − B) = cos A cos B + sin A sin B | Step 6 of Case 1 (X becomes R cos(βx − φ)); Step 4 of Case 2, unless you use trick 7 |
+
+**Skip memorizing the rest.** You already know them, or they rebuild in one line.
+
+| # | Identity | Where it is used | Why you can skip it |
+| --- | --- | --- | --- |
+| 3 | sin 2u = 2 sin u cos u | Step 6 of Cases 5, 6, 8, 9 (shows sin 2βL = 0) and Case 1 (gives sin 2φ) | You already know it |
+| 5 | sin 2u = 2 cot u/(1 + cot²u) | Step 6 of Cases 3 and 7 | Identity 4 with cot in place of tan |
+| 6 | cos²u = 1/(1 + tan²u) and sin²u = 1/(1 + cot²u) | Rebuilding identity 4 | One line from sin²u + cos²u = 1 (below) |
+| 8 | sin(A − B) = sin A cos B − cos A sin B | Step 4 of Case 3 (X becomes sin β(L − x)) | The partner of identity 7; trick 7 avoids it |
+| 9 | tan u = sin u/cos u and cot u = cos u/sin u | Step 4: tan form (Cases 1, 2, 4) or cot form (Cases 3, 7) | You already know it |
+| 10 | sin mπ = 0 | Steps 4 and 6 of Cases 5 and 9 | Read it off the unit circle |
+| 11 | cos((2m − 1)π/2) = 0 | Steps 4 and 6 of Cases 6 and 8 | Read it off the unit circle |
+| 12 | sin 0 = 0, cos 0 = 1, cos(−u) = cos u, sin(−u) = −sin u | Step 4 of every case; Step 6 of Case 1 (the lower limit) | You already know it |
+| 13 | e^(iu) = cos u + i sin u (Euler) | Step 4a: why X is built from cos βx and sin βx | You never write it on the exam |
+| Check | tan(A + B) = (tan A + tan B)/(1 − tan A tan B) | Optional check of Case 1's eigenvalue equation | Optional |
+
+If you forget identity 6, rebuild it from sin²u + cos²u = 1:
+
+$$
+\begin{aligned}
+\sin^2u+\cos^2u&=1 &&\text{start}\\
+\tan^2u+1&=\frac{1}{\cos^2u} &&\text{divide by }\cos^2u\\
+\cos^2u&=\frac{1}{1+\tan^2u} &&\text{flip both sides}
+\end{aligned}
+$$
+
+If you forget identity 4, rebuild it from identities 3 and 6:
+
+$$
+\begin{aligned}
+\sin2u&=2\sin u\cos u &&\text{identity 3}\\
+&=2\,\frac{\sin u}{\cos u}\,\cos^2u &&\text{multiply and divide by }\cos u\\
+&=2\tan u\cos^2u &&\text{identity 9}\\
+&=\frac{2\tan u}{1+\tan^2u} &&\text{identity 6}
+\end{aligned}
+$$
+
+Identity 5 is the same move with sine: sin 2u = 2 cot u sin²u = 2 cot u/(1 + cot²u).
+
+## Integrals: derive, don't memorize
+
+Every integral runs from 0 to L, and none needs memorizing. Integrals 1, 2 and 3 come from identities 1 and 2 in three lines, worked below. The rest are basic calculus or part of the shared Step 5; integrals 5 to 8, used only for a specific F(x), are in Appendix B.
+
+| # | Integral, from 0 to L | Where it is used | How you get it |
+| --- | --- | --- | --- |
+| 1 | ∫cos²βx dx = L/2 + sin 2βL/(4β) | Step 6 of Cases 4, 5, 6; Case 2 after u = L − x | Identity 1, then integrate (below) |
+| 2 | ∫sin²βx dx = L/2 − sin 2βL/(4β) | Step 6 of Cases 7, 8, 9; Case 3 after u = L − x | Identity 2, then integrate (below) |
+| 3 | ∫cos²(βx − φ) dx = L/2 + [sin 2(βL − φ) + sin 2φ]/(4β) | Step 6 of Case 1 (the phase method) | Integral 1 with βx − φ in place of βx (below) |
+| 4 | ∫f(L − x) dx = ∫f(u) du, with u = L − x | Step 6 of Cases 2 and 3 | A substitution (below) |
+| 9 | ∫1² dx = L | Step 6 of Case 5, for β₀ = 0 | Basic |
+| 10 | ∫X(βₘ, x) X(βₙ, x) dx = 0 if m ≠ n, and N(βₘ) if m = n | Step 5 of every case (orthogonality) | Part of the shared Step 5, not a separate fact |
+| 11 | ∫dΓ/Γ = ln Γ + c | Step 3 of every case (the time function) | Basic |
+| 12 | ∫sin βx cos βx dx = sin²βL/(2β) | Only Appendix A (Case 1 by direct expansion) | Skip unless you use Appendix A |
+
+Practice deriving integrals 1 and 2; each takes three lines:
+
+$$
+\begin{aligned}
+\int_0^L\cos^2\beta x\,dx&=\int_0^L\frac{1+\cos2\beta x}{2}\,dx &&\text{identity 1}\\
+&=\left[\frac{x}{2}+\frac{\sin2\beta x}{4\beta}\right]_0^L &&\text{integrate}\\
+&=\frac{L}{2}+\frac{\sin2\beta L}{4\beta} &&\text{upper minus lower; }\sin0=0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\int_0^L\sin^2\beta x\,dx&=\int_0^L\frac{1-\cos2\beta x}{2}\,dx &&\text{identity 2}\\
+&=\left[\frac{x}{2}-\frac{\sin2\beta x}{4\beta}\right]_0^L &&\text{integrate}\\
+&=\frac{L}{2}-\frac{\sin2\beta L}{4\beta} &&\text{upper minus lower; }\sin0=0
+\end{aligned}
+$$
+
+Integral 3 is the same move with a shifted angle. The lower limit gives sin(−2φ), and subtracting it adds sin 2φ:
+
+$$
+\begin{aligned}
+\int_0^L\cos^2(\beta x-\varphi)\,dx&=\left[\frac{x}{2}+\frac{\sin(2\beta x-2\varphi)}{4\beta}\right]_0^L &&\text{identity 1}\\
+&=\frac{L}{2}+\frac{\sin(2\beta L-2\varphi)-\sin(-2\varphi)}{4\beta} &&\text{limits}\\
+&=\frac{L}{2}+\frac{\sin2(\beta L-\varphi)+\sin2\varphi}{4\beta} &&\sin(-u)=-\sin u
+\end{aligned}
+$$
+
+Integral 4, the reflection. The minus sign from du swaps the limits back:
+
+$$
+\begin{aligned}
+\int_0^L f(L-x)\,dx&=\int_L^0 f(u)\,(-du) &&u=L-x,\;du=-dx,\;\text{limits }L\text{ to }0\\
+&=\int_0^L f(u)\,du &&\text{swap limits, drop the minus}
+\end{aligned}
+$$
+
+## Tricks and simplifications
+
+These are the moves that save time or prevent sign errors, grouped by step. Don't memorize this list: each trick is already written into the case steps. Know these cold: 1 (boundary-condition signs), 9 (tan or cot form) and 15 to 18 (normalization factor).
+
+| # | Step | Trick | Where it is used |
+| --- | --- | --- | --- |
+| 1 | 2 | Outward-normal rule: write −k ∂T/∂n = h(T − T∞), then set ∂/∂n = −∂/∂x at x = 0 and +∂/∂x at x = L. The signs come from substitution, not intuition. | Step 2 of Cases 1, 2, 3 (x = 0) and Cases 1, 4, 7 (x = L) |
+| 2 | 2 | Temperature shift: θ = T − T∞ (or T − Tₛ) turns the T∞ terms into zero. Add T∞ back in the final answer. | Step 2 of any case whose fluid or wall is not at zero |
+| 3 | 2 | Limits link the face kinds: H → 0 gives insulated, and H → ∞ gives zero temperature. | Step 2 of every case; also a check on Steps 4 and 6 |
+| 4 | 3 | The separation constant is −β²: the only choice that decays in time and gives a nonzero X (see Step 3h). | Step 3 of every case |
+| 5 | 3 | Divide each boundary condition by Γ(t), which is never zero, to move it from T onto X. | Step 3 of every case |
+| 6 | 4 | Start at the simple face: X = 0 or dX/dx = 0 removes a constant immediately. | Step 4 of Cases 4 to 9 (x = 0 is simple) |
+| 7 | 4 | Shifted general solution: X = A cos β(L − x) + B sin β(L − x). The condition at x = L removes one constant at once. | Step 4 of Cases 2 and 3 (a shortcut; the book's route uses identities 7 and 8) |
+| 8 | 4 | Drop leftover constants (A₁/β, A₁/cos βL, A₁/sin βL). They join Cₘ, and the table writes X without them. | Step 4 of Cases 1, 2, 3 |
+| 9 | 4 | Tan form or cot form: divide by cos βL for tan, by sin βL for cot. Hook: other face insulated gives β tan βL = H; other face at zero temperature gives β cot βL = −H. | Step 4 of Cases 1, 2, 4 (tan) and 3, 7 (cot) |
+| 10 | 4 | Test β = 0 with X = a + bx. Only Case 5 keeps it, with X₀ = 1. | Step 4 of every case |
+| 11 | 4 | Index conventions: (2m − 1)π/(2L) for m = 1, 2, … lists the same roots as (2m + 1)π/(2L) for m = 0, 1, … (your notes p. 40 use the second). | Step 4 of Cases 6 and 8 |
+| 12 | 5 | Write Cₘ with 1/N(βₘ) as a symbol first, then fill it in after Step 6. | Step 5 of every case |
+| 15 | 6 | No sin βL or cos βL may stay in the final 1/N; the table has none. Always replace them with the eigenvalue equation. | Step 6 of every case |
+| 16 | 6 | One identity for every convective face: tan u = H/β gives sin 2u = 2βH/(β² + H²), and cot u = −H/β gives sin 2u = −2βH/(β² + H²). | Step 6 of Cases 1, 2, 3, 4, 7 |
+| 17 | 6 | Common-denominator flip: L/2 + H/(2(β² + H²)) = [L(β² + H²) + H]/[2(β² + H²)], then invert. | Step 6 of Cases 2, 3, 4, 7 |
+| 18 | 6 | Phase trick for a two-term X: β cos βx + H₁ sin βx = √(β² + H₁²) cos(βx − φ), with tan φ = H₁/β. | Step 6 of Case 1 |
+| 19 | 6 | Universal check: N = A²[L/2 + sum of H/(2(β² + H²)) over the convective faces], with A² = β² + H₁² in Case 1 and 1 otherwise. | Checking Step 6 of every case |
+| 20 | 4, 6 | Mirror pairs: flipping the slab (x → L − x) swaps the faces, so Cases 2 and 4, 3 and 7, and 6 and 8 share eigenvalues and norms. | Checking Steps 4 and 6 |
+| 21 | All | Write the target row first, label each part with your professor's wording, and box every answer in table form. If stuck, write the definition and the target, and show what you can. | The whole exam |
+
+Tricks 13 and 14 are only for a specific F(x), so they are in Appendix B.
+
+## Case 1 — Convection at both faces
+
+Pattern C. What is new: the condition at x = 0 only links A₁ and A₂, and the normalization factor needs the phase trick. Your notes work this case on pp. 38–39. Targets from Table 2-2:
+
+$$
+\begin{aligned}
+X(\beta_m,x)&=\beta_m\cos\beta_mx+H_1\sin\beta_mx\\
+\tan\beta_mL&=\frac{\beta_m(H_1+H_2)}{\beta_m^2-H_1H_2}\\
+\frac{1}{N(\beta_m)}&=2\left[(\beta_m^2+H_1^2)\left(L+\frac{H_2}{\beta_m^2+H_2^2}\right)+H_1\right]^{-1}
+\end{aligned}
+$$
+
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
+
+$$
+\begin{aligned}
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
+\end{aligned}
+$$
+
+**Step 2 · Apply the boundary conditions.** Both faces convect to fluid at zero temperature. Use −k ∂T/∂n = hT with ∂/∂n = −∂/∂x at x = 0 and +∂/∂x at x = L:
+
+$$
+\begin{aligned}
+k\,\frac{\partial T}{\partial x}&=h_1T &&x=0:\ \partial T/\partial n=-\partial T/\partial x\\
+-\frac{\partial T}{\partial x}+H_1T&=0 &&\text{divide by }k;\ H_1=h_1/k\\
+-k\,\frac{\partial T}{\partial x}&=h_2T &&x=L:\ \partial T/\partial n=+\partial T/\partial x\\
+\frac{\partial T}{\partial x}+H_2T&=0 &&\text{divide by }k;\ H_2=h_2/k\\
+T&=F(x) &&\text{at }t=0
+\end{aligned}
+$$
+
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
+
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+-\frac{dX}{dx}+H_1X&=0 &&\text{BC on }X\text{ at }x=0\\
+\frac{dX}{dx}+H_2X&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
+
+**Step 4 · Find the eigenfunction.** Apply the condition at x = 0, using X(0) = A₁ and dX/dx = A₂β at x = 0:
+
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+-A_2\beta+H_1A_1&=0 &&\text{BC at }x=0\\
+A_2&=\frac{H_1}{\beta}A_1 &&\text{solve for }A_2\\
+X&=\frac{A_1}{\beta}\left(\beta\cos\beta x+H_1\sin\beta x\right) &&\text{substitute, factor out }A_1/\beta\\
+X&=\beta\cos\beta x+H_1\sin\beta x &&\text{drop the constant (trick 8)}
+\end{aligned}
+$$
+
+Apply the condition at x = L:
+
+$$
+\begin{aligned}
+\frac{dX}{dx}&=-\beta^2\sin\beta x+\beta H_1\cos\beta x &&\text{differentiate}\\
+0&=\left.\frac{dX}{dx}\right|_{x=L}+H_2X(L) &&\text{BC at }x=L\\
+0&=-\beta^2\sin\beta L+\beta H_1\cos\beta L+H_2\beta\cos\beta L+H_1H_2\sin\beta L &&\text{substitute}\\
+0&=(H_1H_2-\beta^2)\sin\beta L+\beta(H_1+H_2)\cos\beta L &&\text{group}
+\end{aligned}
+$$
+
+Move the sin term to the other side, then divide both sides by (β² − H₁H₂) cos βL:
+
+$$
+\begin{aligned}
 \beta(H_1+H_2)\cos\beta L&=(\beta^2-H_1H_2)\sin\beta L\\
 \tan\beta_mL&=\frac{\beta_m(H_1+H_2)}{\beta_m^2-H_1H_2}
 \end{aligned}
-```
+$$
 
-Its positive roots β₁ < β₂ < … are the eigenvalues, found numerically or graphically. β = 0 is not one: X = a + bx gives b = H₁a at x = 0, then a(H₁ + H₂ + H₁H₂L) = 0 at x = L, so a = b = 0.
+So X(βₘ, x) = βₘ cos βₘx + H₁ sin βₘx, with βₘ the positive roots. β = 0 fails: X = a + bx gives b = H₁a at x = 0, then a(H₁ + H₂ + H₁H₂L) = 0 at x = L, so a = b = 0.
 
-**Step 6 · Find 1/N.** Square X and integrate term by term:
+**Step 5 · Find Cₘ.** Superpose and set t = 0:
 
-```latex
-N=\int_0^L(\beta\cos\beta x+H_1\sin\beta x)^2dx=\beta^2\!\int_0^L\cos^2\beta x\,dx+2\beta H_1\!\int_0^L\sin\beta x\cos\beta x\,dx+H_1^2\!\int_0^L\sin^2\beta x\,dx
-```
-
-Insert the three Toolkit integrals and collect terms:
-
-```latex
+$$
 \begin{aligned}
-N&=\beta^2\left[\frac{L}{2}+\frac{\sin2\beta L}{4\beta}\right]+2\beta H_1\,\frac{\sin^2\beta L}{2\beta}+H_1^2\left[\frac{L}{2}-\frac{\sin2\beta L}{4\beta}\right]\\
-&=\frac{(\beta^2+H_1^2)L}{2}+\frac{(\beta^2-H_1^2)\sin2\beta L}{4\beta}+H_1\sin^2\beta L\qquad(\star)
+T(x,t)&=\sum_{m=1}^{\infty}C_m\left(\beta_m\cos\beta_mx+H_1\sin\beta_mx\right)e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\left(\beta_m\cos\beta_mx+H_1\sin\beta_mx\right) &&t=0
 \end{aligned}
-```
+$$
 
-Now remove sin 2βL and sin²βL with the eigenvalue equation. Let τ = tan βL = β(H₁ + H₂)/(β² − H₁H₂). The key algebra is 1 + τ²; when you expand the numerator, the ±2β²H₁H₂ cross terms cancel and it factors:
+Multiply by X(βₙ, x), integrate from 0 to L, and use orthogonality (shared Step 5):
 
-```latex
-1+\tau^2=\frac{(\beta^2-H_1H_2)^2+\beta^2(H_1+H_2)^2}{(\beta^2-H_1H_2)^2}=\frac{\beta^4+\beta^2H_1^2+\beta^2H_2^2+H_1^2H_2^2}{(\beta^2-H_1H_2)^2}=\frac{(\beta^2+H_1^2)(\beta^2+H_2^2)}{(\beta^2-H_1H_2)^2}
-```
+$$
+C_m=\frac{1}{N(\beta_m)}\int_0^L\left(\beta_m\cos\beta_mx'+H_1\sin\beta_mx'\right)F(x')\,dx'
+$$
 
-Then sin 2u = 2τ/(1 + τ²) and sin²u = τ²/(1 + τ²) give:
+**Step 6 · Find the normalization factor (phase method).**
 
-```latex
-\sin2\beta L=\frac{2\beta(H_1+H_2)(\beta^2-H_1H_2)}{(\beta^2+H_1^2)(\beta^2+H_2^2)}\qquad\qquad
-\sin^2\beta L=\frac{\beta^2(H_1+H_2)^2}{(\beta^2+H_1^2)(\beta^2+H_2^2)}
-```
+6a. Rewrite X as one cosine. Let R = √(β² + H₁²) and pick the angle φ with cos φ = β/R and sin φ = H₁/R, so tan φ = H₁/β:
 
-Put these into the last two terms of (⋆) over the common denominator 2(β² + H₁²)(β² + H₂²):
-
-```latex
+$$
 \begin{aligned}
-\frac{(\beta^2-H_1^2)\sin2\beta L}{4\beta}+H_1\sin^2\beta L
-&=\frac{(H_1+H_2)\left[(\beta^2-H_1^2)(\beta^2-H_1H_2)+2H_1\beta^2(H_1+H_2)\right]}{2(\beta^2+H_1^2)(\beta^2+H_2^2)}\\
-&=\frac{(H_1+H_2)\left[\beta^4+\beta^2H_1^2+\beta^2H_1H_2+H_1^3H_2\right]}{2(\beta^2+H_1^2)(\beta^2+H_2^2)}\\
-&=\frac{(H_1+H_2)(\beta^2+H_1^2)(\beta^2+H_1H_2)}{2(\beta^2+H_1^2)(\beta^2+H_2^2)}=\frac{(H_1+H_2)(\beta^2+H_1H_2)}{2(\beta^2+H_2^2)}
+X&=\beta\cos\beta x+H_1\sin\beta x &&\text{eigenfunction}\\
+&=R\left(\cos\varphi\cos\beta x+\sin\varphi\sin\beta x\right) &&\beta=R\cos\varphi,\;H_1=R\sin\varphi\\
+&=R\cos(\beta x-\varphi) &&\text{identity 7}
 \end{aligned}
-```
+$$
 
-The bracket factors because β⁴ + β²H₁² + β²H₁H₂ + H₁³H₂ = β²(β² + H₁²) + H₁H₂(β² + H₁²). Last, split (H₁ + H₂)(β² + H₁H₂) = H₁(β² + H₂²) + H₂(β² + H₁²), add back the first term of (⋆), and factor out ½:
+6b. Write the condition at x = L in this form. Let ψ = βL − φ:
 
-```latex
-N=\frac{1}{2}\left[(\beta_m^2+H_1^2)\left(L+\frac{H_2}{\beta_m^2+H_2^2}\right)+H_1\right]\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=2\left[(\beta_m^2+H_1^2)\left(L+\frac{H_2}{\beta_m^2+H_2^2}\right)+H_1\right]^{-1}
-```
+$$
+\begin{aligned}
+\frac{dX}{dx}&=-R\beta\sin(\beta x-\varphi) &&\text{differentiate}\\
+-R\beta\sin\psi+H_2R\cos\psi&=0 &&\text{BC at }x=L\\
+\tan\psi&=\frac{H_2}{\beta} &&\text{divide by }R\beta\cos\psi
+\end{aligned}
+$$
 
-**Step 7 · Combine into T(x,t).** Γ from Step 2, X from Step 4 and 1/N from Step 6, inserted into A11:
+6c. Integrate with integral 3:
 
-```latex
-T(x,t)=\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\;\frac{2\,(\beta_m\cos\beta_mx+H_1\sin\beta_mx)}{(\beta_m^2+H_1^2)\left(L+\dfrac{H_2}{\beta_m^2+H_2^2}\right)+H_1}\int_0^L(\beta_m\cos\beta_mx'+H_1\sin\beta_mx')\,F(x')\,dx'
-```
+$$
+\begin{aligned}
+N&=\int_0^L R^2\cos^2(\beta x-\varphi)\,dx &&\text{definition}\\
+&=R^2\left[\frac{L}{2}+\frac{\sin2\psi+\sin2\varphi}{4\beta}\right] &&\text{integral 3, with }\psi=\beta L-\varphi
+\end{aligned}
+$$
 
-The βₘ are the positive roots of tan βₘL = βₘ(H₁ + H₂)/(βₘ² − H₁H₂).
+6d. Evaluate the two sines:
 
-**Uniform start, F(x) = T₀.** The integral is ∫₀ᴸ(βₘcos βₘx′ + H₁sin βₘx′)dx′ = sin βₘL + (H₁/βₘ)(1 − cos βₘL), so:
+$$
+\begin{aligned}
+\sin2\varphi&=2\sin\varphi\cos\varphi &&\text{identity 3}\\
+&=2\cdot\frac{H_1}{R}\cdot\frac{\beta}{R}=\frac{2\beta H_1}{\beta^2+H_1^2} &&R^2=\beta^2+H_1^2\\
+\sin2\psi&=\frac{2\tan\psi}{1+\tan^2\psi} &&\text{identity 4}\\
+&=\frac{2H_2/\beta}{1+H_2^2/\beta^2}=\frac{2\beta H_2}{\beta^2+H_2^2} &&\tan\psi=H_2/\beta
+\end{aligned}
+$$
 
-```latex
-T(x,t)=2T_0\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\;\frac{\sin\beta_mL+\dfrac{H_1}{\beta_m}(1-\cos\beta_mL)}{(\beta_m^2+H_1^2)\left(L+\dfrac{H_2}{\beta_m^2+H_2^2}\right)+H_1}\,\big(\beta_m\cos\beta_mx+H_1\sin\beta_mx\big)
-```
+6e. Substitute. Each sine divided by 4β leaves H/[2(β² + H²)]:
 
-Limit check: H₁ → 0 turns X into β cos βx and the eigenvalue equation into β tan βL = H₂, which is Case 4.
+$$
+\begin{aligned}
+N&=(\beta^2+H_1^2)\left[\frac{L}{2}+\frac{H_1}{2(\beta^2+H_1^2)}+\frac{H_2}{2(\beta^2+H_2^2)}\right] &&\text{substitute}\\
+&=\frac{(\beta^2+H_1^2)L}{2}+\frac{H_1}{2}+\frac{(\beta^2+H_1^2)H_2}{2(\beta^2+H_2^2)} &&\text{expand}\\
+&=\frac{1}{2}\left[(\beta^2+H_1^2)\left(L+\frac{H_2}{\beta^2+H_2^2}\right)+H_1\right] &&\text{factor}\\
+\frac{1}{N(\beta_m)}&=2\left[(\beta_m^2+H_1^2)\left(L+\frac{H_2}{\beta_m^2+H_2^2}\right)+H_1\right]^{-1} &&\text{flip}
+\end{aligned}
+$$
+
+The last line matches Table 2-2.
+
+Optional check of Step 4: φ + ψ = βL, so the tangent addition formula rebuilds the eigenvalue equation:
+
+$$
+\tan\beta L=\frac{\tan\varphi+\tan\psi}{1-\tan\varphi\tan\psi}=\frac{H_1/\beta+H_2/\beta}{1-H_1H_2/\beta^2}=\frac{\beta(H_1+H_2)}{\beta^2-H_1H_2}
+$$
+
+If you forget the phase trick, Appendix A reaches the same N by expanding X² directly.
+
+**Final answer.**
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\left(\beta_m\cos\beta_mx+H_1\sin\beta_mx\right)e^{-\alpha\beta_m^2t}\\
+C_m&=\frac{2\displaystyle\int_0^L\left(\beta_m\cos\beta_mx'+H_1\sin\beta_mx'\right)F(x')\,dx'}{(\beta_m^2+H_1^2)\left(L+\dfrac{H_2}{\beta_m^2+H_2^2}\right)+H_1}
+\end{aligned}
+$$
+
+Sources: Notes pp. 38–39 for this case and pp. 31–37 for the method; Özişik pp. 81–84 for the method and p. 46 for the table row.
 
 ## Case 2 — Convection at x = 0, insulated at x = L
 
-Result: X(βₘ, x) = cos βₘ(L − x); 1/N = 2(βₘ² + H₁²)/\[L(βₘ² + H₁²) + H₁\]; βₘ are the positive roots of βₘ tan βₘL = H₁. It is the mirror image of Case 4, and the 3rd-edition PDF works it as Example 2-2 (pp. 45–47).
+Pattern B, cosine. What is new: the simple face is x = L, so after the x = 0 condition you tidy X with identity 7 into cos βₘ(L − x). The 3rd-edition PDF works this case as Example 2-2 (Özişik pp. 45–47, eqs. 2-25 to 2-34). It is the mirror image of Case 4. Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 the face x = 0 convects to fluid at zero temperature (h₁) and the face x = L is insulated.
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&-\frac{\partial T}{\partial x}+H_1T=0 &&x=0,\;t>0\quad(H_1=h_1/k)\\
-&\frac{\partial T}{\partial x}=0 &&x=L,\;t>0\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\cos\beta_m(L-x)\\
+\beta_m\tan\beta_mL&=H_1\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
-
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
-
-```latex
--X'(0)+H_1X(0)=0\qquad\qquad X'(L)=0
-```
-
-**Step 4 · Apply the condition at x = 0.** Exactly as in Case 1, −A₂β + H₁A₁ = 0, so A₂ = (H₁/β)A₁:
-
-```latex
-X=A_1\Big(\cos\beta x+\frac{H_1}{\beta}\sin\beta x\Big)
-```
-
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** A₁ ≠ 0, so the bracket must vanish; divide by cos βL for the last line:
-
-```latex
+$$
 \begin{aligned}
-X'(x)&=A_1\left(-\beta\sin\beta x+H_1\cos\beta x\right)\\
-X'(L)&=A_1\left(-\beta\sin\beta L+H_1\cos\beta L\right)=0\\
-\beta\sin\beta L&=H_1\cos\beta L\;\Rightarrow\;\beta_m\tan\beta_mL=H_1
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
 \end{aligned}
-```
+$$
 
-**Tidy X with a trig identity.** The eigenvalue equation says H₁/β = tan βL. Substitute it into X from Step 4:
+**Step 2 · Apply the boundary conditions.** The face x = 0 convects to fluid at zero temperature; the face x = L is insulated:
 
-```latex
+$$
 \begin{aligned}
-X&=A_1\left(\cos\beta x+\tan\beta L\,\sin\beta x\right)=A_1\left(\cos\beta x+\frac{\sin\beta L}{\cos\beta L}\sin\beta x\right)\\
-&=\frac{A_1}{\cos\beta L}\left(\cos\beta L\cos\beta x+\sin\beta L\sin\beta x\right)=\frac{A_1}{\cos\beta L}\cos(\beta L-\beta x)
+k\,\frac{\partial T}{\partial x}&=h_1T &&x=0:\ \partial T/\partial n=-\partial T/\partial x\\
+-\frac{\partial T}{\partial x}+H_1T&=0 &&\text{divide by }k;\ H_1=h_1/k\\
+\frac{\partial T}{\partial x}&=0 &&x=L:\ \text{insulated}\\
+T&=F(x) &&\text{at }t=0
 \end{aligned}
-```
+$$
 
-The last step is cos(A − B) = cos A cos B + sin A sin B. Drop the constant A₁/cos βL: X(βₘ, x) = cos βₘ(L − x).
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
 
-Check: X′ = β sin β(L − x) is 0 at x = L, and −X′(0) + H₁X(0) = −β sin βL + H₁cos βL = 0 by the eigenvalue equation. β = 0 fails: X = a + bx gives b = H₁a and b = 0, so a = 0. Shortcut: starting from X = A₁cos β(L − x) + A₂sin β(L − x), the x = L condition gives A₂ = 0 at once.
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+-\frac{dX}{dx}+H_1X&=0 &&\text{BC on }X\text{ at }x=0\\
+\frac{dX}{dx}&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
 
-**Step 6 · Find 1/N.** Substitute u = L − x (du = −dx, limits swap), then use the cos² integral:
+**Step 4 · Find the eigenfunction.** Apply both conditions:
 
-```latex
-N=\int_0^L\cos^2\beta(L-x)\,dx=\int_0^L\cos^2\beta u\,du=\frac{L}{2}+\frac{\sin\beta L\cos\beta L}{2\beta}
-```
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+0&=-A_2\beta+H_1A_1 &&\text{BC at }x=0\\
+X&=A_1\left(\cos\beta x+\frac{H_1}{\beta}\sin\beta x\right) &&A_2=(H_1/\beta)A_1\\
+\frac{dX}{dx}&=A_1\left(-\beta\sin\beta x+H_1\cos\beta x\right) &&\text{differentiate}\\
+0&=A_1\left(-\beta\sin\beta L+H_1\cos\beta L\right) &&\text{BC at }x=L\\
+\beta\sin\beta L&=H_1\cos\beta L &&A_1\neq0\\
+\beta_m\tan\beta_mL&=H_1 &&\text{divide by }\cos\beta L
+\end{aligned}
+$$
 
-From β tan βL = H₁, tan βL = H₁/β, and cos²βL = 1/(1 + tan²βL):
+Tidy X into the table's form (Özişik p. 47, eqs. 2-30 to 2-33). The eigenvalue equation says H₁/β = tan βL:
 
-```latex
-\sin\beta L\cos\beta L=\tan\beta L\cos^2\beta L=\frac{\tan\beta L}{1+\tan^2\beta L}=\frac{H_1/\beta}{1+H_1^2/\beta^2}=\frac{H_1\beta}{\beta^2+H_1^2}
-```
+$$
+\begin{aligned}
+X&=A_1\left(\cos\beta x+\frac{\sin\beta L}{\cos\beta L}\sin\beta x\right) &&H_1/\beta=\tan\beta L\\
+&=\frac{A_1}{\cos\beta L}\left(\cos\beta L\cos\beta x+\sin\beta L\sin\beta x\right) &&\text{factor out }1/\cos\beta L\\
+&=\frac{A_1}{\cos\beta L}\cos(\beta L-\beta x) &&\text{identity 7}\\
+X(\beta_m,x)&=\cos\beta_m(L-x) &&\text{drop the constant}
+\end{aligned}
+$$
 
-```latex
-N=\frac{L}{2}+\frac{H_1}{2(\beta_m^2+H_1^2)}=\frac{L(\beta_m^2+H_1^2)+H_1}{2(\beta_m^2+H_1^2)}\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}
-```
+Check: dX/dx = β sin β(L − x) is zero at x = L, and −dX/dx + H₁X at x = 0 equals −β sin βL + H₁ cos βL, which is zero by the eigenvalue equation. β = 0 fails: X = a + bx gives b = H₁a and b = 0, so a = 0. Shortcut (trick 7): start from X = A cos β(L − x) + B sin β(L − x), and dX/dx = 0 at x = L gives B = 0 at once.
 
-**Step 7 · Combine into T(x,t).**
+**Step 5 · Find Cₘ.** Superpose, set t = 0, then use orthogonality:
 
-```latex
-T(x,t)=\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\,\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}\,\cos\beta_m(L-x)\int_0^L\cos\beta_m(L-x')\,F(x')\,dx'
-```
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\cos\beta_m(L-x)\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\cos\beta_m(L-x) &&t=0\\
+C_m&=\frac{1}{N(\beta_m)}\int_0^L\cos\beta_m(L-x')\,F(x')\,dx' &&\text{orthogonality}
+\end{aligned}
+$$
 
-The βₘ are the positive roots of βₘ tan βₘL = H₁.
+**Step 6 · Find the normalization factor.** Reflect, then integrate:
 
-**Uniform start, F(x) = T₀.** The integral is ∫₀ᴸcos βₘ(L − x′)dx′ = sin βₘL/βₘ. Using sin βₘL = H₁cos βₘL/βₘ and cos²βₘL = βₘ²/(βₘ² + H₁²), the coefficient collapses exactly as in your notes' Case 4 example (see Case 4):
+$$
+\begin{aligned}
+N&=\int_0^L\cos^2\beta(L-x)\,dx &&\text{definition}\\
+&=\int_0^L\cos^2\beta u\,du &&u=L-x\text{ (integral 4)}\\
+&=\frac{L}{2}+\frac{\sin2\beta L}{4\beta} &&\text{integral 1}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=2T_0\sum_{m=1}^{\infty}\frac{H_1}{\cos\beta_mL\,\left[L(\beta_m^2+H_1^2)+H_1\right]}\,e^{-\alpha\beta_m^2t}\cos\beta_m(L-x)
-```
+Replace sin 2βL with the eigenvalue equation, tan βL = H₁/β:
+
+$$
+\begin{aligned}
+\sin2\beta L&=\frac{2\tan\beta L}{1+\tan^2\beta L} &&\text{identity 4}\\
+&=\frac{2H_1/\beta}{1+H_1^2/\beta^2} &&\tan\beta L=H_1/\beta\\
+&=\frac{2\beta H_1}{\beta^2+H_1^2} &&\text{multiply top and bottom by }\beta^2
+\end{aligned}
+$$
+
+Substitute, use one denominator, and flip:
+
+$$
+\begin{aligned}
+N&=\frac{L}{2}+\frac{1}{4\beta}\cdot\frac{2\beta H_1}{\beta^2+H_1^2} &&\text{substitute}\\
+&=\frac{L}{2}+\frac{H_1}{2(\beta^2+H_1^2)} &&\text{cancel }2\beta\\
+&=\frac{L(\beta^2+H_1^2)+H_1}{2(\beta^2+H_1^2)} &&\text{common denominator}\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
+
+**Final answer.**
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\cos\beta_m(L-x)\,e^{-\alpha\beta_m^2t}\\
+C_m&=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}\int_0^L\cos\beta_m(L-x')\,F(x')\,dx'
+\end{aligned}
+$$
+
+Sources: Özişik pp. 45–47 (Example 2-2) for this case; Notes pp. 31–37 for the method.
 
 ## Case 3 — Convection at x = 0, zero temperature at x = L
 
-Result: X(βₘ, x) = sin βₘ(L − x); 1/N = 2(βₘ² + H₁²)/\[L(βₘ² + H₁²) + H₁\]; βₘ are the positive roots of βₘ cot βₘL = −H₁. It is the mirror image of Case 7 and runs parallel to Case 2, with sine in place of cosine.
+Pattern B, sine. What is new: you tidy X with identity 8 into sin βₘ(L − x), the eigenvalue equation comes out in cot form, and the normalization factor uses the sin² integral. It is the mirror image of Case 7, and Özişik problem 2-3 (p. 74) asks for exactly this case. Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 the face x = 0 convects to fluid at zero temperature (h₁) and the face x = L is held at T = 0.
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&-\frac{\partial T}{\partial x}+H_1T=0 &&x=0,\;t>0\quad(H_1=h_1/k)\\
-&T=0 &&x=L,\;t>0\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\sin\beta_m(L-x)\\
+\beta_m\cot\beta_mL&=-H_1\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
-
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
-
-```latex
--X'(0)+H_1X(0)=0\qquad\qquad X(L)=0
-```
-
-**Step 4 · Apply the condition at x = 0.** Exactly as in Case 1, A₂ = (H₁/β)A₁:
-
-```latex
-X=A_1\Big(\cos\beta x+\frac{H_1}{\beta}\sin\beta x\Big)
-```
-
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** A₁ ≠ 0, so the bracket must vanish. Multiply it by β/sin βL and use cos/sin = cot:
-
-```latex
+$$
 \begin{aligned}
-X(L)&=A_1\left(\cos\beta L+\frac{H_1}{\beta}\sin\beta L\right)=0\\
-\cos\beta L+\frac{H_1}{\beta}\sin\beta L&=0\qquad\Big|\times\frac{\beta}{\sin\beta L}\\
-\beta\cot\beta L+H_1&=0\;\Rightarrow\;\beta_m\cot\beta_mL=-H_1
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
 \end{aligned}
-```
+$$
 
-**Tidy X with a trig identity.** The eigenvalue equation says H₁/β = −cot βL = −cos βL/sin βL. Substitute it into X from Step 4:
+**Step 2 · Apply the boundary conditions.** The face x = 0 convects to fluid at zero temperature; the face x = L is held at zero temperature:
 
-```latex
+$$
 \begin{aligned}
-X&=A_1\left(\cos\beta x-\frac{\cos\beta L}{\sin\beta L}\sin\beta x\right)=\frac{A_1}{\sin\beta L}\left(\sin\beta L\cos\beta x-\cos\beta L\sin\beta x\right)\\
-&=\frac{A_1}{\sin\beta L}\sin(\beta L-\beta x)
+k\,\frac{\partial T}{\partial x}&=h_1T &&x=0:\ \partial T/\partial n=-\partial T/\partial x\\
+-\frac{\partial T}{\partial x}+H_1T&=0 &&\text{divide by }k;\ H_1=h_1/k\\
+T&=0 &&x=L:\ \text{zero temperature}\\
+T&=F(x) &&\text{at }t=0
 \end{aligned}
-```
+$$
 
-The last step is sin(A − B) = sin A cos B − cos A sin B. Drop the constant A₁/sin βL: X(βₘ, x) = sin βₘ(L − x).
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
 
-Check: X(L) = sin 0 = 0. X′ = −β cos β(L − x), so −X′(0) + H₁X(0) = β cos βL + H₁sin βL, which is zero by the eigenvalue equation. β = 0 fails: b = H₁a, then X(L) = a(1 + H₁L) = 0, so a = 0.
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+-\frac{dX}{dx}+H_1X&=0 &&\text{BC on }X\text{ at }x=0\\
+X&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
 
-**Step 6 · Find 1/N.** Substitute u = L − x, then use the sin² integral:
+**Step 4 · Find the eigenfunction.** Apply both conditions:
 
-```latex
-N=\int_0^L\sin^2\beta(L-x)\,dx=\int_0^L\sin^2\beta u\,du=\frac{L}{2}-\frac{\sin\beta L\cos\beta L}{2\beta}
-```
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+0&=-A_2\beta+H_1A_1 &&\text{BC at }x=0\\
+X&=A_1\left(\cos\beta x+\frac{H_1}{\beta}\sin\beta x\right) &&A_2=(H_1/\beta)A_1\\
+0&=A_1\left(\cos\beta L+\frac{H_1}{\beta}\sin\beta L\right) &&\text{BC at }x=L:\ X=0\\
+0&=\cos\beta L+\frac{H_1}{\beta}\sin\beta L &&A_1\neq0\\
+0&=\beta\cot\beta L+H_1 &&\times\,\beta/\sin\beta L\\
+\beta_m\cot\beta_mL&=-H_1 &&\text{eigenvalue equation}
+\end{aligned}
+$$
 
-From β cot βL = −H₁, cot βL = −H₁/β, and sin²βL = 1/(1 + cot²βL):
+Tidy X into the table's form. The eigenvalue equation says H₁/β = −cot βL = −cos βL/sin βL:
 
-```latex
-\sin\beta L\cos\beta L=\cot\beta L\,\sin^2\beta L=\frac{\cot\beta L}{1+\cot^2\beta L}=\frac{-H_1/\beta}{1+H_1^2/\beta^2}=-\frac{H_1\beta}{\beta^2+H_1^2}
-```
+$$
+\begin{aligned}
+X&=A_1\left(\cos\beta x-\frac{\cos\beta L}{\sin\beta L}\sin\beta x\right) &&H_1/\beta=-\cot\beta L\\
+&=\frac{A_1}{\sin\beta L}\left(\sin\beta L\cos\beta x-\cos\beta L\sin\beta x\right) &&\text{factor out }1/\sin\beta L\\
+&=\frac{A_1}{\sin\beta L}\sin(\beta L-\beta x) &&\text{identity 8}\\
+X(\beta_m,x)&=\sin\beta_m(L-x) &&\text{drop the constant}
+\end{aligned}
+$$
 
-The two minus signs cancel, so the norm matches Case 2:
+Check: X(L) = sin 0 = 0. Also dX/dx = −β cos β(L − x), so −dX/dx + H₁X at x = 0 equals β cos βL + H₁ sin βL, which is the eigenvalue equation times sin βL, so it is zero. β = 0 fails: b = H₁a, then X(L) = a(1 + H₁L) = 0, so a = 0. Shortcut (trick 7): start from X = A cos β(L − x) + B sin β(L − x), and X(L) = 0 gives A = 0 at once.
 
-```latex
-N=\frac{L}{2}+\frac{H_1}{2(\beta_m^2+H_1^2)}=\frac{L(\beta_m^2+H_1^2)+H_1}{2(\beta_m^2+H_1^2)}\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}
-```
+**Step 5 · Find Cₘ.** Superpose, set t = 0, then use orthogonality:
 
-**Step 7 · Combine into T(x,t).**
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\beta_m(L-x)\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\sin\beta_m(L-x) &&t=0\\
+C_m&=\frac{1}{N(\beta_m)}\int_0^L\sin\beta_m(L-x')\,F(x')\,dx' &&\text{orthogonality}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\,\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}\,\sin\beta_m(L-x)\int_0^L\sin\beta_m(L-x')\,F(x')\,dx'
-```
+**Step 6 · Find the normalization factor.** Reflect, then integrate:
 
-The βₘ are the positive roots of βₘ cot βₘL = −H₁.
+$$
+\begin{aligned}
+N&=\int_0^L\sin^2\beta(L-x)\,dx &&\text{definition}\\
+&=\int_0^L\sin^2\beta u\,du &&u=L-x\text{ (integral 4)}\\
+&=\frac{L}{2}-\frac{\sin2\beta L}{4\beta} &&\text{integral 2}
+\end{aligned}
+$$
 
-**Uniform start, F(x) = T₀.** The integral is ∫₀ᴸsin βₘ(L − x′)dx′ = (1 − cos βₘL)/βₘ, so:
+Replace sin 2βL with the eigenvalue equation, cot βL = −H₁/β:
 
-```latex
-T(x,t)=2T_0\sum_{m=1}^{\infty}\frac{(\beta_m^2+H_1^2)(1-\cos\beta_mL)}{\beta_m\left[L(\beta_m^2+H_1^2)+H_1\right]}\,e^{-\alpha\beta_m^2t}\sin\beta_m(L-x)
-```
+$$
+\begin{aligned}
+\sin2\beta L&=\frac{2\cot\beta L}{1+\cot^2\beta L} &&\text{identity 5}\\
+&=\frac{-2H_1/\beta}{1+H_1^2/\beta^2} &&\cot\beta L=-H_1/\beta\\
+&=-\frac{2\beta H_1}{\beta^2+H_1^2} &&\text{multiply top and bottom by }\beta^2
+\end{aligned}
+$$
+
+Substitute, use one denominator, and flip:
+
+$$
+\begin{aligned}
+N&=\frac{L}{2}-\frac{1}{4\beta}\left(-\frac{2\beta H_1}{\beta^2+H_1^2}\right) &&\text{substitute}\\
+&=\frac{L}{2}+\frac{H_1}{2(\beta^2+H_1^2)} &&\text{the two minus signs cancel}\\
+&=\frac{L(\beta^2+H_1^2)+H_1}{2(\beta^2+H_1^2)} &&\text{common denominator}\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
+
+**Final answer.**
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\beta_m(L-x)\,e^{-\alpha\beta_m^2t}\\
+C_m&=\frac{2(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}\int_0^L\sin\beta_m(L-x')\,F(x')\,dx'
+\end{aligned}
+$$
+
+Sources: Notes pp. 31–37 for the method; Özişik p. 46 for the row, pp. 45–47 for the parallel Example 2-2, and p. 74 (problem 2-3).
 
 ## Case 4 — Insulated at x = 0, convection at x = L
 
-Result: X(βₘ, x) = cos βₘx; 1/N = 2(βₘ² + H₂²)/\[L(βₘ² + H₂²) + H₂\]; βₘ are the positive roots of βₘ tan βₘL = H₂. This is the example on page 41 of your notes, and the classic plane wall of half-thickness L with x = 0 as the symmetry plane.
+Pattern B, cosine. What is new: the insulated face at x = 0 removes A₂ at once. This is your class-notes example (Notes p. 41), the textbook's worked transient slab (Özişik pp. 80–84, eqs. 3-28 to 3-48), and Özişik problem 2-4 (p. 74). It is also the classic plane wall of half-thickness L, with x = 0 as the symmetry plane. Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 the face x = 0 is insulated (or is the centerline of a symmetric wall) and the face x = L convects to fluid at zero temperature (h₂).
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&\frac{\partial T}{\partial x}=0 &&x=0,\;t>0\\
-&\frac{\partial T}{\partial x}+H_2T=0 &&x=L,\;t>0\quad(H_2=h_2/k)\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\cos\beta_mx\\
+\beta_m\tan\beta_mL&=H_2\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
-
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
-
-```latex
-X'(0)=0\qquad\qquad X'(L)+H_2X(L)=0
-```
-
-**Step 4 · Apply the condition at x = 0.** X′(0) = A₂β = 0, and β ≠ 0, so A₂ = 0:
-
-```latex
-X=A_1\cos\beta x,\qquad X'=-A_1\beta\sin\beta x
-```
-
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** A₁ ≠ 0, so the bracket must vanish; divide by cos βL:
-
-```latex
+$$
 \begin{aligned}
-X'(L)+H_2X(L)&=A_1\left(-\beta\sin\beta L+H_2\cos\beta L\right)=0\\
-\beta\sin\beta L&=H_2\cos\beta L\;\Rightarrow\;\beta_m\tan\beta_mL=H_2
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
 \end{aligned}
-```
+$$
 
-Drop A₁: X(βₘ, x) = cos βₘx. Your notes multiply through by L to get the Biot form, ζₘ tan ζₘ = Bi, with ζₘ = βₘL and Bi = h₂L/k, and read the roots off the graph of tan ζ against Bi/ζ. β = 0 fails: b = 0 at x = 0, then H₂a = 0 at x = L.
+**Step 2 · Apply the boundary conditions.** The face x = 0 is insulated; the face x = L convects to fluid at T∞. The textbook states this case with T∞ (Özişik p. 81, eqs. 3-29 to 3-32), so it shows the temperature shift:
 
-**Step 6 · Find 1/N.**
-
-```latex
-N=\int_0^L\cos^2\beta x\,dx=\frac{L}{2}+\frac{\sin\beta L\cos\beta L}{2\beta}
-```
-
-From β tan βL = H₂, tan βL = H₂/β, and cos²βL = 1/(1 + tan²βL):
-
-```latex
-\sin\beta L\cos\beta L=\frac{\tan\beta L}{1+\tan^2\beta L}=\frac{H_2/\beta}{1+H_2^2/\beta^2}=\frac{H_2\beta}{\beta^2+H_2^2}
-```
-
-```latex
-N=\frac{L}{2}+\frac{H_2}{2(\beta_m^2+H_2^2)}=\frac{L(\beta_m^2+H_2^2)+H_2}{2(\beta_m^2+H_2^2)}\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}
-```
-
-**Step 7 · Combine into T(x,t).**
-
-```latex
-T(x,t)=\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\,\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}\,\cos\beta_mx\int_0^L\cos\beta_mx'\,F(x')\,dx'
-```
-
-The βₘ are the positive roots of βₘ tan βₘL = H₂.
-
-**Uniform start, F(x) = T₀ (your notes, page 41).** The integral is ∫₀ᴸcos βₘx′dx′ = sin βₘL/βₘ, so Cₘ = 2T₀(βₘ² + H₂²)sin βₘL/(βₘ\[L(βₘ² + H₂²) + H₂\]). The eigenvalue equation shrinks it:
-
-```latex
+$$
 \begin{aligned}
-\sin\beta_mL&=\frac{H_2}{\beta_m}\cos\beta_mL,\qquad\cos^2\beta_mL=\frac{1}{1+\tan^2\beta_mL}=\frac{\beta_m^2}{\beta_m^2+H_2^2}\\
-\frac{(\beta_m^2+H_2^2)\sin\beta_mL}{\beta_m}&=\frac{(\beta_m^2+H_2^2)\,H_2\cos\beta_mL}{\beta_m^2}=\frac{H_2\cos\beta_mL}{\cos^2\beta_mL}=\frac{H_2}{\cos\beta_mL}
+\frac{\partial T}{\partial x}&=0 &&x=0:\ \text{insulated}\\
+-k\,\frac{\partial T}{\partial x}&=h_2\,(T-T_\infty) &&x=L:\ \partial T/\partial n=+\partial T/\partial x\\
+\theta&=T-T_\infty &&\text{shift (eq. 3-30)}\\
+\frac{\partial\theta}{\partial x}&=0 &&x=0\\
+\frac{\partial\theta}{\partial x}+H_2\theta&=0 &&x=L;\ \text{divide by }k,\ H_2=h_2/k\\
+\theta&=F(x)=T_i-T_\infty &&\text{at }t=0
 \end{aligned}
-```
+$$
 
-```latex
-T(x,t)=2T_0\sum_{m=1}^{\infty}\frac{H_2}{\cos\beta_mL\,\left[L(\beta_m^2+H_2^2)+H_2\right]}\,e^{-\alpha\beta_m^2t}\cos\beta_mx
-```
+From here on T stands for θ, matching the table.
 
-That is exactly the Cₘ in your notes. In Biot form it is the undergraduate plane-wall coefficient, Cₘ/T₀ = 4 sin ζₘ/(2ζₘ + sin 2ζₘ).
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
+
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+\frac{dX}{dx}&=0 &&\text{BC on }X\text{ at }x=0\\
+\frac{dX}{dx}+H_2X&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
+
+**Step 4 · Find the eigenfunction.** Apply both conditions:
+
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+0&=A_2\beta &&\text{BC at }x=0:\ dX/dx=0\\
+X&=A_1\cos\beta x &&A_2=0\ (\beta\neq0)\\
+\frac{dX}{dx}&=-A_1\beta\sin\beta x &&\text{differentiate}\\
+0&=A_1\left(-\beta\sin\beta L+H_2\cos\beta L\right) &&\text{BC at }x=L\\
+\beta\sin\beta L&=H_2\cos\beta L &&A_1\neq0\\
+\beta_m\tan\beta_mL&=H_2 &&\text{divide by }\cos\beta L\\
+X(\beta_m,x)&=\cos\beta_mx &&\text{drop }A_1
+\end{aligned}
+$$
+
+Your notes multiply the eigenvalue equation by L to get the Biot form, ζₘ tan ζₘ = Bi, with ζₘ = βₘL and Bi = h₂L/k. They read the roots off a graph of tan ζ against Bi/ζ (Notes p. 41; Özişik p. 82, eq. 3-41). β = 0 fails: b = 0 at x = 0, then H₂a = 0 at x = L.
+
+**Step 5 · Find Cₘ.** Superpose, set t = 0, then use orthogonality:
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\cos\beta_mx\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\cos\beta_mx &&t=0\\
+C_m&=\frac{1}{N(\beta_m)}\int_0^L\cos\beta_mx'\,F(x')\,dx' &&\text{orthogonality}
+\end{aligned}
+$$
+
+**Step 6 · Find the normalization factor.** Integrate:
+
+$$
+\begin{aligned}
+N&=\int_0^L\cos^2\beta x\,dx &&\text{definition}\\
+&=\frac{L}{2}+\frac{\sin2\beta L}{4\beta} &&\text{integral 1}
+\end{aligned}
+$$
+
+Replace sin 2βL with the eigenvalue equation, tan βL = H₂/β:
+
+$$
+\begin{aligned}
+\sin2\beta L&=\frac{2\tan\beta L}{1+\tan^2\beta L} &&\text{identity 4}\\
+&=\frac{2H_2/\beta}{1+H_2^2/\beta^2} &&\tan\beta L=H_2/\beta\\
+&=\frac{2\beta H_2}{\beta^2+H_2^2} &&\text{multiply top and bottom by }\beta^2
+\end{aligned}
+$$
+
+Substitute, use one denominator, and flip:
+
+$$
+\begin{aligned}
+N&=\frac{L}{2}+\frac{1}{4\beta}\cdot\frac{2\beta H_2}{\beta^2+H_2^2} &&\text{substitute}\\
+&=\frac{L}{2}+\frac{H_2}{2(\beta^2+H_2^2)} &&\text{cancel }2\beta\\
+&=\frac{L(\beta^2+H_2^2)+H_2}{2(\beta^2+H_2^2)} &&\text{common denominator}\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
+
+**Final answer.** If you shifted with θ = T − T∞, add T∞ back at the end (Özişik p. 84, eq. 3-47):
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\cos\beta_mx\,e^{-\alpha\beta_m^2t}\\
+C_m&=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}\int_0^L\cos\beta_mx'\,F(x')\,dx'
+\end{aligned}
+$$
+
+Sources: Notes p. 41 for this case and pp. 31–37 for the method; Özişik pp. 80–84 and p. 74 (problem 2-4).
 
 ## Case 5 — Insulated at both faces
 
-Result: X(βₘ, x) = cos βₘx, plus X₀ = 1 for β₀ = 0; 1/N = 2/L for m ≥ 1 and 1/L for β₀ = 0; sin βₘL = 0, so βₘ = mπ/L. It is the only case with a zero eigenvalue, and forgetting that extra term is the most likely trap.
+Pattern A, plus a zero eigenvalue. What is new: β₀ = 0 is an eigenvalue with X₀ = 1 and 1/N₀ = 1/L, so the series gets an extra m = 0 term. Forgetting that term is the most likely trap. Özişik problem 2-5 (p. 74) asks for exactly this case. Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 both faces are insulated, so no heat enters or leaves.
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&\frac{\partial T}{\partial x}=0 &&x=0,\;t>0\\
-&\frac{\partial T}{\partial x}=0 &&x=L,\;t>0\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\cos\beta_mx,\quad\text{plus }X_0=1\text{ for }\beta_0=0\\
+\sin\beta_mL&=0,\quad\text{so }\beta_m=\frac{m\pi}{L},\ m=0,1,2,\dots\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L}\text{ for }\beta_m\neq0,\qquad\frac{1}{N(\beta_0)}=\frac{1}{L}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
-
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
-
-```latex
-X'(0)=0\qquad\qquad X'(L)=0
-```
-
-**Step 4 · Apply the condition at x = 0.** X′(0) = A₂β = 0, so A₂ = 0 and X = A₁cos βx.
-
-**Step 5 · Apply the condition at x = L to get the eigenvalues.**
-
-```latex
-X'(L)=-A_1\beta\sin\beta L=0\;\Rightarrow\;\sin\beta L=0\;\Rightarrow\;\beta_mL=m\pi\;\Rightarrow\;\beta_m=\frac{m\pi}{L},\quad m=1,2,3,\dots
-```
-
-**Step 5b · The zero eigenvalue.** With β = 0 the separated equations become X″ = 0 and dΓ/dt = 0, so X = a + bx and Γ is a constant. X′ = b, and both conditions give b = 0, which leaves X = a ≠ 0. So β₀ = 0 is an eigenvalue with X₀ = 1 and Γ₀ = e⁰ = 1. The table folds it into X = cos βₘx because cos(0 · x) = 1.
-
-**Step 6 · Find 1/N.**
-
-```latex
+$$
 \begin{aligned}
-m\ge1:&\quad N=\int_0^L\cos^2\beta_mx\,dx=\frac{L}{2}+\frac{\sin\beta_mL\cos\beta_mL}{2\beta_m}=\frac{L}{2}\quad(\sin m\pi=0) &&\Rightarrow\;\frac{1}{N}=\frac{2}{L}\\
-m=0:&\quad N_0=\int_0^L1^2\,dx=L &&\Rightarrow\;\frac{1}{N_0}=\frac{1}{L}
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
 \end{aligned}
-```
+$$
+
+**Step 2 · Apply the boundary conditions.** Both faces are insulated, so no heat enters or leaves, and no temperature shift is needed:
+
+$$
+\begin{aligned}
+\frac{\partial T}{\partial x}&=0 &&x=0:\ \text{insulated}\\
+\frac{\partial T}{\partial x}&=0 &&x=L:\ \text{insulated}\\
+T&=F(x) &&\text{at }t=0
+\end{aligned}
+$$
+
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
+
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+\frac{dX}{dx}&=0 &&\text{BC on }X\text{ at }x=0\\
+\frac{dX}{dx}&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
+
+**Step 4 · Find the eigenfunction.** Apply both conditions:
+
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+A_2\beta&=0 &&\text{BC at }x=0:\ dX/dx=0\\
+X&=A_1\cos\beta x &&A_2=0\text{ for }\beta\neq0\\
+-A_1\beta\sin\beta L&=0 &&\text{BC at }x=L:\ dX/dx=0\\
+\sin\beta_mL&=0 &&A_1\neq0,\ \beta\neq0\\
+\beta_m&=\frac{m\pi}{L},\quad m=1,2,3,\dots &&\text{zeros of sine (identity 10)}\\
+X(\beta_m,x)&=\cos\beta_mx &&\text{drop }A_1
+\end{aligned}
+$$
+
+Now check β = 0 (Step 4e). It survives here:
+
+$$
+\begin{aligned}
+\frac{d^2X}{dx^2}&=0 &&\text{space equation with }\beta=0\\
+X&=a+bx &&\text{integrate twice}\\
+\frac{dX}{dx}&=b=0 &&\text{both BCs}\\
+X_0&=1 &&\text{any nonzero constant; choose }1\\
+\Gamma_0&=1 &&\text{time equation with }\beta=0:\ d\Gamma/dt=0
+\end{aligned}
+$$
+
+So β₀ = 0 is an eigenvalue. The table folds it into cos βₘx, because cos(0 · x) = 1.
+
+**Step 5 · Find Cₘ.** Superpose with the m = 0 term written out, set t = 0, then use orthogonality:
+
+$$
+\begin{aligned}
+T(x,t)&=C_0+\sum_{m=1}^{\infty}C_m\cos\beta_mx\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=C_0+\sum_{m=1}^{\infty}C_m\cos\beta_mx &&t=0\\
+C_0&=\frac{1}{L}\int_0^L F(x')\,dx' &&X_0=1,\ N_0=L\\
+C_m&=\frac{2}{L}\int_0^L\cos\beta_mx'\,F(x')\,dx' &&m\geq1
+\end{aligned}
+$$
+
+C₀ is the average initial temperature. It is also the final temperature, because an insulated slab keeps its energy and relaxes to its mean.
+
+**Step 6 · Find the normalization factor.** For m ≥ 1:
+
+$$
+\begin{aligned}
+N(\beta_m)&=\int_0^L\cos^2\beta_mx\,dx &&\text{definition}\\
+&=\frac{L}{2}+\frac{\sin2\beta_mL}{4\beta_m} &&\text{integral 1}\\
+&=\frac{L}{2}+\frac{2\sin\beta_mL\cos\beta_mL}{4\beta_m}=\frac{L}{2} &&\text{identity 3; }\sin\beta_mL=0\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L} &&\text{flip}
+\end{aligned}
+$$
+
+For m = 0:
+
+$$
+\begin{aligned}
+N_0&=\int_0^L1^2\,dx=L &&\text{integral 9}\\
+\frac{1}{N_0}&=\frac{1}{L} &&\text{flip; matches the table footnote}
+\end{aligned}
+$$
 
 The m = 0 norm is L, not L/2, because cos²(0) = 1 everywhere instead of averaging to ½.
 
-**Step 7 · Combine into T(x,t).** The sum now starts at m = 0; write that term out on its own:
+**Final answer.**
 
-```latex
-T(x,t)=\underbrace{\frac{1}{L}\int_0^L F(x')\,dx'}_{m=0}+\frac{2}{L}\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\cos\beta_mx\int_0^L\cos\beta_mx'\,F(x')\,dx',\qquad\beta_m=\frac{m\pi}{L}
-```
+$$
+\begin{aligned}
+T(x,t)&=C_0+\sum_{m=1}^{\infty}C_m\cos\beta_mx\,e^{-\alpha\beta_m^2t},\qquad\beta_m=\frac{m\pi}{L}\\
+C_0&=\frac{1}{L}\int_0^L F(x')\,dx'\\
+C_m&=\frac{2}{L}\int_0^L\cos\beta_mx'\,F(x')\,dx'
+\end{aligned}
+$$
 
-The first term is the average initial temperature. It is also T as t → ∞: no heat leaves an insulated slab, so it relaxes to its mean temperature.
-
-**Uniform start, F(x) = T₀.** Every m ≥ 1 integral is sin(mπ)/βₘ = 0, so T(x,t) = T₀ for all t, as it should be. A start that exercises the method is F(x) = T₀x/L. Integrating by parts, ∫₀ᴸx cos βx dx = L sin βL/β + (cos βL − 1)/β², which is ((−1)ᵐ − 1)/βₘ² here. The m = 0 term is T₀/2, and only odd m survive:
-
-```latex
-T(x,t)=\frac{T_0}{2}-\frac{4T_0}{\pi^2}\sum_{m=1,3,5,\dots}\frac{1}{m^2}\,e^{-\alpha(m\pi/L)^2t}\cos\frac{m\pi x}{L}
-```
+Sources: Özişik p. 46 (the row and its footnote) and p. 74 (problem 2-5); Notes pp. 31–37 for the method.
 
 ## Case 6 — Insulated at x = 0, zero temperature at x = L
 
-Result: X(βₘ, x) = cos βₘx; 1/N = 2/L; cos βₘL = 0, so βₘ = (2m − 1)π/(2L). This is the example on page 40 of your notes, where it appears as Case 1 with H₁ = 0 and H₂ → ∞.
+Pattern A. What is new: cos βL = 0 gives odd multiples of π/2. This is the example on p. 40 of your notes, where it appears as Case 1 with H₁ = 0 and H₂ → ∞. It is also Özişik problem 2-6 (p. 74), and the 2nd-edition excerpt uses it in Example 2-16 (pp. 87–89). Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 the face x = 0 is insulated and the face x = L is held at T = 0.
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&\frac{\partial T}{\partial x}=0 &&x=0,\;t>0\\
-&T=0 &&x=L,\;t>0\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\cos\beta_mx\\
+\cos\beta_mL&=0,\quad\text{so }\beta_m=\frac{(2m-1)\pi}{2L}\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
+$$
+\begin{aligned}
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
+\end{aligned}
+$$
 
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
+**Step 2 · Apply the boundary conditions.** The face x = 0 is insulated; the face x = L is held at zero temperature (if it is held at Tₛ, shift with θ = T − Tₛ first):
 
-```latex
-X'(0)=0\qquad\qquad X(L)=0
-```
+$$
+\begin{aligned}
+\frac{\partial T}{\partial x}&=0 &&x=0:\ \text{insulated}\\
+T&=0 &&x=L:\ \text{zero temperature}\\
+T&=F(x) &&\text{at }t=0
+\end{aligned}
+$$
 
-**Step 4 · Apply the condition at x = 0.** X′(0) = A₂β = 0, so A₂ = 0 and X = A₁cos βx.
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
 
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** Cosine is zero at odd multiples of π/2:
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+\frac{dX}{dx}&=0 &&\text{BC on }X\text{ at }x=0\\
+X&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
 
-```latex
-X(L)=A_1\cos\beta L=0\;\Rightarrow\;\cos\beta L=0\;\Rightarrow\;\beta_mL=\frac{(2m-1)\pi}{2}\;\Rightarrow\;\beta_m=\frac{(2m-1)\pi}{2L},\quad m=1,2,3,\dots
-```
+**Step 4 · Find the eigenfunction.** Apply both conditions:
 
-Your notes count from m = 0 instead, with βₘ = (2m + 1)π/(2L); the roots are the same. Drop A₁: X(βₘ, x) = cos βₘx. β = 0 fails: b = 0 at x = 0, then X(L) = a = 0.
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+A_2\beta&=0 &&\text{BC at }x=0:\ dX/dx=0\\
+X&=A_1\cos\beta x &&A_2=0\text{ because }\beta\neq0\\
+A_1\cos\beta L&=0 &&\text{BC at }x=L:\ X=0\\
+\cos\beta_mL&=0 &&A_1\neq0\\
+\beta_mL&=\frac{(2m-1)\pi}{2},\quad m=1,2,3,\dots &&\text{zeros of cosine (identity 11)}\\
+\beta_m&=\frac{(2m-1)\pi}{2L} &&\text{divide by }L\\
+X(\beta_m,x)&=\cos\beta_mx &&\text{drop }A_1
+\end{aligned}
+$$
 
-**Step 6 · Find 1/N.** The product sin βL cos βL is zero because cos βₘL = 0:
+Your notes count from m = 0 instead, with βₘ = (2m + 1)π/(2L); the roots are the same (trick 11). β = 0 fails: b = 0 at x = 0, then X(L) = a = 0.
 
-```latex
-N=\int_0^L\cos^2\beta_mx\,dx=\frac{L}{2}+\frac{\sin\beta_mL\cos\beta_mL}{2\beta_m}=\frac{L}{2}\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=\frac{2}{L}
-```
+**Step 5 · Find Cₘ.** Superpose, set t = 0, then use orthogonality with 1/N = 2/L from Step 6:
 
-**Step 7 · Combine into T(x,t).**
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\cos\beta_mx\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\cos\beta_mx &&t=0\\
+C_m&=\frac{2}{L}\int_0^L\cos\beta_mx'\,F(x')\,dx' &&\text{orthogonality}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=\frac{2}{L}\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\cos\beta_mx\int_0^L\cos\beta_mx'\,F(x')\,dx',\qquad\beta_m=\frac{(2m-1)\pi}{2L}
-```
+**Step 6 · Find the normalization factor.** The eigenvalue equation makes the sin 2βL term vanish:
 
-**Uniform start, F(x) = T₀ (your notes, page 40).** The integral is ∫₀ᴸcos βₘx′dx′ = sin βₘL/βₘ, and sin((2m − 1)π/2) = (−1)ᵐ⁺¹ (+1, −1, +1, …). So Cₘ = 2T₀(−1)ᵐ⁺¹/(βₘL):
+$$
+\begin{aligned}
+N&=\int_0^L\cos^2\beta_mx\,dx &&\text{definition}\\
+&=\frac{L}{2}+\frac{\sin2\beta_mL}{4\beta_m} &&\text{integral 1}\\
+&=\frac{L}{2}+\frac{2\sin\beta_mL\cos\beta_mL}{4\beta_m}=\frac{L}{2} &&\text{identity 3; }\cos\beta_mL=0\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=2T_0\sum_{m=1}^{\infty}(-1)^{m+1}\,\frac{e^{-\alpha\beta_m^2t}}{\beta_mL}\cos\beta_mx
-```
+**Final answer.**
 
-This is the result on page 40 of your notes, with the index shifted by one.
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\cos\beta_mx\,e^{-\alpha\beta_m^2t},\qquad\beta_m=\frac{(2m-1)\pi}{2L}\\
+C_m&=\frac{2}{L}\int_0^L\cos\beta_mx'\,F(x')\,dx'
+\end{aligned}
+$$
+
+Sources: Notes p. 40 for this case and pp. 31–37 for the method; Özişik p. 46 and p. 74 (problem 2-6).
 
 ## Case 7 — Zero temperature at x = 0, convection at x = L
 
-Result: X(βₘ, x) = sin βₘx; 1/N = 2(βₘ² + H₂²)/\[L(βₘ² + H₂²) + H₂\]; βₘ are the positive roots of βₘ cot βₘL = −H₂. It is the mirror image of Case 3, and the 3rd-edition PDF works it as Example 2-1 (pp. 44–45).
+Pattern B, sine. What is new: the zero-temperature face at x = 0 removes A₁ at once, the eigenvalue equation comes out in cot form, and the normalization factor uses the sin² integral. The 3rd-edition PDF works this case as Example 2-1 (Özişik pp. 44–45, eqs. 2-20 to 2-24). It is the mirror image of Case 3. Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 the face x = 0 is held at T = 0 and the face x = L convects to fluid at zero temperature (h₂).
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&T=0 &&x=0,\;t>0\\
-&\frac{\partial T}{\partial x}+H_2T=0 &&x=L,\;t>0\quad(H_2=h_2/k)\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\sin\beta_mx\\
+\beta_m\cot\beta_mL&=-H_2\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
-
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
-
-```latex
-X(0)=0\qquad\qquad X'(L)+H_2X(L)=0
-```
-
-**Step 4 · Apply the condition at x = 0.** X(0) = A₁cos 0 + A₂sin 0 = A₁ = 0:
-
-```latex
-X=A_2\sin\beta x,\qquad X'=A_2\beta\cos\beta x
-```
-
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** A₂ ≠ 0, so the bracket must vanish. Divide it by sin βL and use cos/sin = cot:
-
-```latex
+$$
 \begin{aligned}
-X'(L)+H_2X(L)&=A_2\left(\beta\cos\beta L+H_2\sin\beta L\right)=0\\
-\beta\cot\beta L+H_2&=0\;\Rightarrow\;\beta_m\cot\beta_mL=-H_2
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
 \end{aligned}
-```
+$$
 
-Drop A₂: X(βₘ, x) = sin βₘx. β = 0 fails: a = 0 at x = 0, then b(1 + H₂L) = 0 at x = L.
+**Step 2 · Apply the boundary conditions.** The face x = 0 is held at zero temperature; the face x = L convects to fluid at zero temperature:
 
-**Step 6 · Find 1/N.**
+$$
+\begin{aligned}
+T&=0 &&x=0:\ \text{zero temperature}\\
+-k\,\frac{\partial T}{\partial x}&=h_2T &&x=L:\ \partial T/\partial n=+\partial T/\partial x\\
+\frac{\partial T}{\partial x}+H_2T&=0 &&\text{divide by }k;\ H_2=h_2/k\\
+T&=F(x) &&\text{at }t=0
+\end{aligned}
+$$
 
-```latex
-N=\int_0^L\sin^2\beta x\,dx=\frac{L}{2}-\frac{\sin\beta L\cos\beta L}{2\beta}
-```
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
 
-From β cot βL = −H₂, cot βL = −H₂/β, and sin²βL = 1/(1 + cot²βL):
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+X&=0 &&\text{BC on }X\text{ at }x=0\\
+\frac{dX}{dx}+H_2X&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
 
-```latex
-\sin\beta L\cos\beta L=\cot\beta L\,\sin^2\beta L=\frac{\cot\beta L}{1+\cot^2\beta L}=\frac{-H_2/\beta}{1+H_2^2/\beta^2}=-\frac{H_2\beta}{\beta^2+H_2^2}
-```
+**Step 4 · Find the eigenfunction.** Apply both conditions:
 
-The minus from the eigenvalue equation cancels the minus in the sin² integral:
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+X(0)&=A_1=0 &&\text{BC at }x=0\\
+X&=A_2\sin\beta x &&\text{what is left}\\
+\frac{dX}{dx}&=A_2\beta\cos\beta x &&\text{differentiate}\\
+A_2\left(\beta\cos\beta L+H_2\sin\beta L\right)&=0 &&\text{BC at }x=L\\
+\beta\cos\beta L+H_2\sin\beta L&=0 &&A_2\neq0\\
+\beta\cot\beta L+H_2&=0 &&\text{divide by }\sin\beta L\\
+\beta_m\cot\beta_mL&=-H_2 &&\text{eigenvalue equation}\\
+X(\beta_m,x)&=\sin\beta_mx &&\text{drop }A_2
+\end{aligned}
+$$
 
-```latex
-N=\frac{L}{2}+\frac{H_2}{2(\beta_m^2+H_2^2)}=\frac{L(\beta_m^2+H_2^2)+H_2}{2(\beta_m^2+H_2^2)}\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}
-```
+β = 0 fails: X = a + bx gives a = 0 at x = 0, then b(1 + H₂L) = 0 at x = L, so b = 0.
 
-**Step 7 · Combine into T(x,t).**
+**Step 5 · Find Cₘ.** Superpose, set t = 0, then use orthogonality:
 
-```latex
-T(x,t)=\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\,\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}\,\sin\beta_mx\int_0^L\sin\beta_mx'\,F(x')\,dx'
-```
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx &&t=0\\
+C_m&=\frac{1}{N(\beta_m)}\int_0^L\sin\beta_mx'\,F(x')\,dx' &&\text{orthogonality}
+\end{aligned}
+$$
 
-The βₘ are the positive roots of βₘ cot βₘL = −H₂.
+**Step 6 · Find the normalization factor.** Integrate:
 
-**Uniform start, F(x) = T₀.** The integral is ∫₀ᴸsin βₘx′dx′ = (1 − cos βₘL)/βₘ, so:
+$$
+\begin{aligned}
+N&=\int_0^L\sin^2\beta x\,dx &&\text{definition}\\
+&=\frac{L}{2}-\frac{\sin2\beta L}{4\beta} &&\text{integral 2}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=2T_0\sum_{m=1}^{\infty}\frac{(\beta_m^2+H_2^2)(1-\cos\beta_mL)}{\beta_m\left[L(\beta_m^2+H_2^2)+H_2\right]}\,e^{-\alpha\beta_m^2t}\sin\beta_mx
-```
+Replace sin 2βL with the eigenvalue equation, cot βL = −H₂/β:
+
+$$
+\begin{aligned}
+\sin2\beta L&=\frac{2\cot\beta L}{1+\cot^2\beta L} &&\text{identity 5}\\
+&=\frac{-2H_2/\beta}{1+H_2^2/\beta^2} &&\cot\beta L=-H_2/\beta\\
+&=-\frac{2\beta H_2}{\beta^2+H_2^2} &&\text{multiply top and bottom by }\beta^2
+\end{aligned}
+$$
+
+Substitute, use one denominator, and flip:
+
+$$
+\begin{aligned}
+N&=\frac{L}{2}-\frac{1}{4\beta}\left(-\frac{2\beta H_2}{\beta^2+H_2^2}\right) &&\text{substitute}\\
+&=\frac{L}{2}+\frac{H_2}{2(\beta^2+H_2^2)} &&\text{the two minus signs cancel}\\
+&=\frac{L(\beta^2+H_2^2)+H_2}{2(\beta^2+H_2^2)} &&\text{common denominator}\\
+\frac{1}{N(\beta_m)}&=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
+
+**Final answer.**
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx\,e^{-\alpha\beta_m^2t}\\
+C_m&=\frac{2(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}\int_0^L\sin\beta_mx'\,F(x')\,dx'
+\end{aligned}
+$$
+
+Sources: Özişik pp. 44–45 (Example 2-1) for this case; Notes pp. 31–37 for the method.
 
 ## Case 8 — Zero temperature at x = 0, insulated at x = L
 
-Result: X(βₘ, x) = sin βₘx; 1/N = 2/L; cos βₘL = 0, so βₘ = (2m − 1)π/(2L). It is the mirror image of Case 6: same eigenvalues, sine instead of cosine.
+Pattern A. What is new: nothing beyond Case 6, mirrored. The eigenvalues are the same as Case 6, with a sine instead of a cosine. Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 the face x = 0 is held at T = 0 and the face x = L is insulated.
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&T=0 &&x=0,\;t>0\\
-&\frac{\partial T}{\partial x}=0 &&x=L,\;t>0\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\sin\beta_mx\\
+\cos\beta_mL&=0,\quad\text{so }\beta_m=\frac{(2m-1)\pi}{2L}\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
+$$
+\begin{aligned}
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
+\end{aligned}
+$$
 
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
+**Step 2 · Apply the boundary conditions.** The face x = 0 is held at zero temperature; the face x = L is insulated:
 
-```latex
-X(0)=0\qquad\qquad X'(L)=0
-```
+$$
+\begin{aligned}
+T&=0 &&x=0:\ \text{zero temperature}\\
+\frac{\partial T}{\partial x}&=0 &&x=L:\ \text{insulated}\\
+T&=F(x) &&\text{at }t=0
+\end{aligned}
+$$
 
-**Step 4 · Apply the condition at x = 0.** X(0) = A₁ = 0, so X = A₂sin βx and X′ = A₂β cos βx.
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
 
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** A₂ ≠ 0 and β ≠ 0, so cos βL must vanish:
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+X&=0 &&\text{BC on }X\text{ at }x=0\\
+\frac{dX}{dx}&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
 
-```latex
-X'(L)=A_2\beta\cos\beta L=0\;\Rightarrow\;\cos\beta L=0\;\Rightarrow\;\beta_m=\frac{(2m-1)\pi}{2L},\quad m=1,2,3,\dots
-```
+**Step 4 · Find the eigenfunction.** Apply both conditions:
 
-Drop A₂: X(βₘ, x) = sin βₘx. β = 0 fails: a = 0 at x = 0, then X′(L) = b = 0.
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+X(0)&=A_1=0 &&\text{BC at }x=0\\
+X&=A_2\sin\beta x &&\text{what is left}\\
+\frac{dX}{dx}&=A_2\beta\cos\beta x &&\text{differentiate}\\
+A_2\beta\cos\beta L&=0 &&\text{BC at }x=L:\ dX/dx=0\\
+\cos\beta_mL&=0 &&A_2\neq0,\ \beta\neq0\\
+\beta_m&=\frac{(2m-1)\pi}{2L},\quad m=1,2,3,\dots &&\text{zeros of cosine (identity 11)}\\
+X(\beta_m,x)&=\sin\beta_mx &&\text{drop }A_2
+\end{aligned}
+$$
 
-**Step 6 · Find 1/N.** Again cos βₘL = 0 kills the product term:
+β = 0 fails: X = a + bx gives a = 0 at x = 0, then dX/dx = b = 0 at x = L.
 
-```latex
-N=\int_0^L\sin^2\beta_mx\,dx=\frac{L}{2}-\frac{\sin\beta_mL\cos\beta_mL}{2\beta_m}=\frac{L}{2}\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=\frac{2}{L}
-```
+**Step 5 · Find Cₘ.** Superpose, set t = 0, then use orthogonality with 1/N = 2/L from Step 6:
 
-**Step 7 · Combine into T(x,t).**
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx &&t=0\\
+C_m&=\frac{2}{L}\int_0^L\sin\beta_mx'\,F(x')\,dx' &&\text{orthogonality}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=\frac{2}{L}\sum_{m=1}^{\infty}e^{-\alpha\beta_m^2t}\sin\beta_mx\int_0^L\sin\beta_mx'\,F(x')\,dx',\qquad\beta_m=\frac{(2m-1)\pi}{2L}
-```
+**Step 6 · Find the normalization factor.** The eigenvalue equation makes the sin 2βL term vanish:
 
-**Uniform start, F(x) = T₀.** The integral is (1 − cos βₘL)/βₘ = 1/βₘ, so Cₘ = 2T₀/(βₘL) = 4T₀/\[(2m − 1)π\]:
+$$
+\begin{aligned}
+N&=\int_0^L\sin^2\beta_mx\,dx &&\text{definition}\\
+&=\frac{L}{2}-\frac{\sin2\beta_mL}{4\beta_m} &&\text{integral 2}\\
+&=\frac{L}{2}-\frac{2\sin\beta_mL\cos\beta_mL}{4\beta_m}=\frac{L}{2} &&\text{identity 3; }\cos\beta_mL=0\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=\frac{4T_0}{\pi}\sum_{m=1}^{\infty}\frac{1}{2m-1}\,e^{-\alpha\beta_m^2t}\sin\beta_mx
-```
+**Final answer.**
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx\,e^{-\alpha\beta_m^2t},\qquad\beta_m=\frac{(2m-1)\pi}{2L}\\
+C_m&=\frac{2}{L}\int_0^L\sin\beta_mx'\,F(x')\,dx'
+\end{aligned}
+$$
+
+Sources: Özişik p. 46 for the row; Notes pp. 31–37 for the method.
 
 ## Case 9 — Zero temperature at both faces
 
-Result: X(βₘ, x) = sin βₘx; 1/N = 2/L; sin βₘL = 0, so βₘ = mπ/L. This is the simplest row, and the one the 2nd-edition excerpt in your project uses in Example 2-15.
+Pattern A, and the simplest row. The textbook works it first (Özişik pp. 43–44, eqs. 2-13 to 2-19), and the 2nd-edition excerpt uses it in Example 2-15 (pp. 85–87). Targets from Table 2-2:
 
-**Step 1 · Problem statement and differential equation.** A slab 0 ≤ x ≤ L starts at T = F(x). For t > 0 both faces are held at T = 0.
-
-```latex
+$$
 \begin{aligned}
-&\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial t} &&0<x<L,\;t>0\\
-&T=0 &&x=0,\;t>0\\
-&T=0 &&x=L,\;t>0\\
-&T=F(x) &&t=0
+X(\beta_m,x)&=\sin\beta_mx\\
+\sin\beta_mL&=0,\quad\text{so }\beta_m=\frac{m\pi}{L},\ m=1,2,3,\dots\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L}
 \end{aligned}
-```
+$$
 
-**Step 2 · Separate into X and Γ.** Substitute T = X(x)Γ(t) and divide by XΓ (Part A, A4–A6):
+**Step 1 · Formulate the governing equation.** Same as the shared Step 1:
 
-```latex
-\frac{1}{X}\frac{d^2X}{dx^2}=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2\;\Rightarrow\;
-\begin{cases}\dfrac{d\Gamma}{dt}+\alpha\beta^2\Gamma=0\;\Rightarrow\;\Gamma(t)=e^{-\alpha\beta^2t}\\[8pt]
-\dfrac{d^2X}{dx^2}+\beta^2X=0\;\Rightarrow\;X=A_1\cos\beta x+A_2\sin\beta x\end{cases}
-```
+$$
+\begin{aligned}
+\rho c_p\frac{\partial T}{\partial t}&=\nabla\cdot(k\nabla T)+g &&\text{heat equation}\\
+\frac{\partial^2T}{\partial x^2}&=\frac{1}{\alpha}\frac{\partial T}{\partial t},\quad 0<x<L,\;t>0 &&k\text{ constant},\;g=0,\;\text{1-D}
+\end{aligned}
+$$
 
-**Step 3 · Boundary conditions on X.** Substitute T = XΓ and divide by Γ(t) ≠ 0:
+**Step 2 · Apply the boundary conditions.** Both faces are held at zero temperature. If both are held at the same Tₛ, shift with θ = T − Tₛ first; if they differ, split into steady plus transient as in Example 2-15:
 
-```latex
-X(0)=0\qquad\qquad X(L)=0
-```
+$$
+\begin{aligned}
+T&=0 &&x=0:\ \text{zero temperature}\\
+T&=0 &&x=L:\ \text{zero temperature}\\
+T&=F(x) &&\text{at }t=0
+\end{aligned}
+$$
 
-**Step 4 · Apply the condition at x = 0.** X(0) = A₁ = 0, so X = A₂sin βx.
+**Step 3 · Solve by separation of variables.** Set T = X(x)Γ(t) as in the shared Step 3:
 
-**Step 5 · Apply the condition at x = L to get the eigenvalues.** A₂ ≠ 0, so sin βL must vanish:
+$$
+\begin{aligned}
+\frac{1}{X}\frac{d^2X}{dx^2}&=\frac{1}{\alpha\Gamma}\frac{d\Gamma}{dt}=-\beta^2 &&\text{separate}\\
+\frac{d^2X}{dx^2}+\beta^2X&=0 &&\text{Table 2-2 ODE}\\
+\Gamma(t)&=e^{-\alpha\beta^2t} &&\text{time function}\\
+X&=0 &&\text{BC on }X\text{ at }x=0\\
+X&=0 &&\text{BC on }X\text{ at }x=L
+\end{aligned}
+$$
 
-```latex
-X(L)=A_2\sin\beta L=0\;\Rightarrow\;\sin\beta L=0\;\Rightarrow\;\beta_mL=m\pi\;\Rightarrow\;\beta_m=\frac{m\pi}{L},\quad m=1,2,3,\dots
-```
+**Step 4 · Find the eigenfunction.** Apply both conditions:
 
-m = 0 is excluded because sin(0 · x) ≡ 0 is the trivial solution; checking X = a + bx directly gives a = 0 and bL = 0. Drop A₂: X(βₘ, x) = sin βₘx.
+$$
+\begin{aligned}
+X&=A_1\cos\beta x+A_2\sin\beta x &&\text{general solution}\\
+X(0)&=A_1=0 &&\text{BC at }x=0\\
+X&=A_2\sin\beta x &&\text{what is left}\\
+A_2\sin\beta L&=0 &&\text{BC at }x=L:\ X=0\\
+\sin\beta_mL&=0 &&A_2\neq0\\
+\beta_m&=\frac{m\pi}{L},\quad m=1,2,3,\dots &&\text{zeros of sine (identity 10)}\\
+X(\beta_m,x)&=\sin\beta_mx &&\text{drop }A_2
+\end{aligned}
+$$
 
-**Step 6 · Find 1/N.**
+m = 0 is excluded, because sin(0 · x) = 0 is the trivial solution. Checking X = a + bx directly gives a = 0 and bL = 0.
 
-```latex
-N=\int_0^L\sin^2\beta_mx\,dx=\frac{L}{2}-\frac{\sin\beta_mL\cos\beta_mL}{2\beta_m}=\frac{L}{2}\quad(\sin m\pi=0)\qquad\Rightarrow\qquad\frac{1}{N(\beta_m)}=\frac{2}{L}
-```
+**Step 5 · Find Cₘ.** Superpose, set t = 0, then use orthogonality with 1/N = 2/L from Step 6:
 
-**Step 7 · Combine into T(x,t).**
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx\,e^{-\alpha\beta_m^2t} &&\text{superpose}\\
+F(x)&=\sum_{m=1}^{\infty}C_m\sin\beta_mx &&t=0\\
+C_m&=\frac{2}{L}\int_0^L\sin\beta_mx'\,F(x')\,dx' &&\text{orthogonality}
+\end{aligned}
+$$
 
-```latex
-T(x,t)=\frac{2}{L}\sum_{m=1}^{\infty}e^{-\alpha(m\pi/L)^2t}\sin\frac{m\pi x}{L}\int_0^L\sin\frac{m\pi x'}{L}\,F(x')\,dx'
-```
+**Step 6 · Find the normalization factor.** The eigenvalue equation makes the sin 2βL term vanish:
 
-**Uniform start, F(x) = T₀.** The integral is (1 − cos mπ)/βₘ = (1 − (−1)ᵐ)/βₘ: 2/βₘ for odd m and 0 for even m. So Cₘ = 4T₀/(mπ) for odd m:
+$$
+\begin{aligned}
+N&=\int_0^L\sin^2\beta_mx\,dx &&\text{definition}\\
+&=\frac{L}{2}-\frac{\sin2\beta_mL}{4\beta_m} &&\text{integral 2}\\
+&=\frac{L}{2}-\frac{2\sin\beta_mL\cos\beta_mL}{4\beta_m}=\frac{L}{2} &&\text{identity 3; }\sin\beta_mL=0\\
+\frac{1}{N(\beta_m)}&=\frac{2}{L} &&\text{flip; matches Table 2-2}
+\end{aligned}
+$$
 
-```latex
+**Final answer.**
+
+$$
+\begin{aligned}
+T(x,t)&=\sum_{m=1}^{\infty}C_m\sin\frac{m\pi x}{L}\,e^{-\alpha(m\pi/L)^2t}\\
+C_m&=\frac{2}{L}\int_0^L\sin\frac{m\pi x'}{L}\,F(x')\,dx'
+\end{aligned}
+$$
+
+Sources: Özişik pp. 43–44 for this case; the 2nd-edition excerpt's Example 2-15 (pp. 85–87); Notes pp. 31–37 for the method.
+
+## Appendix A — Case 1 normalization factor by direct expansion
+
+Use this only if you forget the phase trick. It reaches the same N with more algebra.
+
+A1. Square X, integrate term by term with integrals 1, 12 and 2, and collect terms:
+
+$$
+\begin{aligned}
+N&=\int_0^L\left(\beta\cos\beta x+H_1\sin\beta x\right)^2dx &&\text{definition}\\
+&=\beta^2\!\int_0^L\cos^2\beta x\,dx+2\beta H_1\!\int_0^L\sin\beta x\cos\beta x\,dx\\
+&\quad+H_1^2\!\int_0^L\sin^2\beta x\,dx &&\text{expand}\\
+&=\beta^2\left[\frac{L}{2}+\frac{\sin2\beta L}{4\beta}\right]+2\beta H_1\,\frac{\sin^2\beta L}{2\beta}\\
+&\quad+H_1^2\left[\frac{L}{2}-\frac{\sin2\beta L}{4\beta}\right] &&\text{int. 1, 12, 2}\\
+&=\frac{(\beta^2+H_1^2)L}{2}+\frac{(\beta^2-H_1^2)\sin2\beta L}{4\beta}+H_1\sin^2\beta L &&(\star)
+\end{aligned}
+$$
+
+A2. Let τ = tan βL = β(H₁ + H₂)/(β² − H₁H₂), from the eigenvalue equation. The key algebra is 1 + τ²: when you expand the numerator, the ±2β²H₁H₂ cross terms cancel and it factors:
+
+$$
+\begin{aligned}
+1+\tau^2&=\frac{(\beta^2-H_1H_2)^2+\beta^2(H_1+H_2)^2}{(\beta^2-H_1H_2)^2} &&\text{common denominator}\\
+&=\frac{\beta^4+\beta^2H_1^2+\beta^2H_2^2+H_1^2H_2^2}{(\beta^2-H_1H_2)^2} &&\text{expand; cross terms cancel}\\
+&=\frac{(\beta^2+H_1^2)(\beta^2+H_2^2)}{(\beta^2-H_1H_2)^2} &&\text{factor}
+\end{aligned}
+$$
+
+A3. Use identity 4 for sin 2βL, and sin²u = tan²u cos²u = τ²/(1 + τ²) for sin²βL:
+
+$$
+\begin{aligned}
+\sin2\beta L&=\frac{2\tau}{1+\tau^2}=\frac{2\beta(H_1+H_2)(\beta^2-H_1H_2)}{(\beta^2+H_1^2)(\beta^2+H_2^2)}\\
+\sin^2\beta L&=\frac{\tau^2}{1+\tau^2}=\frac{\beta^2(H_1+H_2)^2}{(\beta^2+H_1^2)(\beta^2+H_2^2)}
+\end{aligned}
+$$
+
+A4. Call the last two terms of (⋆) S, then put the A3 results into S over the common denominator 2(β² + H₁²)(β² + H₂²), expand the bracket, factor it, and cancel:
+
+$$
+\begin{aligned}
+S&=\frac{(\beta^2-H_1^2)\sin2\beta L}{4\beta}+H_1\sin^2\beta L\\
+&=\frac{(H_1+H_2)\left[(\beta^2-H_1^2)(\beta^2-H_1H_2)+2H_1\beta^2(H_1+H_2)\right]}{2(\beta^2+H_1^2)(\beta^2+H_2^2)}\\
+&=\frac{(H_1+H_2)\left[\beta^4+\beta^2H_1^2+\beta^2H_1H_2+H_1^3H_2\right]}{2(\beta^2+H_1^2)(\beta^2+H_2^2)}\\
+&=\frac{(H_1+H_2)(\beta^2+H_1^2)(\beta^2+H_1H_2)}{2(\beta^2+H_1^2)(\beta^2+H_2^2)}\\
+&=\frac{(H_1+H_2)(\beta^2+H_1H_2)}{2(\beta^2+H_2^2)}
+\end{aligned}
+$$
+
+The bracket factors because β⁴ + β²H₁² + β²H₁H₂ + H₁³H₂ = β²(β² + H₁²) + H₁H₂(β² + H₁²).
+
+A5. Split (H₁ + H₂)(β² + H₁H₂) = H₁(β² + H₂²) + H₂(β² + H₁²), add back the first term of (⋆), and factor out ½:
+
+$$
+\begin{aligned}
+N&=\frac{(\beta^2+H_1^2)L}{2}+\frac{H_1}{2}+\frac{H_2(\beta^2+H_1^2)}{2(\beta^2+H_2^2)} &&\text{split}\\
+&=\frac{1}{2}\left[(\beta^2+H_1^2)\left(L+\frac{H_2}{\beta^2+H_2^2}\right)+H_1\right] &&\text{factor out }\tfrac12\\
+\frac{1}{N(\beta_m)}&=2\left[(\beta_m^2+H_1^2)\left(L+\frac{H_2}{\beta_m^2+H_2^2}\right)+H_1\right]^{-1} &&\text{flip}
+\end{aligned}
+$$
+
+This is the same result as the phase method in Case 1.
+
+## Appendix B — Specific starting temperatures
+
+Table 2-2 and its general solution keep F(x) as a symbol, so you do not need this appendix to derive the table. It shows how Cₘ simplifies for a specific F(x), mostly a uniform start F = T₀, as your notes do for Cases 6 and 4 on pp. 40–41. Each part below continues Step 5 of its case.
+
+### Facts used only for a specific F(x)
+
+Each item keeps its number from the main lists, and every integral runs from 0 to L.
+
+| Item | Fact | Where it is used |
+| --- | --- | --- |
+| Identity 10, second half | cos mπ = (−1)ᵐ | Case 9 uniform start; Case 5 linear start |
+| Identity 11, second half | sin((2m − 1)π/2) = (−1)ᵐ⁺¹ | Case 6 uniform start |
+| Integral 5 | ∫cos βx dx = sin βL/β | Uniform start: Cases 1, 4, 5, 6; Case 2 after u = L − x |
+| Integral 6 | ∫sin βx dx = (1 − cos βL)/β | Uniform start: Cases 1, 7, 8, 9; Case 3 after u = L − x |
+| Integral 7 | ∫x cos βx dx = L sin βL/β + (cos βL − 1)/β² | Linear start with a cosine X (the Case 5 example) |
+| Integral 8 | ∫x sin βx dx = sin βL/β² − L cos βL/β | Linear start with a sine X |
+| Trick 13 | If β tan βL = H, then (β² + H²) sin βL/β = H/cos βL. This shrinks the uniform-start Cₘ. | Cases 2 and 4 (your notes p. 41) |
+| Trick 14 | Odd and even m: 1 − (−1)ᵐ is 2 for odd m and 0 for even m, so only odd terms survive. | Case 9 uniform start; Case 5 linear start |
+
+Integrals 7 and 8 by parts, needed only if F(x) is not constant:
+
+$$
+\begin{aligned}
+\int_0^L x\cos\beta x\,dx&=\left[\frac{x\sin\beta x}{\beta}\right]_0^L-\int_0^L\frac{\sin\beta x}{\beta}\,dx &&u=x,\;dv=\cos\beta x\,dx\\
+&=\frac{L\sin\beta L}{\beta}+\frac{\cos\beta L-1}{\beta^2} &&\text{integrate, limits}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\int_0^L x\sin\beta x\,dx&=\left[-\frac{x\cos\beta x}{\beta}\right]_0^L+\int_0^L\frac{\cos\beta x}{\beta}\,dx &&u=x,\;dv=\sin\beta x\,dx\\
+&=\frac{\sin\beta L}{\beta^2}-\frac{L\cos\beta L}{\beta} &&\text{integrate, limits}
+\end{aligned}
+$$
+
+### Case 1 with a uniform start
+
+Uniform start, F = T₀. Integrals 5 and 6 give the integral; 1/N comes from Step 6:
+
+$$
+\int_0^L\left(\beta_m\cos\beta_mx'+H_1\sin\beta_mx'\right)dx'=\sin\beta_mL+\frac{H_1}{\beta_m}\left(1-\cos\beta_mL\right)
+$$
+
+Multiply by T₀/N, with 1/N from Step 6:
+
+$$
+C_m=\frac{2T_0\left[\sin\beta_mL+\dfrac{H_1}{\beta_m}(1-\cos\beta_mL)\right]}{(\beta_m^2+H_1^2)\left(L+\dfrac{H_2}{\beta_m^2+H_2^2}\right)+H_1}
+$$
+
+### Case 2 with a uniform start
+
+Uniform start, F = T₀. The integral comes from integrals 4 and 5:
+
+$$
+\begin{aligned}
+\int_0^L\cos\beta_m(L-x')\,dx'&=\int_0^L\cos\beta_mu\,du=\frac{\sin\beta_mL}{\beta_m} &&\text{integrals 4 and 5}\\
+C_m&=\frac{2T_0(\beta_m^2+H_1^2)}{L(\beta_m^2+H_1^2)+H_1}\cdot\frac{\sin\beta_mL}{\beta_m} &&\text{times }T_0/N
+\end{aligned}
+$$
+
+Shrink it with trick 13. The eigenvalue equation gives sin βₘL = (H₁/βₘ)cos βₘL, and identity 6 gives (βₘ² + H₁²)/βₘ² = 1/cos²βₘL:
+
+$$
+\begin{aligned}
+\frac{(\beta_m^2+H_1^2)\sin\beta_mL}{\beta_m}&=\frac{(\beta_m^2+H_1^2)H_1\cos\beta_mL}{\beta_m^2} &&\text{substitute }\sin\beta_mL\\
+&=\frac{H_1\cos\beta_mL}{\cos^2\beta_mL}=\frac{H_1}{\cos\beta_mL} &&\text{identity 6}\\
+C_m&=\frac{2T_0H_1}{\cos\beta_mL\left[L(\beta_m^2+H_1^2)+H_1\right]} &&\text{uniform-start result}
+\end{aligned}
+$$
+
+### Case 3 with a uniform start
+
+Uniform start, F = T₀:
+
+$$
+\begin{aligned}
+\int_0^L\sin\beta_m(L-x')\,dx'&=\int_0^L\sin\beta_mu\,du=\frac{1-\cos\beta_mL}{\beta_m} &&\text{integrals 4 and 6}\\
+C_m&=\frac{2T_0(\beta_m^2+H_1^2)(1-\cos\beta_mL)}{\beta_m\left[L(\beta_m^2+H_1^2)+H_1\right]} &&\text{times }T_0/N
+\end{aligned}
+$$
+
+### Case 4 with a uniform start
+
+Uniform start, F = T₀, as in your notes (p. 41):
+
+$$
+\begin{aligned}
+\int_0^L\cos\beta_mx'\,dx'&=\frac{\sin\beta_mL}{\beta_m} &&\text{integral 5}\\
+C_m&=\frac{2T_0(\beta_m^2+H_2^2)}{L(\beta_m^2+H_2^2)+H_2}\cdot\frac{\sin\beta_mL}{\beta_m} &&\text{times }T_0/N
+\end{aligned}
+$$
+
+Shrink it with trick 13. The eigenvalue equation gives sin βₘL = (H₂/βₘ)cos βₘL, and identity 6 gives (βₘ² + H₂²)/βₘ² = 1/cos²βₘL:
+
+$$
+\begin{aligned}
+\frac{(\beta_m^2+H_2^2)\sin\beta_mL}{\beta_m}&=\frac{(\beta_m^2+H_2^2)H_2\cos\beta_mL}{\beta_m^2} &&\text{substitute}\\
+&=\frac{H_2\cos\beta_mL}{\cos^2\beta_mL}=\frac{H_2}{\cos\beta_mL} &&\text{identity 6}\\
+C_m&=\frac{2T_0H_2}{\cos\beta_mL\left[L(\beta_m^2+H_2^2)+H_2\right]} &&\text{notes p. 41}
+\end{aligned}
+$$
+
+In Biot form this is the undergraduate plane-wall coefficient, Cₘ/T₀ = 4 sin ζₘ/(2ζₘ + sin 2ζₘ).
+
+### Case 5 with uniform and linear starts
+
+Uniform start, F = T₀: every m ≥ 1 integral is sin(mπ)/βₘ = 0, so T = T₀ for all time, as it must. A start that exercises the method is F(x) = T₀x/L. Use integral 7 with sin βₘL = 0 and cos βₘL = (−1)ᵐ:
+
+$$
+\begin{aligned}
+C_0&=\frac{1}{L}\int_0^L\frac{T_0x'}{L}\,dx'=\frac{T_0}{2} &&\text{ramp average}\\
+\int_0^L x'\cos\beta_mx'\,dx'&=\frac{(-1)^m-1}{\beta_m^2} &&\text{integral 7}\\
+C_m&=\frac{2}{L}\cdot\frac{T_0}{L}\cdot\frac{(-1)^m-1}{\beta_m^2} &&\text{Step 5}\\
+&=\frac{2T_0\left[(-1)^m-1\right]}{m^2\pi^2} &&\beta_m=m\pi/L\\
+&=-\frac{4T_0}{m^2\pi^2}\text{ (odd }m),\quad0\text{ (even }m) &&\text{trick 14}
+\end{aligned}
+$$
+
+$$
+T(x,t)=\frac{T_0}{2}-\frac{4T_0}{\pi^2}\sum_{m=1,3,5,\dots}\frac{1}{m^2}\,e^{-\alpha(m\pi/L)^2t}\cos\frac{m\pi x}{L}
+$$
+
+### Case 6 with a uniform start
+
+Uniform start, F = T₀, as in your notes (p. 40). Here sin βₘL = sin((2m − 1)π/2) = (−1)ᵐ⁺¹, which runs +1, −1, +1, …:
+
+$$
+\begin{aligned}
+\int_0^L\cos\beta_mx'\,dx'&=\frac{\sin\beta_mL}{\beta_m}=\frac{(-1)^{m+1}}{\beta_m} &&\text{integral 5, identity 11}\\
+C_m&=\frac{2T_0(-1)^{m+1}}{\beta_mL} &&\text{times }2T_0/L
+\end{aligned}
+$$
+
+$$
+T(x,t)=2T_0\sum_{m=1}^{\infty}(-1)^{m+1}\,\frac{e^{-\alpha\beta_m^2t}}{\beta_mL}\cos\beta_mx
+$$
+
+This is the result on p. 40 of your notes, with the index shifted by one.
+
+### Case 7 with a uniform start
+
+Uniform start, F = T₀:
+
+$$
+\begin{aligned}
+\int_0^L\sin\beta_mx'\,dx'&=\frac{1-\cos\beta_mL}{\beta_m} &&\text{integral 6}\\
+C_m&=\frac{2T_0(\beta_m^2+H_2^2)(1-\cos\beta_mL)}{\beta_m\left[L(\beta_m^2+H_2^2)+H_2\right]} &&\text{times }T_0/N
+\end{aligned}
+$$
+
+### Case 8 with a uniform start
+
+Uniform start, F = T₀. Since cos βₘL = 0, the integral simplifies:
+
+$$
+\begin{aligned}
+\int_0^L\sin\beta_mx'\,dx'&=\frac{1-\cos\beta_mL}{\beta_m}=\frac{1}{\beta_m} &&\cos\beta_mL=0\\
+C_m&=\frac{2}{L}\cdot\frac{T_0}{\beta_m}=\frac{2T_0}{\beta_mL} &&1/N=2/L\\
+&=\frac{4T_0}{(2m-1)\pi} &&\beta_mL=\tfrac{(2m-1)\pi}{2}
+\end{aligned}
+$$
+
+$$
+T(x,t)=\frac{4T_0}{\pi}\sum_{m=1}^{\infty}\frac{1}{2m-1}\,e^{-\alpha\beta_m^2t}\sin\beta_mx
+$$
+
+### Case 9 with a uniform start
+
+Uniform start, F = T₀. Here cos βₘL = cos mπ = (−1)ᵐ:
+
+$$
+\begin{aligned}
+\int_0^L\sin\beta_mx'\,dx'&=\frac{1-(-1)^m}{\beta_m} &&\text{integral 6}\\
+C_m&=\frac{2}{L}\cdot\frac{T_0\left[1-(-1)^m\right]}{\beta_m} &&1/N=2/L\\
+&=\frac{2T_0\left[1-(-1)^m\right]}{m\pi} &&\beta_mL=m\pi\\
+&=\frac{4T_0}{m\pi}\text{ (odd }m),\quad0\text{ (even }m) &&\text{trick 14}
+\end{aligned}
+$$
+
+$$
 T(x,t)=\frac{4T_0}{\pi}\sum_{m=1,3,5,\dots}\frac{1}{m}\,e^{-\alpha(m\pi/L)^2t}\sin\frac{m\pi x}{L}
-```
+$$
