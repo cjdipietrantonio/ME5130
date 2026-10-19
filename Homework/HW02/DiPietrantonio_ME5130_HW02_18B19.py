@@ -2,8 +2,7 @@ r'''
 Christian DiPietrantonio
 ME5130: Advanced Heat and Mass Transfer
 HW02: Problem 18B.19, Part (d):
-  Plot the total oxygen uptake rate and xi_0 as functions of $N$
-
+  Plot the total oxygen uptake rate and xi_0 as functions of N
 '''
 
 import numpy as np

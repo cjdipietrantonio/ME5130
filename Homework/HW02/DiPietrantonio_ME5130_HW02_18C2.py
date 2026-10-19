@@ -3,7 +3,6 @@ Christian DiPietrantonio
 ME5130: Advanced Heat and Mass Transfer
 HW02: Problem 18C.2, Part (a):
   Integrate Eq. 18.7-6 separately for the active and inactive regions. Then apply the appropriate boundary conditions to evaluate the integration constants, and solve for the concentration profile in each region. Give qualitative sketches to illustrate the forms of the profiles.
-
 '''
 
 import numpy as np
