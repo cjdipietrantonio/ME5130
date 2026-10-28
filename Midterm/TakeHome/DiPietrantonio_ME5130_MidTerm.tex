@@ -1,16 +1,704 @@
 \documentclass[letterpaper,12pt]{article}
-\usepackage{amsmath, amssymb, geometry}
+\usepackage{amsmath, amssymb, geometry, listings, xcolor, graphicx, float, booktabs}
 \geometry{margin=1in}
 \setlength{\parindent}{0pt} % no indentation
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize, % Base font style and size
+    keywordstyle=\color{blue!60!black},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{teal!60!black},
+    numbers=left,                      % line numbers on the left
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,                      % line numbers every 1 line
+    breaklines=true,                   % Wrap long lines
+    breakatwhitespace=false,           % Line break anywhere if needed
+    columns=flexible,                  % Better spacing between characters
+    frame=single,                      % Add a frame around the code
+    tabsize=4,                         % Set tab size to 4 spaces
+    showstringspaces=false,
+    inputencoding=utf8,
+    extendedchars=true
+}
+
 \begin{document}
 
 %INFO
 Christian DiPietrantonio \\
 ME 5130: Advanced Heat and Mass Transfer \\
-Midterm Exam \\
+Midterm Exam: Take-Home \\
 \today
 
 \vspace{6pt}
 
+%==========================================================
+\section*{Problem 2: Plotting of the Temperature Solution}
+
+Consider the assigned homework problem 2-15 from Ozisik (1993). Use $ a = 1~\text{m}, \: b = 1~\text{m}, \: k = 0.8~\text{W/m-K}, \: h = 10~\text{W/m}^2\text{-K}, \: T = f(x) = 100~\text{K}.$
+
+\vspace{6pt}
+
+First, the solution of \"Oz\i \c{s}\i k (1993) Problem 2--15, derived in Homework 01, is the steady-state temperature distribution $T(x,y)$ for a rectangular region $0 \leq x \leq a$, $0 \leq y \leq b$ that is insulated at $x = 0$, held at $T = f(x)$ on $y = 0$, and dissipates heat by convection to an environment at zero temperature through $x = a$ and $y = b$. After defining $H = h/k$, the problem can be expressed as:
+
+\begin{equation}
+    \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} = 0, \qquad 0 < x < a, \, 0 < y < b
+\end{equation}
+
+\begin{equation}
+    \frac{\partial T}{\partial x} = 0, \qquad x = 0
+\end{equation}
+
+\begin{equation}
+    \frac{\partial T}{\partial x} + HT = 0, \qquad x = a
+\end{equation}
+
+\begin{equation}
+    T(x, 0) = f(x), \qquad y = 0
+\end{equation}
+
+\begin{equation}
+    \frac{\partial T}{\partial y} + HT = 0, \qquad y = b
+\end{equation}
+
+After separating variables and obtaining the eigenfunction and normalization factor from Table 2--2 (\"Oz\i \c{s}\i k (1993)), the following results were obtained for Homework 01:
+
+\begin{equation}
+    T(x, y) = \sum_{m = 1}^{\infty} \frac{\cos{\beta_m x} \left[ \beta_m \cosh{\beta_m (b - y)} + H \sinh{\beta_m (b - y)} \right]}{N(\beta_m) \left[ \beta_m \cosh{\beta_m b} + H \sinh{\beta_m b} \right]} \int_{0}^{a} \cos{\beta_m x'} \, f(x') \, dx'
+\end{equation}
+
+where:
+
+\begin{equation}
+    \frac{1}{N(\beta_m)} = \frac{2 \left( \beta^{2}_m + H^2 \right)}{a \left( \beta^{2}_m + H^2 \right) + H}
+\end{equation}
+
+and the eigenvalues $\beta_m$ are the positive roots of:
+
+\begin{equation}
+    \beta_m \tan{\beta_m a} = H
+\end{equation}
+
+For this problem, $f(x) = T_0 = 100$~K is a constant, therefore:
+
+\begin{equation}
+\begin{aligned}
+    \int_{0}^{a} \cos{\beta_m x'} \, T_0 \, dx' &= T_0 \left[ \frac{\sin{\beta_m x'}}{\beta_m} \right]_{0}^{a} \\[6pt]
+                                                &= \frac{T_0 \sin{\beta_m a}}{\beta_m}
+\end{aligned}
+\end{equation}
+
+Substituting this into the Homework 01 solution above gives the expression evaluated in the code:
+
+\begin{equation}
+    T(x, y) = \sum_{m = 1}^{\infty} \frac{T_0 \sin{\beta_m a}}{\beta_m N(\beta_m)} \cos{\beta_m x} \; \frac{\beta_m \cosh{\beta_m (b - y)} + H \sinh{\beta_m (b - y)}}{\beta_m \cosh{\beta_m b} + H \sinh{\beta_m b}}
+\end{equation}
+
+%==========================================================
+
+\subsection*{2a.}
+List the first ten eigenvalues $\beta_m$ used to generate your contour plot.
+
+\vspace{6pt}
+
+\textbf{Problem 2a: Solution}
+
+\vspace{6pt}
+
+\begin{table}[H]
+    \centering
+    \caption{First ten eigenvalues $\beta_m$, the positive roots of $\beta_m \tan{\beta_m a} = H$, for $a = 1$~m and $H = h/k = 12.5~\mathrm{m^{-1}}$.}
+    \label{tab:eigenvalues}
+    \begin{tabular}{c@{\hspace{3em}}c}
+        \toprule
+        $m$ & $\beta_m$ (m$^{-1}$) \\
+        \midrule
+        1  &  1.4549 \\
+        2  &  4.3757 \\
+        3  &  7.3240 \\
+        4  & 10.3061 \\
+        5  & 13.3200 \\
+        6  & 16.3604 \\
+        7  & 19.4214 \\
+        8  & 22.4983 \\
+        9  & 25.5872 \\
+        10 & 28.6853 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+%==========================================================
+
+\subsection*{2b.}
+Create a 2-D contour plot of the temperature field $T(x,y)$ for
+$[\,0 \le x \le a;\ 0 \le y \le b\,]$.
+Show at least 6 isotherms, and numerically label the temperature value of all the isotherms. 
+
+\vspace{6pt}
+
+\textbf{Problem 2b: Solution}
+
+\vspace{6pt}
+
+Figure~\ref{fig:isotherms} shows nine isotherms, from 10~K to 90~K. The isotherms and contour plot show that heat enters the plate through the bottom face at 100~K and leaves by convection through the top and right faces. The isotherms meet the insulated face $x = 0$ at right angles because $\partial T / \partial x = 0$ at the face (and the temperature gradient is perpendicular to the isotherms). The isotherms also cluster together near the corner $(a, 0)$, where the 100~K face meets a cooled face and the temperature gradient is large.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{DiPietrantonio_ME5130_Midterm_P2.png}
+    \caption{Isotherms of the steady temperature distribution $T(x, y)$ for $a = b = 1$~m, $k = 0.8$~W/m-K, $h = 10$~W/m$^2$-K and $f(x) = 100$~K, with the series summed to 1000 terms.}
+    \label{fig:isotherms}
+\end{figure}
+
+%==========================================================
+
+\section*{Problem 3: Diffusion Mass Transfer}
+
+For this problem, consider example problem 17.4-1 in Bird, Stewart and
+Lightfoot (1960), pg.~534--535.
+
+%==========================================================
+
+\subsection*{3a.}
+Using the Shell Mass Balance approach:
+
+\begin{equation*}
+[\text{in}] - [\text{out}] + [\text{reaction}] = 0
+\end{equation*}
+
+create a sketch of a control volume, and indicate all the in/out fluxes, and
+reaction terms in your sketch.
+
+\vspace{6pt}
+
+\textbf{Problem 3a: Solution}
+
+\vspace{6pt}
+
+Using the shell mass balance approach, we can evaluate a mass balance on a thin shell perpendicular to the direction of $A$'s motion. Given that $A$ moves in the $z$-direction, and assuming $\delta$ is small compared with the bubble diameter, let the shell be a thin slab between $z$ and $z + \Delta z$ with surface area $S$ and volume $S \Delta z$. We can now evaluate the following shell balance:
+
+\begin{equation}
+    \left[\text{rate of } A \text{ in}\right] - \left[\text{rate of } A \text{ out}\right] + \left[
+    \begin{gathered}
+        \text{rate of production of } A\\
+        \text{by homogeneous}\\
+        \text{chemical reaction}
+    \end{gathered}
+    \right] = 0
+\end{equation}
+
+Where the rate of $A$ in is expressed as:
+
+\begin{equation}
+    \text{Rate in} = N_{Az}\big|_{z}\, S
+\end{equation}
+
+The rate of $A$ out is expressed as:
+
+\begin{equation}
+    \text{Rate out} = N_{Az}\big|_{z+\Delta z}\, S
+\end{equation}
+
+and the rate of production of $A$ by a homogeneous first-order chemical reaction is:
+
+\begin{equation}
+    \text{reaction} = -k_1''' c_A\, S\, \Delta z
+\end{equation}
+
+Therefore, the shell balance can be expressed as:
+
+\begin{equation}
+    N_{Az}\big|_{z}\, S - N_{Az}\big|_{z+\Delta z}\, S - k_1''' c_A\, S\, \Delta z = 0
+\end{equation}
+
+and represented visually as:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{DiPietrantonio_ME5130_Midterm_P3a_ShellBalanceSketch.png}
+    \caption{Shell mass balance on gas $A$ over a slab of thickness $\Delta z$ in the stagnant liquid film.}
+    \label{fig:shell}
+\end{figure}
+
+%==========================================================
+
+\subsection*{3b.}
+Use this Shell Mass Balance sketch to derive the following governing equation
+and boundary conditions.
+
+\medskip
+Governing equation:
+
+\begin{equation*}
+    -\mathcal{D}_{AB}\,\frac{d^2 c_A}{dz^2} + k_1''' c_A = 0
+\end{equation*}
+
+Boundary conditions:
+
+\begin{align*}
+    c_A &= c_{A0} \quad \text{at } z = 0 \\[6pt]
+    c_A &= c_{A \delta} \quad \text{at } z = \delta
+\end{align*}
+
+All assumptions must be clearly stated, and all steps clearly explained.
+
+\vspace{6pt}
+
+\textbf{Problem 3b: Solution}
+
+\vspace{6pt}
+
+The shell balance above can now be used to derive the governing equation and boundary conditions for the problem under the following assumptions:
+
+\begin{enumerate}
+    \item A steady-state concentration is quickly established in the liquid film after the bubble is formed (BSL 1960 p. 534). Therefore, $c_A$ in the film does not change with time.
+    \item Each gas bubble is surrounded by a stagnant liquid film of thickness $\delta$, which is small with respect to the bubble diameter (BSL 1960 p. 534).
+    \item The gas $A$ is only sparingly soluble in the liquid, so that we can neglect the bulk flow term in BSL Equation 17.0-1 (BSL 1960 p. 534).
+    \item The bulk of the liquid outside the stagnant film is at concentration $c_{A \delta}$, which changes so slowly with respect to time that it can be considered constant (BSL 1960 p. 534).
+    \item The total molar concentration $c$ is virtually uniform throughout the liquid, and therefore constant. 
+    \item Constant properties throughout the stagnant liquid film, therefore $\mathcal{D}_{AB}$ and $k_1'''$ are constant.
+    \item The reaction $A + B \to AB$ is a homogeneous, irreversible first-order reaction (BSL 1960 p. 534).
+    \item The product of the chemical reaction $AB$ does not interfere with the diffusion of $A$ through $B$.
+    \item $c_{A0}$ is the interfacial concentration of $A$ in the liquid phase and is at equilibrium with the gas phase at the interface (BSL 1960 p. 534-535).
+\end{enumerate}
+
+Starting with:
+
+\begin{equation}
+    N_{Az}\big|_{z}\, S - N_{Az}\big|_{z+\Delta z}\, S - k_1''' c_A\, S\, \Delta z = 0
+\end{equation}
+
+The equation above can be simplified to:
+
+\begin{equation}
+\begin{aligned}
+    \frac{N_{Az}\big|_{z} - N_{Az}\big|_{z+\Delta z}}{\Delta z} - k_1''' c_A  &= 0 \\
+    -\frac{N_{Az}\big|_{z+\Delta z} - N_{Az}\big|_{z}}{\Delta z} - k_1''' c_A &= 0
+\end{aligned}
+\end{equation}
+
+Taking the limit as $\Delta z \to 0$ yields:
+
+\begin{equation}
+    \lim_{\Delta z \to 0} \frac{N_{Az}\big|_{z+\Delta z} - N_{Az}\big|_{z}}{\Delta z} = \frac{dN_{Az}}{dz}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+\begin{aligned}
+    -\frac{dN_{Az}}{dz} - k_1''' c_A &= 0 \\
+    \frac{dN_{Az}}{dz} + k_1''' c_A  &= 0
+\end{aligned}
+\end{equation}
+
+Now, Equation 17.0-1 from BSL writes:
+
+\begin{equation}
+    N_{Az} = -c\,\mathcal{D}_{AB}\frac{dx_A}{dz} + x_A\left(N_{Az} + N_{Bz}\right)
+\end{equation}
+
+However, since it is assumed that the gas $A$ is only sparingly soluble in the liquid, we can neglect the bulk flow term, $x_A\left(N_{Az} + N_{Bz}\right)$. Thus:
+
+\begin{equation}
+    N_{Az} = -c\,\mathcal{D}_{AB}\frac{dx_A}{dz} 
+\end{equation}
+
+And because $c$ is constant, and $c_A = c x_A$, the equation above can be written as:
+
+\begin{equation}
+    N_{Az} = -\mathcal{D}_{AB}\frac{dc_A}{dz}
+\end{equation}
+
+The equation above can now be inserted into the differential equation obtained from the shell balance:
+
+\begin{equation}
+    \frac{d}{dz}\left(-\mathcal{D}_{AB}\frac{dc_A}{dz}\right) + k_1''' c_A = 0
+\end{equation}
+
+and since $\mathcal{D}_{AB}$ is assumed to be constant:
+
+\begin{equation}
+\boxed{
+    -\mathcal{D}_{AB}\frac{d^2 c_A}{dz^2} + k_1''' c_A = 0
+}
+\end{equation}
+
+Which can be classified as a second-order differential equation that requires two conditions for a particular solution. At the interface $z = 0$, it is assumed that $c_{A0}$ is the interfacial concentration of A in the liquid phase and is at equilibrium with the gas phase. Therefore:
+
+\begin{equation}
+\boxed{
+    c_A = c_{A0} \quad \text{at } z = 0
+}
+\end{equation}
+
+At the edge of the film $(z = \delta)$, the bulk of the liquid outside the stagnant film is assumed to be at concentration $c_{A \delta}$, which changes so slowly with respect to time that it can be considered constant (BSL 1960 p. 534). Therefore:
+
+\begin{equation}
+\boxed{
+    c_A = c_{A\delta} \quad \text{at } z = \delta
+}
+\end{equation}
+
+%==========================================================
+
+\subsection*{3c.}
+Show that the solution to this system is the following. All assumptions must be
+clearly stated, and all steps clearly explained.
+
+\begin{equation*}
+\frac{c_A}{c_{A0}}
+= \frac{\Gamma \sinh b_1 \zeta + \sinh b_1 (1 - \zeta)}{\sinh b_1}
+\end{equation*}
+
+\vspace{6pt}
+
+\textbf{Problem 3c: Solution}
+
+\vspace{6pt}
+
+Maintaining the same assumptions as above and adding the following:
+
+\begin{enumerate}
+    \item $k_1''' > 0$, $\delta > 0$, and $\mathcal{D}_{AB} > 0$, so $b_1 > 0$ and $\sinh{b_1} > 0$.
+    \item $c_{A0} > 0$.
+\end{enumerate}
+
+The governing equation above can be considered:
+
+\begin{equation}
+\begin{aligned}
+    -\mathcal{D}_{AB}\frac{d^2 c_A}{dz^2} + k_1''' c_A           &= 0 \\
+    \frac{d^2 c_A}{dz^2} - \frac{k_1'''}{\mathcal{D}_{AB}}\, c_A &= 0
+\end{aligned}
+\end{equation}
+
+Let:
+
+\begin{equation}
+    \lambda^2 = \frac{k_1'''}{\mathcal{D}_{AB}}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    \frac{d^2 c_A}{dz^2} - \lambda^2 c_A = 0
+\end{equation}
+
+A second-order homogeneous linear ordinary differential equation with constant coefficients and a well-known general solution:
+
+\begin{equation}
+    c_A = C_1\cosh\lambda z + C_2\sinh\lambda z
+\end{equation}
+
+The boundary conditions above can now be applied. At $z = 0$, $c_A = c_{A0}$:
+
+\begin{equation}
+\begin{aligned}
+    c_{A0} &= C_1\cosh 0 + C_2\sinh 0 \\
+    c_{A0} &= C_1
+\end{aligned}
+\end{equation}
+
+At $z = \delta$, $c_A = c_{A \delta}$:
+
+\begin{equation}
+\begin{aligned}
+    c_{A\delta} &= c_{A0}\cosh\lambda\delta + C_2\sinh\lambda\delta \\
+    C_2         &= \frac{c_{A\delta} - c_{A0}\cosh\lambda\delta}{\sinh\lambda\delta}
+\end{aligned}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    c_A = c_{A0}\cosh\lambda z + \frac{c_{A\delta} - c_{A0}\cosh\lambda\delta}{\sinh\lambda\delta}\,\sinh\lambda z
+\end{equation}
+
+Given that $\Gamma = \dfrac{c_{A \delta}}{c_{A0}}$, dividing both sides by $c_{A0}$ gives:
+
+\begin{equation}
+    \frac{c_A}{c_{A0}} = \cosh\lambda z + \frac{\Gamma - \cosh\lambda\delta}{\sinh\lambda\delta}\,\sinh\lambda z
+\end{equation}
+
+Which can be rearranged to:
+
+\begin{equation}
+\begin{aligned}
+    \frac{c_A}{c_{A0}} &= \frac{\sinh\lambda\delta\cosh\lambda z + \Gamma\sinh\lambda z - \cosh\lambda\delta\sinh\lambda z}{\sinh\lambda\delta} \\
+                       &= \frac{\Gamma\sinh\lambda z + \left(\sinh\lambda\delta\cosh\lambda z - \cosh\lambda\delta\sinh\lambda z\right)}{\sinh\lambda\delta}
+\end{aligned}
+\end{equation}
+
+and using the identity: $\sinh{(A - B)} = \sinh{A}\cosh{B} - \cosh{A}\sinh{B}$:
+
+\begin{equation}
+    \frac{c_A}{c_{A0}} = \frac{\Gamma\sinh\lambda z + \sinh\lambda(\delta - z)}{\sinh\lambda\delta}
+\end{equation}
+
+Now, given:
+
+\begin{equation}
+    \zeta = \frac{z}{\delta}, \qquad b_1 = \sqrt{\frac{k_1''' \delta^2}{\mathcal{D}_{AB}}}
+\end{equation}
+
+and recalling that:
+
+\begin{equation}
+    \lambda = \sqrt{\frac{k_1'''}{\mathcal{D}_{AB}}}
+\end{equation}
+
+Therefore, since $\delta > 0$:
+
+\begin{equation}
+    \lambda\delta = \sqrt{\frac{k_1'''}{\mathcal{D}_{AB}}}\;\delta = \sqrt{\frac{k_1'''\,\delta^2}{\mathcal{D}_{AB}}} = b_1
+\end{equation}
+
+\begin{equation}
+    \lambda z = \lambda\delta\,\frac{z}{\delta} = b_1\zeta
+\end{equation}
+
+\begin{equation}
+    \lambda(\delta - z) = \lambda\delta\left(1 - \frac{z}{\delta}\right) = b_1(1 - \zeta)
+\end{equation}
+
+and the normalized molar concentration of gas $A$ can be expressed as:
+
+\begin{equation}
+\boxed{
+    \frac{c_A}{c_{A0}} = \frac{\Gamma\sinh b_1\zeta + \sinh b_1(1 - \zeta)}{\sinh b_1}
+}
+\end{equation}
+
+
+%==========================================================
+
+\subsection*{3d.}
+Now, assume that there is no chemical reaction. Since $k_1''' = 0$, the
+governing equation is now:
+
+\begin{equation*}
+    -\mathcal{D}_{AB}\,\frac{d^2 c_A}{dz^2} = 0
+\end{equation*}
+
+and subjected to the same boundary conditions. Solve the differential equation,
+and show that the solution without chemical reaction is:
+
+\begin{equation*}
+    \left( \frac{c_A}{c_{A0}} \right)_{\mathrm{no \, rxn}} = \Gamma \zeta + (1 - \zeta)
+\end{equation*}
+
+Do not just set $b_1 = 0$ in the solution given in problem 2c. All assumptions
+must be clearly stated, and all steps clearly explained.
+
+\vspace{6pt}
+
+\textbf{Problem 3d: Solution}
+
+\vspace{6pt}
+
+As mentioned previously, with no chemical reaction, $k_1''' = 0$ and the same assumptions as above, the governing equation becomes:
+
+\begin{equation*}
+    -\mathcal{D}_{AB}\,\frac{d^2 c_A}{dz^2} = 0
+\end{equation*}
+
+Since $\mathcal{D}_{AB} \neq 0$:
+
+\begin{equation}
+    \frac{d^2 c_A}{dz^2} = 0
+\end{equation}
+
+Integrating once gives: 
+
+\begin{equation}
+    \frac{dc_A}{dz} = C_1
+\end{equation}
+
+and twice:
+
+\begin{equation}
+    c_A = C_1 z + C_2
+\end{equation}
+
+The boundary conditions (same as above) can now be applied. At $z = 0$, $c_A = c_{A0}$:
+
+\begin{equation}
+\begin{aligned}
+    c_{A0} &= C_1(0) + C_2 \\
+    c_{A0} &= C_2
+\end{aligned}
+\end{equation}
+
+At $z = \delta$, $c_A = c_{A \delta}$:
+
+\begin{equation}
+\begin{aligned}
+    c_{A\delta} &= C_1\delta + c_{A0} \\
+    C_1         &= \frac{c_{A\delta} - c_{A0}}{\delta}
+\end{aligned}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    c_A = \frac{c_{A\delta} - c_{A0}}{\delta}\, z + c_{A0}
+\end{equation}
+
+Dividing both sides by $c_{A0}$ and rearranging gives:
+
+\begin{equation}
+    \frac{c_A}{c_{A0}} = \left(\frac{c_{A\delta}}{c_{A0}} - 1\right)\frac{z}{\delta} + 1
+\end{equation}
+
+and again, since $\Gamma = \dfrac{c_{A \delta}}{c_{A0}}$ and $\zeta = \dfrac{z}{\delta}$:
+
+\begin{equation}
+    \frac{c_A}{c_{A0}} = (\Gamma - 1)\,\zeta + 1
+\end{equation}
+
+Which can be rewritten as:
+
+\begin{equation}
+\boxed{
+    \left(\frac{c_A}{c_{A0}}\right)_{\text{no rxn}} = \Gamma\zeta + (1 - \zeta)
+}
+\end{equation}
+
+%==========================================================
+
+\subsection*{3e.}
+Using Fick's law, show that the fluxes with and without reaction at $z = 0$ are:
+
+\medskip
+With chemical reaction:
+
+\begin{equation*}
+    \left( N_{Az} \right)_{z=0}
+    = \frac{\mathcal{D}_{AB} \, c_{A0}}{\delta}
+    \left( \frac{ b_1 \cosh b_1 - b_1 \Gamma }{\sinh b_1} \right)
+\end{equation*}
+
+No chemical reaction:
+
+\begin{equation*}
+    \left( N_{Az} \right)_{z=0}
+    = \frac{\mathcal{D}_{AB} \, c_{A0}}{\delta} \left( 1 - \Gamma \right)
+\end{equation*}
+
+\vspace{6pt}
+
+\textbf{Problem 3e: Solution}
+
+\vspace{6pt}
+
+Starting with the expression for the normalized molar concentration of gas $A$ with the chemical reaction:
+
+\begin{equation}
+\begin{aligned}
+    \frac{c_A}{c_{A0}} &= \frac{\Gamma\sinh b_1\zeta + \sinh b_1(1 - \zeta)}{\sinh b_1} \\
+    c_A                &= \frac{c_{A0}}{\sinh b_1}\left[\Gamma\sinh b_1\zeta + \sinh b_1(1 - \zeta)\right]
+\end{aligned}
+\end{equation}
+
+Differentiating with respect to $\zeta$:
+
+\begin{equation}
+    \frac{dc_A}{d\zeta} = \frac{c_{A0}}{\sinh b_1}\left[\Gamma b_1\cosh b_1\zeta - b_1\cosh b_1(1 - \zeta)\right]
+\end{equation}
+
+At $z = 0$, $\zeta = 0$, and $\cosh{0} = 1$:
+
+\begin{equation}
+    \frac{dc_A}{d\zeta}\bigg|_{\zeta=0} = \frac{c_{A0}}{\sinh b_1}\left(b_1\Gamma - b_1\cosh b_1\right)
+\end{equation}
+
+Furthermore, since:
+
+\begin{equation}
+    \frac{d\zeta}{dz} = \frac{1}{\delta}
+\end{equation}
+
+\begin{equation}
+    \frac{dc_A}{dz} = \frac{dc_A}{d\zeta}\,\frac{d\zeta}{dz} = \frac{1}{\delta}\,\frac{dc_A}{d\zeta}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    \frac{dc_A}{dz}\bigg|_{z=0} = \frac{c_{A0}}{\delta\,\sinh b_1}\left(b_1\Gamma - b_1\cosh b_1\right)
+\end{equation}
+
+Now, using Fick's law:
+
+\begin{equation}
+\begin{aligned}
+    N_{Az}\big|_{z=0} &= -\mathcal{D}_{AB}\,\frac{dc_A}{dz}\bigg|_{z=0} \\
+                      &= -\frac{\mathcal{D}_{AB}\, c_{A0}}{\delta\,\sinh b_1}\left(b_1\Gamma - b_1\cosh b_1\right)
+\end{aligned}
+\end{equation}
+
+Which can be rewritten as:
+
+\begin{equation}
+\boxed{
+    \left( N_{Az} \right)_{z=0} = \frac{\mathcal{D}_{AB}\, c_{A0}}{\delta}\left(\frac{b_1\cosh b_1 - b_1\Gamma}{\sinh b_1}\right)
+}
+\end{equation}
+
+Now, using the expression for the normalized molar concentration of gas $A$ with no chemical reaction:
+
+\begin{equation}
+\begin{aligned}
+    \left(\frac{c_A}{c_{A0}}\right)_{\text{no rxn}} &= \Gamma\zeta + (1 - \zeta) \\
+    c_A                                             &= c_{A0}\left[\Gamma\zeta + (1 - \zeta)\right]
+\end{aligned}
+\end{equation}
+
+Differentiating with respect to $\zeta$:
+
+\begin{equation}
+    \frac{dc_A}{d\zeta} = c_{A0}\left(\Gamma - 1\right)
+\end{equation}
+
+Again, since:
+
+\begin{equation}
+    \frac{d\zeta}{dz} = \frac{1}{\delta}
+\end{equation}
+
+\begin{equation}
+    \frac{dc_A}{dz} = \frac{dc_A}{d\zeta}\,\frac{d\zeta}{dz} = \frac{1}{\delta}\,\frac{dc_A}{d\zeta}
+\end{equation}
+
+\begin{equation}
+    \frac{dc_A}{dz} = \frac{c_{A0}}{\delta}\left(\Gamma - 1\right)
+\end{equation}
+
+Therefore, using Fick's law:
+
+\begin{equation}
+\begin{aligned}
+    N_{Az}\big|_{z=0} &= -\mathcal{D}_{AB}\,\frac{dc_A}{dz}\bigg|_{z=0} \\
+                      &= -\frac{\mathcal{D}_{AB}\, c_{A0}}{\delta}\left(\Gamma - 1\right)
+\end{aligned}
+\end{equation}
+
+Which can be rewritten as:
+
+\begin{equation}
+\boxed{
+    \left(N_{Az}\right)_{z=0,\ \text{no rxn}} = \frac{\mathcal{D}_{AB}\, c_{A0}}{\delta}\left(1 - \Gamma\right)
+}
+\end{equation}
+
+%==========================================================
+
+% CODE FOR PROBLEM 2
+\newpage
+\section*{Program Listing: Problem 2}
+
+\lstinputlisting[
+    language=Python
+]{DiPietrantonio_ME5130_Midterm_P02.py}
 
 \end{document}
