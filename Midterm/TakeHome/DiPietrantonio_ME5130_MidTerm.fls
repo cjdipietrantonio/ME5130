@@ -1,7 +1,7 @@
 PWD c:\Users\cjdip\Desktop\Home\School\GraduateSchool\UConn\Fall2026\ME5130\GitHub\ME5130\Midterm\TakeHome
 INPUT C:\Users\cjdip\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\cjdip\Desktop\Home\School\GraduateSchool\UConn\Fall2026\ME5130\GitHub\ME5130\Midterm\TakeHome\DiPietrantonio_ME5130_MidTerm.tex
-OUTPUT DiPietrantonio_ME5130_MidTerm.log
+INPUT c:\Users\cjdip\Desktop\Home\School\GraduateSchool\UConn\Fall2026\ME5130\GitHub\ME5130\Midterm\TakeHome\DiPietrantonio_ME5130_Midterm.tex
+OUTPUT DiPietrantonio_ME5130_Midterm.log
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\base\size12.clo
@@ -73,10 +73,10 @@ INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.s
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\DiPietrantonio_ME5130_MidTerm.aux
-INPUT .\DiPietrantonio_ME5130_MidTerm.aux
-INPUT DiPietrantonio_ME5130_MidTerm.aux
-OUTPUT DiPietrantonio_ME5130_MidTerm.aux
+INPUT .\DiPietrantonio_ME5130_Midterm.aux
+INPUT .\DiPietrantonio_ME5130_Midterm.aux
+INPUT DiPietrantonio_ME5130_Midterm.aux
+OUTPUT DiPietrantonio_ME5130_Midterm.aux
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -110,7 +110,7 @@ INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-OUTPUT DiPietrantonio_ME5130_MidTerm.pdf
+OUTPUT DiPietrantonio_ME5130_Midterm.pdf
 INPUT C:\Users\cjdip\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
@@ -135,7 +135,7 @@ INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt12.tf
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT DiPietrantonio_ME5130_Midterm_P02.py
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tctt1000.tfm
-INPUT DiPietrantonio_ME5130_MidTerm.aux
+INPUT DiPietrantonio_ME5130_Midterm.aux
 INPUT C:\Users\cjdip\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tctt1000.pk
 INPUT C:\Users\cjdip\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tctt1000.pk
 INPUT C:\Users\cjdip\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
