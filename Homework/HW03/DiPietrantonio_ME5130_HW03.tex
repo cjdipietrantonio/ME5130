@@ -1,0 +1,110 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amsmath, amssymb, geometry, listings, xcolor, graphicx, float}
+
+\geometry{margin=1in}
+
+\setlength{\parindent}{0pt} % no indentation
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize, % Base font style and size
+    keywordstyle=\color{blue!60!black},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{teal!60!black},
+    numbers=left,                      % line numbers on the left
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,                      % line numbers every 1 line
+    breaklines=true,                   % Wrap long lines
+    breakatwhitespace=false,           % Line break anywhere if needed
+    columns=flexible,                  % Better spacing between characters
+    frame=single,                      % Add a frame around the code
+    tabsize=4,                         % Set tab size to 4 spaces
+    showstringspaces=false,
+    inputencoding=utf8,
+    extendedchars=true
+}
+
+\begin{document}
+
+%INFO
+Christian DiPietrantonio \\
+ME 5130: Advanced Heat and Mass Transfer \\
+Homework 03: External Flow \\
+\today
+
+\vspace{6pt}
+
+\textbf{5--9, Problem Statement:}
+Consider application of the conservation principles of Chapter 2 to control volume $A-B-C-D$ for the steady laminar boundary-layer problem sketched in Fig. 5P-9.
+
+\centering{PUT FIGURE IN}
+
+\begin{enumerate}
+    \item[(a)] Show that the mass flow rate across $B-C$ equals
+    
+    \begin{equation}
+        \int_{0}^{y} (\rho U - \rho u) \, dy = \int_{x_A}^{x_D} \rho v(y) \, dy
+    \end{equation}
+
+    \item[(b)] Show that the drag force exerted on the fluid by the plate 
+    
+    \begin{equation}
+        \int_{0}^{y}\frac{\rho UU}{g_c} \, dy - \left[ \int_{0}^{y}\frac{\rho uu}{g_c} \, dy + \int_{x_A}^{x_B} \frac{\rho v(y) U}{g_c} \, dx \right] - F_{\text{drag plate on fluid}} = 0
+    \end{equation}
+
+    \item[(c)] Use the results of parts a and b to show that, when $y \to \infty$ to avoid shear stresses that exist near the plate,
+    
+    \begin{equation}
+        F_{\text{drag}} = \frac{\rho}{g_c} \int_{0}^{\infty} u( U - u ) \, dy
+    \end{equation}
+
+    And
+
+    \begin{equation}
+        \delta_2 = x \frac{\bar{C}_f}{2} = 0.66412 \left( \frac{\nu x}{U} \right)^{\frac{1}{2}}
+    \end{equation}
+\end{enumerate}
+
+\vspace{6pt}
+
+\textbf{5--9, Solution:}
+
+\vspace{6pt}
+
+\textbf{5--13, Problem Statement:}
+
+Consider steady parallel flow of a constant-property fluid over a flat plate. When $\text{Pr} /to 0$, the thermal boundary layer is much thicker than the velocity boundary layer, so that throughout the thermal boundary layer $F \approx \eta$ since then $u / U = F' \approx 1$. Such is the case for liquid metals. 
+
+\begin{enumerate}
+    \item[(a)] Show that in such a case Eq. (5--26) gives
+    
+    \begin{equation}
+        \frac{d \theta (0)}{d \eta} = \left( \frac{\text{Pr}}{\pi} \right)^{\frac{1}{2}}
+    \end{equation}
+
+    \item[(b)] Show that the result of part a gives, with $\text{Nu} = h x / k$ and $\text{Re} = U x / \nu$,
+    
+    \begin{equation}
+        \lim_{\text{Pr} \to 0} \frac{\text{Nu}}{\text{Re}\text{Pr}^{\frac{1}{2}}} = \frac{1}{0.33206 \pi^{\frac{1}{2}}} \frac{C_f}{2} = 1.7 \frac{C_f}{2}
+    \end{equation}
+
+\end{enumerate}
+
+
+
+\vspace{6pt}
+
+\textbf{5--13, Solution:}
+
+\vspace{6pt}
+
+% \newpage
+
+% % CODE FOR PROBLEM TBD Part (TBD)
+% \textbf{TBD, Part (TBD): Program Listing}
+
+% \lstinputlisting[
+%     language=Python
+% ]{}
+
+\end{document}
