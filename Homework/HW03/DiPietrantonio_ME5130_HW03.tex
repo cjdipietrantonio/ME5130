@@ -46,7 +46,7 @@ Consider application of the conservation principles of Chapter 2 to control volu
     \item[(a)] Show that the mass flow rate across $B-C$ equals
     
     \begin{equation}
-        \int_{0}^{y} (\rho U - \rho u) \, dy = \int_{x_A}^{x_D} \rho v(y) \, dy
+        \int_{0}^{y} (\rho U - \rho u) \, dy = \int_{x_A}^{x_D} \rho v(y) \, dx
     \end{equation}
 
     \item[(b)] Show that the drag force exerted on the fluid by the plate 
@@ -70,9 +70,95 @@ Consider application of the conservation principles of Chapter 2 to control volu
 
 \vspace{6pt}
 
+%-----------------------------------------------------------------------------------------------
+
 \textbf{5--9, Solution:}
 
+For a fixed box, we can write the mass balance as:
+
+\begin{equation}
+    \frac{\partial}{\partial t}\int_{CV}\rho\,dV=-\oint_{CS}\rho\,(\mathbf V\cdot\mathbf n)\,dS
+\end{equation}
+
+Since the probem is steady state, we can write:
+
+\begin{equation}
+    0=\oint_{CS}\rho\,(\mathbf V\cdot\mathbf n)\,dS
+\end{equation}
+
+We should note that on verticle faces, $dA = dy$ and on horizontal faces, $dA = dx$. For face $A-B$, $u = U$ and $\mathbf{n} = -i$. Therefore:
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{V} \cdot \mathbf{n} &= -u 
+                                &= -U
+\end{aligned}
+\end{equation}
+
+For face $B-C$, $\mathbf{n} = j$, therefore:
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{V} \cdot \mathbf{n} &= v
+\end{aligned}
+\end{equation}
+
+For face $C-D$, $u = u(y)$ and $\mathbf{n} = i$. Therefore:
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{V} \cdot \mathbf{n} &= u
+\end{aligned}
+\end{equation}
+
+and for face $D-A$, the plate is impermeable, so fluid cannot pass through it and thus $v = 0$. Nevertheless, we can now write our mass balance as:
+
+\begin{equation}
+\begin{aligned}
+    0                           &= \int_0^y\rho\,(-U)\,dy+\int_{x_A}^{x_D}\rho\,v\,dx+\int_0^y\rho\,u\,dy+0 \\
+    \int_{x_A}^{x_D}\rho\,v\,dx &= \int_0^y\rho U\,dy-\int_0^y\rho u\,dy \\ 
+\end{aligned}
+\end{equation}
+
+and further as:
+
+\begin{equation}
+\boxed{
+    \int_{x_A}^{x_D}\rho\,v\,dx = \int_0^y(\rho U-\rho u)\,dy
+}
+\end{equation}
+
+We can now write the momentum balance as:
+
+\begin{equation}
+    \sum F_x=\frac{1}{g_c}\oint_{CS}\rho\,u\,(\mathbf V\cdot\mathbf n)\,dS
+\end{equation}
+
+
+For face $A-B$, the contribution is:
+
+\begin{equation}
+    \frac{1}{g_c}\int_0^y\rho\,U(-U)\,dy=-\int_0^y\frac{\rho UU}{g_c}\,dy
+\end{equation}
+
+For face $B-C$, the contribution is:
+
+\begin{equation}
+    \frac{1}{g_c}\int_{x_A}^{x_D}\rho\,U\,v\,dx=\int_{x_A}^{x_D}\frac{\rho\,v\,U}{g_c}\,dx
+\end{equation}
+
+For face $C-D$, the contribution is:
+
+\begin{equation}
+    \frac{1}{g_c}\int_0^y\rho\,u\,u\,dy=\int_0^y\frac{\rho uu}{g_c}\,dy
+\end{equation}
+
+and for face $D-A$, the contribution is $0$.
+
+
 \vspace{6pt}
+
+%-----------------------------------------------------------------------------------------------
 
 \textbf{5--13, Problem Statement:}
 
@@ -93,13 +179,15 @@ Consider steady parallel flow of a constant-property fluid over a flat plate. Wh
 
 \end{enumerate}
 
-
-
 \vspace{6pt}
+
+%-----------------------------------------------------------------------------------------------
 
 \textbf{5--13, Solution:}
 
 \vspace{6pt}
+
+%-----------------------------------------------------------------------------------------------
 
 % \newpage
 
