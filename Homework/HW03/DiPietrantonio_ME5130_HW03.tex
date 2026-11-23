@@ -74,6 +74,8 @@ Consider application of the conservation principles of Chapter 2 to control volu
 
 \textbf{5--9, Solution:}
 
+\textbf{WE SHOULD LIST ASSUMPTIONS!!! HERE AND WHEN THEY APPLY THROUGHOUT EACH SOLUTION STEP!!!}
+
 For a fixed box, we can write the mass balance as:
 
 \begin{equation}
@@ -229,6 +231,143 @@ So finally:
 \begin{equation}
 \boxed{
     \int_0^y\frac{\rho UU}{g_c}\,dy-\left[\int_0^y\frac{\rho uu}{g_c}\,dy+\int_{x_A}^{x_D}\frac{\rho\,v\,U}{g_c}\,dx\right]-F_{\text{drag}} = 0
+}
+\end{equation}
+
+We can now write:
+
+\begin{equation}
+\begin{aligned}
+    F_{\text{drag}} &= \int_0^y\frac{\rho UU}{g_c}\,dy-\left[\int_0^y\frac{\rho uu}{g_c}\,dy+\int_{x_A}^{x_D}\frac{\rho vU}{g_c}\,dx\right] \\
+                    &= \int_0^y\frac{\rho UU}{g_c}\,dy-\int_0^y\frac{\rho uu}{g_c}\,dy-\int_{x_A}^{x_D}\frac{\rho vU}{g_c}\,dx \\
+                    &= \frac{\rho}{g_c}\int_0^y UU\,dy-\frac{\rho}{g_c}\int_0^y uu\,dy-\frac{\rho U}{g_c}\int_{x_A}^{x_D}v\,dx
+\end{aligned}
+\end{equation}
+
+Now, from part a we have:
+
+\begin{equation}
+\begin{aligned}
+    \rho\int_0^y(U-u)\,dy &= \rho\int_{x_A}^{x_D}v\,dx \\
+    \int_0^y(U-u)\,dy     &= \int_{x_A}^{x_D}v\,dx
+\end{aligned}
+\end{equation}
+
+Therefore we can write:
+
+\begin{equation}
+\begin{aligned}
+    \frac{\rho U}{g_c}\int_{x_A}^{x_D}v\,dx &= \frac{\rho U}{g_c}\int_0^y(U-u)\,dy \\
+                                            &= \frac{\rho}{g_c}\int_0^y(UU-Uu)\,dy \\
+                                            &= \frac{\rho}{g_c}\int_0^y u(U-u)\,dy 
+\end{aligned}
+\end{equation}
+
+So we now have:
+
+\begin{equation}
+\begin{aligned}
+    F_{\text{drag}} &= \frac{\rho}{g_c}\int_0^y UU\,dy-\frac{\rho}{g_c}\int_0^y uu\,dy-\frac{\rho}{g_c}\int_0^y(UU-Uu)\,dy \\
+                    &= \frac{\rho}{g_c}\int_0^y\Big[UU-uu-(UU-Uu)\Big]\,dy
+\end{aligned}
+\end{equation}
+
+Therefore, as $y\to\infty$:
+
+\begin{equation}
+\boxed{
+    F_{\text{drag}}=\frac{\rho}{g_c}\int_0^\infty u(U-u)\,dy
+}
+\end{equation}
+
+We can observe that fluid above the boundary layer does not contribute to the drag force $(u = U)$. We can now write the definition of momentum thickness as:
+
+\begin{equation}
+    U^2\delta_2\equiv\int_0^\infty u(U-u)\,dy
+\end{equation}
+
+and therefore we can write:
+
+\begin{equation}
+    F_{\text{drag}}=\frac{\rho}{g_c}\,U^2\,\delta_2
+\end{equation}
+
+Now, we also know that:
+
+\begin{equation}
+    F_{\text{drag}}=\frac{1}{2}\,\frac{\rho}{g_c}\,U^2\,\bar C_f\,x
+\end{equation}
+
+So we can write:
+
+\begin{equation}
+\begin{aligned}
+    \frac{\rho}{g_c}\,U^2\,\delta_2 &= \frac{1}{2}\,\frac{\rho}{g_c}\,U^2\,\bar C_f\,x \\
+    \delta_2                        &= x\,\frac{\bar C_f}{2}
+\end{aligned}
+\end{equation}
+
+We also know that:
+
+\begin{equation}
+    \frac{C_f}{2}=\left.\frac{d^2F}{d\eta^2}\right|_{\eta=0}Re_x^{-1/2}
+\end{equation}
+
+and from the Blasius solution:
+
+\begin{equation}
+    \left.\frac{d^2F}{d\eta^2}\right|_{\eta=0}=0.33206
+\end{equation}
+
+Thus:
+
+\begin{equation}
+\begin{aligned}
+    \frac{C_f}{2} &= 0.33206\,Re_x^{-1/2} \\
+    C_f         &= 0.66412\,Re_x^{-1/2}
+\end{aligned}
+\end{equation}
+
+and since:
+
+\begin{equation}
+    \frac{\bar C_f}{2}=C_f
+\end{equation}
+
+We have:
+
+\begin{equation}
+    \frac{\bar C_f}{2}=0.66412\,Re_x^{-1/2}
+\end{equation}
+
+and further:
+
+\begin{equation}
+    \delta_2=x\,(0.66412)\,Re_x^{-1/2}
+\end{equation}
+
+Using $Re_x=Ux/\nu$, we can now write:
+
+\begin{equation}
+    \frac{1}{Re_x^{1/2}} = \frac{1}{(Ux/\nu)^{1/2}} = \left(\frac{\nu}{Ux}\right)^{1/2}
+\end{equation}
+
+So we have:
+
+\begin{equation}
+\begin{aligned}
+    \delta_2 &= 0.66412\,x\left(\frac{\nu}{Ux}\right)^{1/2} \\
+             &= 0.66412\,(x^2)^{1/2}\left(\frac{\nu}{Ux}\right)^{1/2} \\
+             &= 0.66412\left(\frac{x^2\,\nu}{Ux}\right)^{1/2} \\
+             &= 0.66412\left(\frac{x\,\nu}{U}\right)^{1/2}
+\end{aligned}
+\end{equation}
+
+and therefore:
+
+\begin{equation}
+\boxed{
+    \delta_2=x\,\frac{\bar C_f}{2}=0.66412\left(\frac{\nu x}{U}\right)^{1/2}
 }
 \end{equation}
 
