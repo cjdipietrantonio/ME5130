@@ -155,6 +155,83 @@ For face $C-D$, the contribution is:
 
 and for face $D-A$, the contribution is $0$.
 
+We can write the pressure force acting on face $A-B$ as:
+
+\begin{equation}
+    F_{AB}=+py
+\end{equation}
+
+The pressure force acting on face $C-D$ as:
+
+\begin{equation}
+    F_{CD}=-py
+\end{equation}
+
+and the pressure forces acting on faces $B-C$ and $A-D$ as:
+
+\begin{equation}
+    F_{BC, \, AD} = 0
+\end{equation}
+
+Because there is no component along the $x$-direcetion. Next, the shear stress on face $B-C$ can be written as:
+
+\begin{equation}
+    \tau_{yx}=\mu\frac{\partial u}{\partial y}
+\end{equation}
+
+However, above the boundary layer, $u = U$, therefore the horizontal velocity is constant, and:
+
+\begin{equation}
+    \frac{\partial u}{\partial y}=0
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \tau_{yx}=0
+\end{equation}
+
+and the shear force is zero. Next, because gravity does not have a horizontal component:
+
+\begin{equation}
+    F_{x, \, \text{gravity}} = 0
+\end{equation}
+
+Finally, we are left with the drag force exerted on the fluid:
+
+\begin{equation}
+    F_x = -F_{\text{drag}}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+\begin{aligned}
+    \sum F_x &= +py-py+0+0+0-F_{\text{drag}} \\
+             &= -F_{\text{drag}}
+\end{aligned}
+\end{equation}
+
+and further:
+
+\begin{equation}
+\begin{aligned}
+    -F_{\text{drag}} &= \frac{1}{g_c}\left[\int_0^y\rho uu\,dy+\int_{x_A}^{x_D}\rho vU\,dx-\int_0^y\rho UU\,dy\right] \\
+                     &=\int_0^y\frac{\rho uu}{g_c}\,dy+\int_{x_A}^{x_D}\frac{\rho vU}{g_c}\, dx-\int_0^y\frac{\rho UU}{g_c}\,dy\\
+    0                &=\int_0^y\frac{\rho uu}{g_c}\,dy+\int_{x_A}^{x_D}\frac{\rho vU}{g_c}\,dx-\int_0^y\frac{\rho UU}{g_c}\,dy+F_{\text{drag}} \\
+                     &= -\int_0^y\frac{\rho uu}{g_c}\,dy-\int_{x_A}^{x_D}\frac{\rho vU}{g_c}\,dx+\int_0^y\frac{\rho UU}{g_c}\,dy-F_{\text{drag}} \\
+                     &= \int_0^y\frac{\rho UU}{g_c}\,dy-\int_0^y\frac{\rho uu}{g_c}\,dy-\int_{x_A}^{x_D}\frac{\rho vU}{g_c}\,dx-F_{\text{drag}}
+\end{aligned}
+\end{equation}
+
+So finally:
+
+\begin{equation}
+\boxed{
+    \int_0^y\frac{\rho UU}{g_c}\,dy-\left[\int_0^y\frac{\rho uu}{g_c}\,dy+\int_{x_A}^{x_D}\frac{\rho\,v\,U}{g_c}\,dx\right]-F_{\text{drag}} = 0
+}
+\end{equation}
+
 \vspace{6pt}
 
 %-----------------------------------------------------------------------------------------------
