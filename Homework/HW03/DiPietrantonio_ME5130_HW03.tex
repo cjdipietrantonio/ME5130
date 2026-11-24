@@ -377,7 +377,7 @@ and therefore:
 
 \textbf{5--13, Problem Statement:}
 
-Consider steady parallel flow of a constant-property fluid over a flat plate. When $\text{Pr} /to 0$, the thermal boundary layer is much thicker than the velocity boundary layer, so that throughout the thermal boundary layer $F \approx \eta$ since then $u / U = F' \approx 1$. Such is the case for liquid metals. 
+Consider steady parallel flow of a constant-property fluid over a flat plate. When $\text{Pr} \to 0$, the thermal boundary layer is much thicker than the velocity boundary layer, so that throughout the thermal boundary layer $F \approx \eta$ since then $u / U = F' \approx 1$. Such is the case for liquid metals. 
 
 \begin{enumerate}
     \item[(a)] Show that in such a case Eq. (5--26) gives
@@ -399,6 +399,184 @@ Consider steady parallel flow of a constant-property fluid over a flat plate. Wh
 %-----------------------------------------------------------------------------------------------
 
 \textbf{5--13, Solution:}
+
+We can begin with the thermal boundary layer energy equation for steady, two-dimensional, laminar flow over a flat plate with constant fluid properties and negigible viscous dissipation:
+
+\begin{equation}
+    \frac{d^2\theta}{d\eta^2}+\frac{\text{Pr}}{2}\,F\,\frac{d\theta}{d\eta}=0
+\end{equation}
+
+With boundary conditions:
+
+\begin{equation}
+\begin{aligned}
+    \theta(0)      &= 0 \\
+    \theta(\infty) &= 1
+\end{aligned}
+\end{equation}
+
+Now, as noted above, when $\text{Pr} \to 0$, the thermal boundary layer is much thicker than the velocity boundary layer, so $u = U$, and:
+
+\begin{equation}
+\begin{aligned}
+        \frac{dF}{d\eta}=\frac{u}{U} &= 1 \\
+        F                            &= \eta + C
+\end{aligned}
+\end{equation}
+
+Where $\eta=y\sqrt{\frac{U}{\nu x}}$, and since $F(0)=0$, $C = 0$ and:
+
+\begin{equation}
+    F=\eta
+\end{equation}
+
+So we have:
+
+\begin{equation}
+    \frac{d^2\theta}{d\eta^2}+\frac{\text{Pr}}{2}\,\eta\,\frac{d\theta}{d\eta}=0
+\end{equation}
+
+We can now let:
+
+\begin{equation}
+    w=\frac{d\theta}{d\eta}
+\end{equation}
+
+Such that:
+
+\begin{equation}
+    \frac{d^2\theta}{d\eta^2}=\frac{dw}{d\eta}
+\end{equation}
+
+and:
+
+\begin{equation}
+    \frac{dw}{d\eta}+\frac{\text{Pr}}{2}\,\eta\,w = 0
+\end{equation}
+
+We can then write:
+
+\begin{equation}
+\begin{aligned}
+    \frac{dw}{d\eta}      &= -\frac{\text{Pr}}{2}\,\eta\,w \\
+    \frac{1}{w}\,dw       &= -\frac{\text{Pr}}{2}\,\eta\,d\eta \\
+    \int\frac{1}{w}\,dw   &= \int-\frac{\text{Pr}}{2}\,\eta\,d\eta \\
+    \ln w =               &=-\frac{\text{Pr}}{4}\,\eta^2 + C
+\end{aligned}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    w=e^{c}\,e^{-\frac{\text{Pr}}{4}\eta^2}
+\end{equation}
+
+and
+
+\begin{equation}
+    \frac{d\theta}{d\eta}=C_1\,e^{-\frac{\text{Pr}}{4}\eta^2}
+\end{equation}
+
+at the wall, $\eta=0$, therefore:
+
+\begin{equation}
+    \frac{d\theta(0)}{d\eta}=C_1\,e^{0}=C_1
+\end{equation}
+
+We can now write:
+
+\begin{equation}
+    \int_0^\infty\frac{d\theta}{d\eta}\,d\eta=\theta(\infty)-\theta(0)
+\end{equation}
+
+and since we know that $\theta(\infty)=1$ and $\theta(0)=0$:
+
+\begin{equation}
+    \int_0^\infty\frac{d\theta}{d\eta}\,d\eta=1-0=1
+\end{equation}
+
+Therefore, we can write:
+
+\begin{equation}
+    1=C_1\int_0^\infty e^{-\frac{\text{Pr}}{4}\eta^2}\,d\eta
+\end{equation}
+
+Now, let:
+
+\begin{equation}
+    r=\frac{\sqrt{\text{Pr}}}{2}\,\eta
+\end{equation}
+
+such that:
+
+\begin{equation}
+    r^2=\frac{\text{Pr}}{4}\,\eta^2
+\end{equation}
+
+and:
+
+\begin{equation}
+    e^{-\frac{\text{Pr}}{4}\eta^2}=e^{-r^2}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    dr=\frac{\sqrt{\text{Pr}}}{2}\,d\eta
+\end{equation}
+
+and further:
+
+\begin{equation}
+    d\eta=\frac{2}{\sqrt{\text{Pr}}}\,dr
+\end{equation}
+
+So we can write:
+
+\begin{equation}
+    \int_0^\infty e^{-\frac{\text{Pr}}{4}\eta^2}\,d\eta=\frac{2}{\sqrt{\text{Pr}}}\int_0^\infty e^{-r^2}\,dr
+\end{equation}
+
+We know the definition of the error function to be:
+
+\begin{equation}
+    \text{erf}(u)=\frac{2}{\sqrt{\pi}}\int_0^u e^{-r^2}\,dr
+\end{equation}
+
+we also know that $\text{erf}(\infty)=1$. Therefore:
+
+\begin{equation}
+\begin{aligned}
+        1                          &= \frac{2}{\sqrt{\pi}}\int_0^\infty e^{-r^2}\,dr \\
+        \frac{\sqrt{\pi}}{2}       &= \int_0^\infty e^{-r^2}\,dr 
+\end{aligned}
+\end{equation}
+
+So now, we have:
+
+\begin{equation}
+\begin{aligned}
+    \int_0^\infty e^{-\frac{\text{Pr}}{4}\eta^2}\,d\eta &= \frac{2}{\sqrt{\text{Pr}}}\cdot\frac{\sqrt{\pi}}{2} \\
+                                                        &= \frac{\sqrt{\pi}}{\sqrt{\text{Pr}}}
+\end{aligned}
+\end{equation}
+
+and further:
+
+\begin{equation}
+\begin{aligned}
+    1   &= C_1\,\frac{\sqrt{\pi}}{\sqrt{\text{Pr}}} \\
+    C_1 &= \frac{\sqrt{\text{Pr}}}{\sqrt{\pi}}
+\end{aligned}
+\end{equation}
+
+So finally, we have:
+
+\begin{equation}
+\boxed{
+    \frac{d\theta(0)}{d\eta}=\left(\frac{\text{Pr}}{\pi}\right)^{1/2}
+}
+\end{equation}
 
 \vspace{6pt}
 
