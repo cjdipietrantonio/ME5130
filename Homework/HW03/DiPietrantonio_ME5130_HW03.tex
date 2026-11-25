@@ -74,9 +74,24 @@ Consider application of the conservation principles of Chapter 2 to control volu
 
 \textbf{5--9, Solution:}
 
-\textbf{WE SHOULD LIST ASSUMPTIONS!!! HERE AND WHEN THEY APPLY THROUGHOUT EACH SOLUTION STEP!!!}
+We can begin by listing the following assumptions:
 
-For a fixed box, we can write the mass balance as:
+\textbf{Assumptions:}
+\begin{enumerate}
+    \item Steady flow.
+    \item Two-dimensional flow.
+    \item The working fluid has constant properties and is newtonian.
+    \item Laminar flow.
+    \item Uniform free stream velocity
+    \item The plate is flat with is no pressure gradient.
+    \item No slip and no flow through the plate: $u = v = 0$ at $y = 0$.
+    \item The boundary layer starts at the leading edge $A$: $u = U$ across $A$--$B$, and $x$ is measured from $A$ ($x_A = 0$, $x_D = x$).
+    \item The top face $B$--$C$ lies outside the boundary layer: $u = U$ and $\partial u/\partial y = 0$ there, so no shear acts on $B$--$C$ (exact as $y \to \infty$).
+    \item Viscous normal stresses on $A$--$B$ and $C$--$D$ are negligible (boundary-layer approximation).
+    \item Gravity has no $x$-component.
+\end{enumerate}
+
+Now, for a fixed box, we can write the mass balance as:
 
 \begin{equation}
     \frac{\partial}{\partial t}\int_{CV}\rho\,dV=-\oint_{CS}\rho\,(\mathbf V\cdot\mathbf n)\,dS
