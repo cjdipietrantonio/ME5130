@@ -578,17 +578,146 @@ So finally, we have:
 }
 \end{equation}
 
+We can now use Fourier's law to express the heat flux at the wall:
+
+\begin{equation}
+    q_w=-k\,\frac{\partial T}{\partial y}\bigg|_{y=0}
+\end{equation}
+
+We also know that:
+
+\begin{equation}
+\begin{aligned}
+    \theta &= \frac{T-T_w}{T_\infty-T_w} \\
+    T-T_w  &= \theta\,(T_\infty-T_w) \\
+    T      &= T_w+\theta\,(T_\infty-T_w)
+\end{aligned}
+\end{equation}
+
+We can now evaluate:
+
+\begin{equation}
+    \frac{\partial T}{\partial y}=(T_\infty-T_w)\,\frac{\partial\theta}{\partial y}
+\end{equation}
+
+Where:
+
+\begin{equation}
+    \frac{\partial\theta}{\partial y}=\frac{d\theta}{d\eta}\,\frac{\partial\eta}{\partial y}
+\end{equation}
+
+and using $\eta=y\sqrt{U/(\nu x)}$:
+
+\begin{equation}
+    \frac{\partial\eta}{\partial y}=\sqrt{\frac{U}{\nu x}}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    \frac{\partial T}{\partial y}=(T_\infty-T_w)\sqrt{\frac{U}{\nu x}}\;\frac{d\theta}{d\eta}
+\end{equation}
+
+We can now evaluate the heat flux at the wall as:
+
+\begin{equation}
+\begin{aligned}
+    q_w &= -k\,(T_\infty-T_w)\sqrt{\frac{U}{\nu x}}\;\frac{d\theta(0)}{d\eta} \\
+        &= k\,(T_w-T_\infty)\sqrt{\frac{U}{\nu x}}\;\frac{d\theta(0)}{d\eta}
+\end{aligned}
+\end{equation}
+
+Now, we also know that at the wall:
+
+\begin{equation}
+    q_w=h\,(T_w-T_\infty)
+\end{equation}
+
+Therefore we have:
+
+\begin{equation}
+\begin{aligned}
+    h\,(T_w-T_\infty) &= k\,(T_w-T_\infty)\sqrt{\frac{U}{\nu x}}\;\frac{d\theta(0)}{d\eta} \\
+                      &= k\sqrt{\frac{U}{\nu x}}\;\frac{d\theta(0)}{d\eta}
+\end{aligned}
+\end{equation}
+
+Now, given $\text{Nu}=hx/k$ and $Re_x=Ux/\nu$:
+
+\begin{equation}
+\begin{aligned}
+    \text{Nu} &= \frac{x}{k}\cdot k\sqrt{\frac{U}{\nu x}}\;\frac{d\theta(0)}{d\eta} \\
+              &= x\sqrt{\frac{U}{\nu x}}\;\frac{d\theta(0)}{d\eta}
+\end{aligned}
+\end{equation}
+
+We can also observe that:
+
+\begin{equation}
+\begin{aligned}
+    x\sqrt{\frac{U}{\nu x}}=\sqrt{\frac{x^2U}{\nu x}}=\sqrt{\frac{Ux}{\nu}}=\text{Re}^{1/2}
+\end{aligned}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \text{Nu}=\text{Re}^{1/2}\,\frac{d\theta(0)}{d\eta}
+\end{equation}
+
+Now, previously we showed that:
+
+\begin{equation}
+    \frac{d\theta(0)}{d\eta}=\left(\frac{\text{Pr}}{\pi}\right)^{1/2}
+\end{equation}
+
+So we can write:
+
+\begin{equation}
+\begin{aligned}
+    \text{Nu} &= \text{Re}^{1/2}\left(\frac{\text{Pr}}{\pi}\right)^{1/2}\\
+              &= \frac{\text{Re}^{1/2}\,\text{Pr}^{1/2}}{\pi^{1/2}}
+\end{aligned}
+\end{equation}
+
+Dividing both sides by $\text{Re}\,\text{Pr}^{1/2}$:
+
+\begin{equation}
+\begin{aligned}
+    \frac{\text{Nu}}{\text{Re}\,\text{Pr}^{1/2}} &= \frac{\text{Re}^{1/2}\,\text{Pr}^{1/2}}{\pi^{1/2}\,\text{Re}\,\text{Pr}^{1/2}} \\
+    \frac{\text{Nu}}{\text{Re}\,\text{Pr}^{1/2}} &= \frac{\text{Re}^{1/2}}{\pi^{1/2}\,\text{Re}} \\
+    \frac{\text{Nu}}{\text{Re}\,\text{Pr}^{1/2}} &= \frac{\text{Re}^{-1/2}}{\pi^{1/2}}
+\end{aligned}
+\end{equation}
+
+Again, from the Blasius solution, we know:
+
+\begin{equation}
+\begin{aligned}
+    \frac{C_f}{2}                    &= 0.33206\,\text{Re}^{-1/2} \\ 
+    \frac{1}{0.33206}\,\frac{C_f}{2} &= \text{Re}^{-1/2}
+\end{aligned}
+\end{equation}
+
+So we have:
+
+\begin{equation}
+\begin{aligned}
+    \frac{\text{Nu}}{\text{Re}\,\text{Pr}^{1/2}} &= \frac{1}{0.33206\,\pi^{1/2}}\,\frac{C_f}{2} \\
+                                                 &\approx 1.7 \frac{C_f}{2}
+\end{aligned}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+\boxed{
+    \lim_{\text{Pr}\to0}\frac{\text{Nu}}{\text{Re}\,\text{Pr}^{1/2}}=\frac{1}{0.33206\,\pi^{1/2}}\,\frac{C_f}{2}=1.7\,\frac{C_f}{2}
+}
+\end{equation}
+
 \vspace{6pt}
 
 %-----------------------------------------------------------------------------------------------
-
-% \newpage
-
-% % CODE FOR PROBLEM TBD Part (TBD)
-% \textbf{TBD, Part (TBD): Program Listing}
-
-% \lstinputlisting[
-%     language=Python
-% ]{}
 
 \end{document}
